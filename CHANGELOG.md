@@ -15,8 +15,9 @@ version below; `versionCode` increments by one for every release.
 
 ## [0.1.0] - 2026-10-24
 
-First scaffold of the Android app. Everything builds from a clean checkout, but
-the guide content is placeholder sample data.
+First scaffold of the Android app. Verified to build from a clean checkout
+(`./gradlew clean :app:assembleDebug :app:testDebugUnitTest :app:lintDebug`
+passes with no lint errors), but the guide content is placeholder sample data.
 
 ### Added
 - **Project structure** — single-module Gradle build (`:app`) with a Kotlin DSL
@@ -60,6 +61,14 @@ the guide content is placeholder sample data.
   ProGuard keep rules for the serializable navigation routes.
 - **Placeholder guide content** in `SeedData.kt`: 3 chapters, 6 quests,
   18 steps, 4 bosses, 10 items and 4 character builds.
+- **Backup rules for Android 11 and below** (`backup_rules.xml`), alongside the
+  Android 12+ data-extraction rules, so progress is backed up on every
+  supported release.
+- **Exported Room schema** at
+  `app/schemas/com.madmaxlgndklr.resonanceguide.data.local.GuideDatabase/1.json`,
+  committed as the baseline for future migrations.
+- **Lint configuration** (`app/lint.xml`) demoting version-update notices to
+  informational, since dependency versions are pinned in the version catalog.
 
 ### Known limitations
 - All guide content is invented sample data and must be replaced with verified
