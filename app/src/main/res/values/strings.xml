@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Resonance Guide</string>
+
+    <string name="tab_walkthrough">Walkthrough</string>
+    <string name="tab_bestiary">Bestiary</string>
+    <string name="tab_builds">Builds</string>
+    <string name="tab_items">Items</string>
+
+    <string name="quests_progress">%1$d of %2$d quests complete</string>
+    <string name="bosses_progress">%1$d of %2$d defeated</string>
+    <string name="items_progress">%1$d of %2$d collected</string>
+    <string name="steps_progress">%1$d / %2$d steps</string>
+
+    <string name="main_story">Main story</string>
+    <string name="side_quest">Side quest</string>
+    <string name="view_map">View map</string>
+    <string name="mark_all_done">Mark all done</string>
+    <string name="mark_all_undone">Clear all steps</string>
+    <string name="back">Back</string>
+    <string name="search_bestiary">Search by name, location or weakness</string>
+    <string name="defeated">Defeated</string>
+    <string name="weaknesses">Weak to</string>
+    <string name="resistances">Resists</string>
+    <string name="drops">Drops</string>
+    <string name="strategy">Strategy</string>
+    <string name="skills">Skills</string>
+    <string name="gear">Recommended gear</string>
+    <string name="all_categories">All</string>
+    <string name="hide_collected">Hide collected</string>
+    <string name="show_collected">Show collected</string>
+    <string name="empty_list">Nothing here yet.</string>
+</resources>
