@@ -60,6 +60,18 @@ the app and to anyone reading the JSON:
   250/108/96 per atma.gg). The dataset carries the figures it could verify and
   records both.
 
+### Fixed
+- **`MIGRATION_1_2` left the database with no tables.** It dropped the version
+  1 tables but never created the version 2 ones, and Room creates tables only
+  when a database is first created, never on an upgrade path. Any user
+  upgrading from a version 1 install would have ended up with an empty
+  database and a failed schema validation. The migration now recreates the
+  version 2 schema from `GuideSchemaV2`, which holds the `createSql` of every
+  entity and index in the exported `2.json` verbatim. Caught by the new CI
+  emulator job on its first run — the migration had been merged unverified.
+- `GuideSchemaV2Test` (JVM) compares that DDL against the exported schema, so
+  drift is a build failure rather than a crash on a user's upgrade.
+
 ### Changed
 - **Room schema version 2: string primary keys.** Every content table is now
   keyed by the dataset's own stable snake_case id, and `progress.entityId` with
