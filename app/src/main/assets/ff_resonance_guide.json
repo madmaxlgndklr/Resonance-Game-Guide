@@ -66,7 +66,7 @@
     "enemiesWithStealTable": 164
    },
    "gaps": [
-    "dialogueChoices: empty. No permitted source publishes the stat-bonus conversation options."
+    "dialogueChoices: empty, and deferred by decision rather than pending. No source we are permitted to crawl publishes the stat-bonus conversation options. The table, its schema and its Kotlin model are kept so the data can be added later without a schema change."
    ]
   },
   "sources": [

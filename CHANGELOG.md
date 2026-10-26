@@ -11,6 +11,17 @@ version below; `versionCode` increments by one for every release.
 ## [Unreleased]
 
 ### Added
+- A debug build for sideloading at
+  `dist/resonance-guide-v0.1.0-debug.apk`, with its checksum and install
+  instructions in `dist/README.md`.
+
+### Changed
+- `dialogueChoices` is now recorded as **deferred by decision** rather than
+  pending. The table, its pydantic schema and its Kotlin model all stay in
+  place so the stat-bonus conversation options can be added later without a
+  schema change; only the data is absent, and `meta.coverage.gaps` says so.
+
+### Added (in 0.1.0, listed below)
 - **CI workflow** (`.github/workflows/ci.yml`) on every push to `main` and
   every pull request, in three jobs:
   - **Build** — `assembleDebug`, `testDebugUnitTest` and `lintDebug`, with the
