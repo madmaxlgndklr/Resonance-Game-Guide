@@ -589,9 +589,14 @@ def build(seed_path: Path, offline: bool = False, details: bool = False) -> dict
             "equipment.acquisitionMethod and bestiary stats/drops/steals are "
             "null: detail pages not fetched. Re-run with --details."
         )
+    # Deliberately deferred rather than dropped: the table and its schema stay
+    # in place so the stat-bonus conversation options can be filled in later
+    # without a schema change.
     gaps.append(
-        "dialogueChoices: empty. No permitted source publishes the "
-        "stat-bonus conversation options."
+        "dialogueChoices: empty, and deferred by decision rather than pending. "
+        "No source we are permitted to crawl publishes the stat-bonus "
+        "conversation options. The table, its schema and its Kotlin model are "
+        "kept so the data can be added later without a schema change."
     )
 
     actual = {

@@ -11,6 +11,9 @@ build/
 *.apk
 *.aab
 
+# ...except the test build published for sideloading (see dist/README.md).
+!dist/*.apk
+
 # Pipeline HTTP cache
 scripts/guide_pipeline/.cache/
 __pycache__/

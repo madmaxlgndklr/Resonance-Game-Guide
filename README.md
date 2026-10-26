@@ -76,6 +76,18 @@ python3 scripts/guide_pipeline/gen_kotlin.py && git diff --exit-code
 | Android SDK | Platform 35, Build-Tools 35.0.0 |
 | Device | Android 8.0 (API 26) or newer |
 
+## Try it
+
+A debug build for sideloading is in [`dist/`](dist/), with its checksum and
+install instructions in [`dist/README.md`](dist/README.md):
+
+```bash
+adb install -r dist/resonance-guide-v0.1.0-debug.apk
+```
+
+It bundles the guide data, so the app is fully populated offline. No artwork is
+included, so maps and sprites show placeholders.
+
 ## Building
 
 ```bash
@@ -302,4 +314,6 @@ git push origin v0.1.0
 - [x] Run the instrumented migration and seeding tests (CI emulator job)
 - [ ] Reset-progress action (already supported by the repository layer)
 - [ ] Original or licensed artwork (nothing is bundled today)
+- [ ] `dialogueChoices` — deferred, not dropped: the table, its schema and its
+      Kotlin model are in place, awaiting a source we may use
 - [ ] Baseline profile for faster startup and smoother first-run scrolling
