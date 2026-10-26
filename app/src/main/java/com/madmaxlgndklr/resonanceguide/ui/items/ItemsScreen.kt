@@ -34,9 +34,11 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.madmaxlgndklr.resonanceguide.R
+import com.madmaxlgndklr.resonanceguide.data.local.EquipmentWithProgress
 import com.madmaxlgndklr.resonanceguide.data.local.ItemWithProgress
 import com.madmaxlgndklr.resonanceguide.ui.AppViewModelProvider
 import com.madmaxlgndklr.resonanceguide.ui.components.EmptyState
+import com.madmaxlgndklr.resonanceguide.ui.components.SectionHeader
 import com.madmaxlgndklr.resonanceguide.ui.components.plus
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -55,7 +57,11 @@ fun ItemsScreen(
                     Column {
                         Text(stringResource(R.string.tab_items))
                         Text(
-                            stringResource(R.string.items_progress, state.collectedCount, state.totalCount),
+                            stringResource(
+                                R.string.collected_progress,
+                                state.collectedCount,
+                                state.totalCount,
+                            ),
                             style = MaterialTheme.typography.labelMedium,
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                         )
@@ -64,9 +70,17 @@ fun ItemsScreen(
                 actions = {
                     IconButton(onClick = viewModel::toggleHideCollected) {
                         Icon(
-                            if (state.hideCollected) Icons.Filled.VisibilityOff else Icons.Filled.Visibility,
+                            if (state.hideCollected) {
+                                Icons.Filled.VisibilityOff
+                            } else {
+                                Icons.Filled.Visibility
+                            },
                             contentDescription = stringResource(
-                                if (state.hideCollected) R.string.show_collected else R.string.hide_collected,
+                                if (state.hideCollected) {
+                                    R.string.show_collected
+                                } else {
+                                    R.string.hide_collected
+                                },
                             ),
                         )
                     }
@@ -86,11 +100,27 @@ fun ItemsScreen(
                     onSelect = viewModel::selectCategory,
                 )
             }
-            if (state.items.isEmpty()) {
-                item(key = "empty") { EmptyState(Modifier.padding(top = 48.dp)) }
+
+            if (state.items.isNotEmpty()) {
+                item(key = "items_header") {
+                    SectionHeader(stringResource(R.string.items_header))
+                }
+                items(state.items, key = { it.item.id }, contentType = { "item" }) { entry ->
+                    ItemRow(entry) { viewModel.setItemCollected(entry.item.id, it) }
+                }
             }
-            items(state.items, key = { it.item.id }, contentType = { "item" }) { entry ->
-                ItemRow(entry, onToggle = { viewModel.setCollected(entry.item.id, it) })
+
+            if (state.equipment.isNotEmpty()) {
+                item(key = "equipment_header") {
+                    SectionHeader(stringResource(R.string.equipment_header))
+                }
+                items(state.equipment, key = { it.equipment.id }, contentType = { "equipment" }) { entry ->
+                    EquipmentRow(entry) { viewModel.setEquipmentCollected(entry.equipment.id, it) }
+                }
+            }
+
+            if (state.items.isEmpty() && state.equipment.isEmpty()) {
+                item(key = "empty") { EmptyState(Modifier.padding(top = 48.dp)) }
             }
         }
     }
@@ -117,7 +147,7 @@ private fun CategoryFilters(
             FilterChip(
                 selected = selected == category,
                 onClick = { onSelect(category) },
-                label = { Text(category) },
+                label = { Text(category.replaceFirstChar { it.uppercase() }) },
             )
         }
     }
@@ -130,14 +160,58 @@ private fun ItemRow(entry: ItemWithProgress, onToggle: (Boolean) -> Unit) {
         modifier = Modifier
             .fillMaxWidth()
             .toggleable(value = entry.collected, role = Role.Checkbox, onValueChange = onToggle),
-        colors = ListItemDefaults.colors(containerColor = MaterialTheme.colorScheme.surfaceContainerLow),
+        colors = ListItemDefaults.colors(
+            containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
+        ),
         leadingContent = { Checkbox(checked = entry.collected, onCheckedChange = null) },
-        overlineContent = { Text(item.category) },
+        overlineContent = item.category?.let { category -> { Text(category) } },
         headlineContent = { Text(item.name) },
         supportingContent = {
             Column {
-                Text(item.description)
-                Text(item.location, color = MaterialTheme.colorScheme.secondary)
+                item.description?.let { Text(it) }
+                item.acquisitionMethod?.let {
+                    Text(it, color = MaterialTheme.colorScheme.secondary)
+                }
+            }
+        },
+    )
+}
+
+@Composable
+private fun EquipmentRow(entry: EquipmentWithProgress, onToggle: (Boolean) -> Unit) {
+    val equipment = entry.equipment
+    val stats = listOfNotNull(
+        equipment.physAtk?.let { "ATK $it" },
+        equipment.magAtk?.let { "MATK $it" },
+        equipment.defense?.let { "DEF $it" },
+        equipment.magDef?.let { "MDEF $it" },
+        equipment.sanctity?.let { "SNC $it" },
+        equipment.speed?.let { "SPD $it" },
+    ).joinToString(" · ")
+
+    ListItem(
+        modifier = Modifier
+            .fillMaxWidth()
+            .toggleable(value = entry.collected, role = Role.Checkbox, onValueChange = onToggle),
+        colors = ListItemDefaults.colors(
+            containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
+        ),
+        leadingContent = { Checkbox(checked = entry.collected, onCheckedChange = null) },
+        overlineContent = { Text(equipment.equipType ?: equipment.slot) },
+        headlineContent = { Text(equipment.name) },
+        supportingContent = {
+            Column {
+                if (stats.isNotEmpty()) {
+                    Text(stats, color = MaterialTheme.colorScheme.secondary)
+                }
+                equipment.effect?.let { Text(it) }
+                equipment.acquisitionMethod?.let {
+                    Text(
+                        stringResource(R.string.acquisition) + ": " + it,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
             }
         },
     )

@@ -66,3 +66,13 @@ fun EmptyState(modifier: Modifier = Modifier) {
         )
     }
 }
+
+@Composable
+fun SectionHeader(text: String, modifier: Modifier = Modifier) {
+    Text(
+        text = text,
+        style = MaterialTheme.typography.titleMedium,
+        color = MaterialTheme.colorScheme.secondary,
+        modifier = modifier.padding(top = 20.dp, bottom = 4.dp),
+    )
+}

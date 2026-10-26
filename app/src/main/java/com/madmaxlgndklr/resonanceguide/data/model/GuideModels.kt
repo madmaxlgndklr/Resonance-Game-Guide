@@ -10,6 +10,7 @@ package com.madmaxlgndklr.resonanceguide.data.model
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonElement
 
 @Serializable
 data class Coverage(
@@ -91,8 +92,8 @@ data class Hero(
     val recommendedVisions: List<String> = emptyList(),
     val sameDamageTypeVisions: List<String> = emptyList(),
     val characterSubQuest: String? = null,
-    val aileenForgeWeapon: Map<String, String>? = null,
-    val legendaryArm: Map<String, String>? = null,
+    val aileenForgeWeapon: Map<String, JsonElement>? = null,
+    val legendaryArm: Map<String, JsonElement>? = null,
 )
 
 @Serializable

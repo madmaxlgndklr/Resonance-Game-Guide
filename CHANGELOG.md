@@ -37,10 +37,7 @@ version below; `versionCode` increments by one for every release.
 ### Known gaps in the dataset
 Recorded in the file itself under `meta.coverage.gaps`, so they are visible to
 the app and to anyone reading the JSON:
-- **The 99 Tablet Shard locations are absent.** Every source that publishes
-  them prohibits automated retrieval — IGN's terms bar scraping and dataset
-  creation outright — so the table ships empty rather than invented. It needs
-  either licensing or manual entry.
+- `dialogueChoices` is the only empty table left.
 - `dialogueChoices` is empty: no permitted source publishes the stat-bonus
   conversation options.
 - The editorial "best items to steal" list is not reproduced; the dataset
@@ -49,15 +46,53 @@ the app and to anyone reading the JSON:
   250/108/96 per atma.gg). The dataset carries the figures it could verify and
   records both.
 
+### Changed
+- **Room schema version 2: string primary keys.** Every content table is now
+  keyed by the dataset's own stable snake_case id, and `progress.entityId` with
+  it, so a check-off survives a content update. Version 1's integer keys could
+  not be mapped onto them -- `5` identified nothing but a position in a
+  hand-written list that no longer exists -- so `MIGRATION_1_2` drops the old
+  tables, `progress` included, and the seeder repopulates from the asset.
+  Version 1 was never released, so the only state lost is from pre-release test
+  installs. There is still no `fallbackToDestructiveMigration`: future
+  migrations must preserve `progress`, which is the whole point of the move.
+- **Content tables now mirror the dataset**: `chapters`, `objectives`,
+  `side_quests`, `enemies`, `optional_bosses` (Cave Masters and Espers),
+  `visions`, `vision_skills`, `equipment`, `items`, `tablet_shards` and
+  `oblivion_tiers`, replacing the old chapter/quest/step/boss/build shape.
+- **`GuideSeeder`** loads `assets/ff_resonance_guide.json` into Room once per
+  `datasetVersion`, and `SeedData.kt` is deleted.
+- **Screens rebuilt on the new tables.** Walkthrough lists chapters with
+  objective and shard progress; a chapter opens to its objective checklist, its
+  side quests and its Tablet Shards with their gating warnings. Bestiary covers
+  all 596 enemies plus Cave Masters and Espers, searchable by name, weakness,
+  drop or steal. The Visions tab shows each Vision's skills with Mastery Rank,
+  AP cost and Awakening tier. Items shows consumables and all 454 equipment
+  rows with stats and acquisition routes.
+
+### Tests
+- `GuideDatasetTest` (JVM, runs in `./gradlew test`) parses the shipped asset
+  with the generated models and checks collection counts, id format and
+  uniqueness, shard numbering, mastery-rank values, and that every coverage
+  shortfall is recorded. It caught a real defect before release: the generator
+  mapped the mixed-type forge-weapon objects to `Map<String, String>`, which
+  failed to decode and would have crashed the app on first launch. `Any` now
+  maps to `JsonElement`.
+- `MigrationTest` and `GuideSeederTest` (instrumented) cover the 1 -> 2
+  migration against the exported schema, and seeding plus the guarantee that a
+  content refresh leaves progress intact. These need a device:
+  `./gradlew :app:connectedDebugAndroidTest`.
+
 ### Not done, deliberately
 - **No artwork is bundled.** `assetsManifest` records official art by URL with
   its licence status and `bundled: false`. Press and promotional material is
   licensed for editorial coverage, not for redistribution inside an
   application, and the Wikipedia cover art is non-free media. See
   `scripts/guide_pipeline/README.md`.
-- The Room schema still uses integer primary keys, so the app does not yet
-  read the new dataset into its database. Wiring it up means moving the
-  content tables to the dataset's string ids (schema version 2).
+- The instrumented tests have not been run: this environment has no emulator,
+  so the migration and seeding are verified only by compilation, Room's
+  compile-time query and schema validation, and the JVM dataset test. Run
+  `./gradlew :app:connectedDebugAndroidTest` on a device before trusting them.
 
 ## [0.1.0] - 2026-10-24
 

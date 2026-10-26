@@ -35,6 +35,11 @@ android {
     }
 
     sourceSets {
+        // MigrationTestHelper reads the exported schemas from the test APK's
+        // assets, so the instrumented tests need them packaged.
+        getByName("androidTest") {
+            assets.srcDir("$projectDir/schemas")
+        }
         getByName("main") {
             if (file(guideAssetsDir).isDirectory) {
                 assets.srcDir(guideAssetsDir)
@@ -111,7 +116,9 @@ dependencies {
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.test.runner)
     androidTestImplementation(libs.androidx.room.testing)
+    androidTestImplementation(libs.kotlinx.coroutines.test)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)

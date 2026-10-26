@@ -21,7 +21,8 @@ import kotlinx.serialization.Serializable
 @Serializable data object BuildsRoute
 @Serializable data object ItemsRoute
 
-@Serializable data class QuestDetailRoute(val questId: Int)
+/** @param chapterId a dataset chapter id, e.g. `ch_01_chapter_1_tailing_the_truth`. */
+@Serializable data class ChapterDetailRoute(val chapterId: String)
 
 /** Full-screen, immersive viewer for a map or sprite. */
 @Serializable data class ImageViewerRoute(val assetPath: String, val title: String)

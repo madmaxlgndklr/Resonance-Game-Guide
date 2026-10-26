@@ -2,29 +2,56 @@ package com.madmaxlgndklr.resonanceguide.data.local
 
 import androidx.room.Embedded
 
-data class QuestSummary(
-    @Embedded val quest: QuestEntity,
-    val totalSteps: Int,
-    val completedSteps: Int,
+data class ChapterSummary(
+    @Embedded val chapter: ChapterEntity,
+    val totalObjectives: Int,
+    val completedObjectives: Int,
+    val totalShards: Int,
+    val collectedShards: Int,
 )
 
-val QuestSummary.isComplete: Boolean
-    get() = totalSteps > 0 && completedSteps == totalSteps
+val ChapterSummary.isComplete: Boolean
+    get() = totalObjectives > 0 && completedObjectives == totalObjectives
 
-val QuestSummary.progressFraction: Float
-    get() = if (totalSteps == 0) 0f else completedSteps.toFloat() / totalSteps
+val ChapterSummary.progressFraction: Float
+    get() = if (totalObjectives == 0) 0f else completedObjectives.toFloat() / totalObjectives
 
-data class QuestStepWithProgress(
-    @Embedded val step: QuestStepEntity,
+data class ObjectiveWithProgress(
+    @Embedded val objective: ObjectiveEntity,
     val completed: Boolean,
 )
 
-data class BossWithProgress(
-    @Embedded val boss: BossEntity,
+data class SideQuestWithProgress(
+    @Embedded val quest: SideQuestEntity,
+    val completed: Boolean,
+)
+
+data class EnemyWithProgress(
+    @Embedded val enemy: EnemyEntity,
     val defeated: Boolean,
+)
+
+data class OptionalBossWithProgress(
+    @Embedded val boss: OptionalBossEntity,
+    val defeated: Boolean,
+)
+
+data class EquipmentWithProgress(
+    @Embedded val equipment: EquipmentEntity,
+    val collected: Boolean,
 )
 
 data class ItemWithProgress(
     @Embedded val item: ItemEntity,
     val collected: Boolean,
+)
+
+data class ShardWithProgress(
+    @Embedded val shard: TabletShardEntity,
+    val collected: Boolean,
+)
+
+data class VisionWithProgress(
+    @Embedded val vision: VisionEntity,
+    val unlocked: Boolean,
 )

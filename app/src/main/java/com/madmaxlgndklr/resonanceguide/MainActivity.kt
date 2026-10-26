@@ -36,7 +36,7 @@ import com.madmaxlgndklr.resonanceguide.navigation.BestiaryRoute
 import com.madmaxlgndklr.resonanceguide.navigation.BuildsRoute
 import com.madmaxlgndklr.resonanceguide.navigation.ImageViewerRoute
 import com.madmaxlgndklr.resonanceguide.navigation.ItemsRoute
-import com.madmaxlgndklr.resonanceguide.navigation.QuestDetailRoute
+import com.madmaxlgndklr.resonanceguide.navigation.ChapterDetailRoute
 import com.madmaxlgndklr.resonanceguide.navigation.TopLevelTab
 import com.madmaxlgndklr.resonanceguide.navigation.WalkthroughRoute
 import com.madmaxlgndklr.resonanceguide.ui.bestiary.BestiaryScreen
@@ -44,7 +44,7 @@ import com.madmaxlgndklr.resonanceguide.ui.builds.BuildsScreen
 import com.madmaxlgndklr.resonanceguide.ui.items.ItemsScreen
 import com.madmaxlgndklr.resonanceguide.ui.theme.ResonanceTheme
 import com.madmaxlgndklr.resonanceguide.ui.viewer.ImageViewerScreen
-import com.madmaxlgndklr.resonanceguide.ui.walkthrough.QuestDetailScreen
+import com.madmaxlgndklr.resonanceguide.ui.walkthrough.ChapterDetailScreen
 import com.madmaxlgndklr.resonanceguide.ui.walkthrough.WalkthroughScreen
 
 class MainActivity : ComponentActivity() {
@@ -151,18 +151,18 @@ private fun ResonanceNavHost(navController: NavHostController, modifier: Modifie
     ) {
         composable<WalkthroughRoute> {
             WalkthroughScreen(
-                onQuestClick = { navController.navigate(QuestDetailRoute(it)) },
+                onChapterClick = { navController.navigate(ChapterDetailRoute(it)) },
                 onOpenMap = openImage,
             )
         }
-        composable<QuestDetailRoute> {
-            QuestDetailScreen(
+        composable<ChapterDetailRoute> {
+            ChapterDetailScreen(
                 onBack = navController::navigateUp,
                 onOpenMap = openImage,
             )
         }
-        composable<BestiaryRoute> { BestiaryScreen(onOpenSprite = openImage) }
-        composable<BuildsRoute> { BuildsScreen(onOpenSprite = openImage) }
+        composable<BestiaryRoute> { BestiaryScreen() }
+        composable<BuildsRoute> { BuildsScreen() }
         composable<ItemsRoute> { ItemsScreen() }
         composable<ImageViewerRoute> { entry ->
             val route = entry.toRoute<ImageViewerRoute>()

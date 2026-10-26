@@ -8,51 +8,123 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface GuideDao {
 
-    @Query("SELECT * FROM chapters ORDER BY number")
-    fun observeChapters(): Flow<List<ChapterEntity>>
+    @Query(
+        """
+        SELECT c.*,
+            (SELECT COUNT(*) FROM objectives o WHERE o.chapterId = c.id) AS totalObjectives,
+            (SELECT COUNT(*) FROM objectives o
+                JOIN progress p ON p.type = 'OBJECTIVE' AND p.entityId = o.id AND p.completed = 1
+                WHERE o.chapterId = c.id) AS completedObjectives,
+            (SELECT COUNT(*) FROM tablet_shards s WHERE s.chapter = c.chapterNumber) AS totalShards,
+            (SELECT COUNT(*) FROM tablet_shards s
+                JOIN progress p ON p.type = 'SHARD' AND p.entityId = s.id AND p.completed = 1
+                WHERE s.chapter = c.chapterNumber) AS collectedShards
+        FROM chapters c
+        ORDER BY c.chapterNumber
+        """,
+    )
+    fun observeChapterSummaries(): Flow<List<ChapterSummary>>
 
     @Query("SELECT * FROM chapters WHERE id = :chapterId")
-    fun observeChapter(chapterId: Int): Flow<ChapterEntity?>
+    fun observeChapter(chapterId: String): Flow<ChapterEntity?>
 
     @Query(
         """
-        SELECT q.*,
-            (SELECT COUNT(*) FROM quest_steps s WHERE s.questId = q.id) AS totalSteps,
-            (SELECT COUNT(*) FROM quest_steps s
-                JOIN progress p ON p.type = 'QUEST_STEP' AND p.entityId = s.id AND p.completed = 1
-                WHERE s.questId = q.id) AS completedSteps
-        FROM quests q
-        ORDER BY q.chapterId, q.sortOrder
+        SELECT o.*, COALESCE(p.completed, 0) AS completed
+        FROM objectives o
+        LEFT JOIN progress p ON p.type = 'OBJECTIVE' AND p.entityId = o.id
+        WHERE o.chapterId = :chapterId
+        ORDER BY o.step
         """,
     )
-    fun observeQuestSummaries(): Flow<List<QuestSummary>>
+    fun observeObjectives(chapterId: String): Flow<List<ObjectiveWithProgress>>
 
-    @Query("SELECT * FROM quests WHERE id = :questId")
-    fun observeQuest(questId: Int): Flow<QuestEntity?>
+    @Query("SELECT id FROM objectives WHERE chapterId = :chapterId")
+    suspend fun objectiveIds(chapterId: String): List<String>
 
     @Query(
         """
-        SELECT s.*, COALESCE(p.completed, 0) AS completed
-        FROM quest_steps s
-        LEFT JOIN progress p ON p.type = 'QUEST_STEP' AND p.entityId = s.id
-        WHERE s.questId = :questId
-        ORDER BY s.stepNumber
+        SELECT q.*, COALESCE(p.completed, 0) AS completed
+        FROM side_quests q
+        LEFT JOIN progress p ON p.type = 'SIDE_QUEST' AND p.entityId = q.id
+        WHERE q.chapterNumber = :chapterNumber
+        ORDER BY q.title
         """,
     )
-    fun observeSteps(questId: Int): Flow<List<QuestStepWithProgress>>
+    fun observeSideQuestsForChapter(chapterNumber: Int): Flow<List<SideQuestWithProgress>>
 
-    @Query("SELECT id FROM quest_steps WHERE questId = :questId")
-    suspend fun stepIdsForQuest(questId: Int): List<Int>
+    @Query(
+        """
+        SELECT s.*, COALESCE(p.completed, 0) AS collected
+        FROM tablet_shards s
+        LEFT JOIN progress p ON p.type = 'SHARD' AND p.entityId = s.id
+        WHERE s.chapter = :chapterNumber
+        ORDER BY s.number
+        """,
+    )
+    fun observeShardsForChapter(chapterNumber: Int): Flow<List<ShardWithProgress>>
+
+    @Query(
+        """
+        SELECT s.*, COALESCE(p.completed, 0) AS collected
+        FROM tablet_shards s
+        LEFT JOIN progress p ON p.type = 'SHARD' AND p.entityId = s.id
+        ORDER BY s.number
+        """,
+    )
+    fun observeAllShards(): Flow<List<ShardWithProgress>>
+
+    @Query(
+        """
+        SELECT e.*, COALESCE(p.completed, 0) AS defeated
+        FROM enemies e
+        LEFT JOIN progress p ON p.type = 'ENEMY' AND p.entityId = e.id
+        ORDER BY COALESCE(e.level, 9999), e.name
+        """,
+    )
+    fun observeEnemies(): Flow<List<EnemyWithProgress>>
 
     @Query(
         """
         SELECT b.*, COALESCE(p.completed, 0) AS defeated
-        FROM bosses b
-        LEFT JOIN progress p ON p.type = 'BOSS' AND p.entityId = b.id
-        ORDER BY COALESCE(b.chapterId, 9999), b.level
+        FROM optional_bosses b
+        LEFT JOIN progress p ON p.type = 'OPTIONAL_BOSS' AND p.entityId = b.id
+        ORDER BY b.kind, COALESCE(b.level, 9999)
         """,
     )
-    fun observeBosses(): Flow<List<BossWithProgress>>
+    fun observeOptionalBosses(): Flow<List<OptionalBossWithProgress>>
+
+    @Query(
+        """
+        SELECT v.*, COALESCE(p.completed, 0) AS unlocked
+        FROM visions v
+        LEFT JOIN progress p ON p.type = 'VISION' AND p.entityId = v.id
+        ORDER BY COALESCE(v.chapter, 99), v.name
+        """,
+    )
+    fun observeVisions(): Flow<List<VisionWithProgress>>
+
+    @Query(
+        """
+        SELECT * FROM vision_skills
+        WHERE visionId = :visionId
+        ORDER BY COALESCE(masteryRank, 99), COALESCE(awakeningTier, 99), name
+        """,
+    )
+    fun observeVisionSkills(visionId: String): Flow<List<VisionSkillEntity>>
+
+    @Query("SELECT * FROM vision_skills ORDER BY visionId, COALESCE(masteryRank, 99)")
+    fun observeAllVisionSkills(): Flow<List<VisionSkillEntity>>
+
+    @Query(
+        """
+        SELECT e.*, COALESCE(p.completed, 0) AS collected
+        FROM equipment e
+        LEFT JOIN progress p ON p.type = 'EQUIPMENT' AND p.entityId = e.id
+        ORDER BY e.slot, e.name
+        """,
+    )
+    fun observeEquipment(): Flow<List<EquipmentWithProgress>>
 
     @Query(
         """
@@ -64,15 +136,20 @@ interface GuideDao {
     )
     fun observeItems(): Flow<List<ItemWithProgress>>
 
-    @Query("SELECT * FROM character_builds ORDER BY characterName, buildName")
-    fun observeBuilds(): Flow<List<CharacterBuildEntity>>
+    @Query("SELECT * FROM oblivion_tiers ORDER BY totalShards")
+    fun observeOblivionTiers(): Flow<List<OblivionTierEntity>>
 
-    // @Upsert updates rows in place rather than delete+insert, so refreshing a
-    // chapter does not cascade-delete its quests and steps.
-    @Upsert suspend fun upsertChapters(chapters: List<ChapterEntity>)
-    @Upsert suspend fun upsertQuests(quests: List<QuestEntity>)
-    @Upsert suspend fun upsertSteps(steps: List<QuestStepEntity>)
-    @Upsert suspend fun upsertBosses(bosses: List<BossEntity>)
-    @Upsert suspend fun upsertItems(items: List<ItemEntity>)
-    @Upsert suspend fun upsertBuilds(builds: List<CharacterBuildEntity>)
+    // Upserts update in place rather than delete-and-insert, so refreshing a
+    // chapter does not cascade-delete its objectives.
+    @Upsert suspend fun upsertChapters(rows: List<ChapterEntity>)
+    @Upsert suspend fun upsertObjectives(rows: List<ObjectiveEntity>)
+    @Upsert suspend fun upsertSideQuests(rows: List<SideQuestEntity>)
+    @Upsert suspend fun upsertEnemies(rows: List<EnemyEntity>)
+    @Upsert suspend fun upsertOptionalBosses(rows: List<OptionalBossEntity>)
+    @Upsert suspend fun upsertVisions(rows: List<VisionEntity>)
+    @Upsert suspend fun upsertVisionSkills(rows: List<VisionSkillEntity>)
+    @Upsert suspend fun upsertEquipment(rows: List<EquipmentEntity>)
+    @Upsert suspend fun upsertItems(rows: List<ItemEntity>)
+    @Upsert suspend fun upsertShards(rows: List<TabletShardEntity>)
+    @Upsert suspend fun upsertOblivionTiers(rows: List<OblivionTierEntity>)
 }
