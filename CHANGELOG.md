@@ -19,6 +19,11 @@ version below; `versionCode` increments by one for every release.
   battles, 12 Chamber of Arms trials, 8 Adamantite sources, 454 equipment
   rows, 88 items, 596 bestiary entries, 798 skills and the 25 Oblivion Palace
   reward tiers. Every trackable record carries an immutable snake_case `id`.
+- **Per-record detail**, fetched from each entry's own page: an acquisition
+  route and sell price on all 454 equipment rows, and a full stat block
+  (HP, stagger gauge, ATK/DEF/MATK/MDEF/SANC/SPD, EXP, Gil), elemental
+  weaknesses, traits and drop tables on all 596 bestiary entries, including
+  per-enemy steal tables with rates on the 164 enemies that have one.
 - **`scripts/guide_pipeline/`** — the pipeline that builds and checks the
   dataset: a source registry that records each site's robots.txt position, a
   fetcher that refuses any host the registry does not clear, pydantic
@@ -38,6 +43,8 @@ the app and to anyone reading the JSON:
   either licensing or manual entry.
 - `dialogueChoices` is empty: no permitted source publishes the stat-bonus
   conversation options.
+- The editorial "best items to steal" list is not reproduced; the dataset
+  instead carries the per-enemy steal tables and rates, which are factual.
 - Equipment counts disagree between sources (82/36/51 per IGN versus
   250/108/96 per atma.gg). The dataset carries the figures it could verify and
   records both.

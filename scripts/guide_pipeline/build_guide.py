@@ -59,18 +59,26 @@ def clean_cell(text: str) -> str:
 
 
 def split_item_cell(text: str) -> dict[str, Any]:
-    """Split "Name Name Description x 2" into its parts."""
-    cleaned = clean_cell(text)
+    """Split "Name Name Description x 2" into its parts.
+
+    The leading repeat is the tooltip title, which is exactly the item name --
+    so it is what tells us where the name ends. Read it off the raw text:
+    collapsing it first (as :func:`clean_cell` does) would throw away the only
+    boundary we have, leaving the stat line glued to the name.
+    """
+    raw = re.sub(r"\s+", " ", text or "").strip()
     quantity = None
-    quantity_match = re.search(r"[x×]\s*(\d+)\s*$", cleaned)
+    quantity_match = re.search(r"[x×]\s*(\d+)\s*$", raw)
     if quantity_match:
         quantity = int(quantity_match.group(1))
-        cleaned = cleaned[: quantity_match.start()].strip()
-    name_match = re.match(r"^(.*?)\s+\1\s*(.*)$", cleaned)
+        raw = raw[: quantity_match.start()].strip()
+
+    name_match = re.match(r"^(.*?)\s+\1\b\s*(.*)$", raw)
     if name_match:
         name, description = name_match.groups()
     else:
-        parts = cleaned.split(". ", 1)
+        # No tooltip repeat: fall back to the first sentence.
+        parts = raw.split(". ", 1)
         name, description = parts[0], (parts[1] if len(parts) > 1 else "")
     return {
         "name": name.strip(),
