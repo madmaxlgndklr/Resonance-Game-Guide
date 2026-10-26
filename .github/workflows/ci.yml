@@ -48,6 +48,7 @@ jobs:
         run: ./gradlew :app:testDebugUnitTest --stacktrace
 
       - name: Lint
+        id: lint
         run: ./gradlew :app:lintDebug --stacktrace
 
       # AGP's abortOnError already fails the build on a lint error, and
@@ -55,7 +56,12 @@ jobs:
       # so a surviving error is annotated on the PR rather than buried in the
       # Gradle log, and so a missing report is itself a failure.
       - name: Check the lint report
-        if: always()
+        # Runs whether lint passed or failed, so an error is annotated either
+        # way -- but not when an earlier step failed and lint never ran, where
+        # a missing report says nothing and would bury the real cause. A
+        # wrapper download that 504s used to surface here as "lint report not
+        # found", which is worse than silence.
+        if: ${{ !cancelled() && contains(fromJSON('["success", "failure"]'), steps.lint.outcome) }}
         run: |
           python3 - <<'PY'
           import pathlib, sys, xml.etree.ElementTree as ET
