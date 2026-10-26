@@ -73,6 +73,66 @@ SOURCES: tuple[Source, ...] = (
         note="robots.txt is 'User-agent: * / Allow: /' plus a sitemap.",
     ),
     Source(
+        key="powerpyx",
+        host="www.powerpyx.com",
+        base_url="https://www.powerpyx.com",
+        status=Status.CRAWL_OK,
+        covers="all 99 tablet shard locations, collectible walkthroughs",
+        note=(
+            "robots.txt is three lines: 'User-agent: * / Allow: /' plus a "
+            "sitemap. No AI-crawler or data-mining restriction of any kind."
+        ),
+    ),
+    Source(
+        key="gamersocialclub",
+        host="gamersocialclub.ca",
+        base_url="https://gamersocialclub.ca",
+        status=Status.CRAWL_OK,
+        covers="tablet shard overview, used to cross-check conflicts",
+        note="robots.txt is 'User-agent: * / Disallow:' -- an empty "
+        "Disallow, which permits everything.",
+    ),
+    Source(
+        key="gamingpromax",
+        host="gamingpromax.com",
+        base_url="https://gamingpromax.com",
+        status=Status.CRAWL_OK,
+        covers="tablet shard list, used to cross-check conflicts",
+        note=(
+            "robots.txt names ClaudeBot explicitly and allows it, disallowing "
+            "only /wp-admin/, search and the translated subtrees. Its shard 99 "
+            "placement disagrees with other sources, so it is used only as a "
+            "second opinion, never as the sole source for a record."
+        ),
+    ),
+    Source(
+        key="fextralife",
+        host="fextralife.com",
+        base_url="https://finalfantasyresonance.wiki.fextralife.com",
+        status=Status.ROBOTS_UNAVAILABLE,
+        covers="tablet shards grouped by area",
+        note=(
+            "robots.txt returns HTTP 502 and the wiki subdomain does not "
+            "resolve; RFC 9309 says assume complete disallow."
+        ),
+    ),
+    Source(
+        key="nightlygamingbinge",
+        host="nightlygamingbinge.com",
+        base_url="https://nightlygamingbinge.com",
+        status=Status.BLOCKS_CLAUDE,
+        covers="tablet shard guide",
+        note="robots.txt sets 'User-agent: ClaudeBot / Disallow: /'.",
+    ),
+    Source(
+        key="gamerant",
+        host="gamerant.com",
+        base_url="https://gamerant.com",
+        status=Status.ROBOTS_UNAVAILABLE,
+        covers="tablet shard locations article",
+        note="robots.txt could not be retrieved; assume complete disallow.",
+    ),
+    Source(
         key="ign",
         host="www.ign.com",
         base_url="https://www.ign.com/wikis/final-fantasy-resonance",

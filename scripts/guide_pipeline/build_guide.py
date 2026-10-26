@@ -20,6 +20,7 @@ from pathlib import Path
 from typing import Any
 
 import parse_atma as P
+import parse_powerpyx as PP
 from fetch import Fetcher, NotPermitted
 from ids import PREFIX, make_id, numbered_id, slugify
 from schema import Guide
@@ -300,6 +301,77 @@ def attach_vision_skills(
         vision["skills"] = list(unique.values())
 
 
+#: Phrases in a source's directions that mean the shard is gated rather than
+#: freely available on arrival. Matched case-insensitively against the source
+#: text; the resulting warning is our own wording.
+_GATING_HINTS = (
+    ("only available after", "Gated: becomes reachable only later in the area's progression."),
+    ("during the story only", "Gated: the story scene placing this must be active."),
+    ("as part of the story", "Gated: reached during a story sequence."),
+    ("master key", "Gated: requires the Master Key."),
+    ("security card", "Gated: requires the matching security card."),
+    ("story will bring you back", "Gated: opens on a later story visit."),
+    ("pay lid", "Route choice: either path can be taken by teleporting back to the entrance."),
+    ("harder path", "Route choice: either path can be taken by teleporting back to the entrance."),
+)
+
+#: Other guides number the shards differently, so the same number can point at
+#: a different place. Recorded rather than resolved.
+_SHARD_NOTES = {
+    99: (
+        "Numbering differs between guides. PowerPyx and GamingProMax place "
+        "shard 99 in Dragon's Maw; a walkthrough that numbers shards in a "
+        "different order places its shard 99 in the Crystal Tower, which here "
+        "holds shards 96-98. Match by area, not by number."
+    ),
+}
+
+
+def crawl_tablet_shards(fetcher: Fetcher, notes: list[str]) -> list[dict[str, Any]]:
+    """The 99 Tablet Shard locations.
+
+    Facts (number, chapter, area) come from the source; the description text
+    is our own, from ``shard_descriptions.json``, because the guides'
+    directions are their authors' writing.
+    """
+    try:
+        html = fetcher.get(PP.URL)
+    except NotPermitted as exc:
+        notes.append(f"tabletShards: {exc}")
+        return []
+
+    descriptions = json.loads(
+        (Path(__file__).parent / "shard_descriptions.json").read_text(encoding="utf-8")
+    )
+
+    shards = []
+    for fact in PP.parse_shards(html):
+        lowered = fact.directions.lower()
+        warning = next(
+            (text for hint, text in _GATING_HINTS if hint in lowered), None
+        )
+        description = descriptions.get(str(fact.number))
+        if description is None:
+            notes.append(
+                f"shard {fact.number}: no description written in "
+                "shard_descriptions.json"
+            )
+        shards.append(
+            {
+                "id": numbered_id(PREFIX["shard"], fact.number),
+                "number": fact.number,
+                "chapter": fact.chapter,
+                "region": fact.area,
+                "subArea": None,
+                "exactLocationDescription": description,
+                "missableWarning": warning,
+                "sourceUrl": PP.URL,
+                "notes": _SHARD_NOTES.get(fact.number),
+            }
+        )
+    return shards
+
+
 def crawl_oblivion_tiers(fetcher: Fetcher, notes: list[str]) -> list[dict[str, Any]]:
     try:
         html = fetcher.get(f"{P.BASE}/tablet-shards")
@@ -484,17 +556,21 @@ def build(seed_path: Path, offline: bool = False, details: bool = False) -> dict
         )
     skills = crawl_skills(fetcher, gaps)
     oblivion = crawl_oblivion_tiers(fetcher, gaps)
+    shards = crawl_tablet_shards(fetcher, gaps)
 
     chapters = build_chapters(seed["walkthrough"])
 
-    # Tablet shard locations: the only sources that publish all 99 forbid
-    # automated access, so the table ships empty rather than invented.
-    ign = next(s for s in SOURCES if s.key == "ign")
-    gaps.append(
-        "collectibles.tabletShards: 0 of 99 locations. The published "
-        f"location lists are on {ign.host}, which forbids automated "
-        "retrieval and dataset creation. Needs licensing, or manual entry."
-    )
+    if len(shards) != EXPECTED["tabletShards"]:
+        gaps.append(
+            f"collectibles.tabletShards: {len(shards)} of "
+            f"{EXPECTED['tabletShards']} locations parsed from the source."
+        )
+    missing_text = [s["number"] for s in shards if not s["exactLocationDescription"]]
+    if missing_text:
+        gaps.append(
+            f"collectibles.tabletShards: {len(missing_text)} shards have no "
+            f"written description yet: {missing_text[:10]}"
+        )
     if details:
         missing_acq = sum(1 for e in equipment if not e.get("acquisitionMethod"))
         if missing_acq:
@@ -528,7 +604,7 @@ def build(seed_path: Path, offline: bool = False, details: bool = False) -> dict
         "colosseumBattles": sum(len(l.get("battles", [])) for l in seed["colosseumLeagues"]),
         "chamberOfArms": len(seed["chamberOfArms"]),
         "adamantiteLocations": len(seed["adamantiteLocations"]),
-        "tabletShards": 0,
+        "tabletShards": len(shards),
         "equipment": len(equipment),
         "items": len(items),
         "bestiary": len(bestiary),
@@ -595,7 +671,10 @@ def build(seed_path: Path, offline: bool = False, details: bool = False) -> dict
         "items": items,
         "bestiary": bestiary,
         "skills": skills,
-        "collectibles": {"tabletShards": [], "oblivionPalaceTiers": oblivion},
+        "collectibles": {
+            "tabletShards": shards,
+            "oblivionPalaceTiers": oblivion,
+        },
         "dialogueChoices": [],
         "assetsManifest": build_assets_manifest(seed),
     }
