@@ -1,0 +1,9 @@
+<resources>
+    <!-- Window-level theme only; all UI styling comes from the Compose
+         ResonanceTheme. The dark background avoids a white flash on launch. -->
+    <style name="Theme.ResonanceGuide" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/brand_background</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+</resources>

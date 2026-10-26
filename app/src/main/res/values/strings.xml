@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">Resonance Guide</string>
+
+    <string name="tab_walkthrough">Walkthrough</string>
+    <string name="tab_bestiary">Bestiary</string>
+    <string name="tab_builds">Visions</string>
+    <string name="tab_items">Items</string>
+
+    <string name="chapters_progress">%1$d of %2$d chapters complete</string>
+    <string name="shards_progress">%1$d / %2$d shards</string>
+    <string name="defeated_progress">%1$d of %2$d defeated</string>
+    <string name="collected_progress">%1$d of %2$d collected</string>
+    <string name="visions_progress">%1$d of %2$d unlocked</string>
+    <string name="objectives_progress">%1$d / %2$d objectives</string>
+
+    <string name="view_map">View map</string>
+    <string name="mark_all_done">Mark all objectives done</string>
+    <string name="mark_all_undone">Clear all objectives</string>
+    <string name="back">Back</string>
+
+    <string name="search_bestiary">Search name, weakness or drop</string>
+    <string name="filter_all">All</string>
+    <string name="filter_bosses">Bosses</string>
+    <string name="filter_optional">Cave Masters &amp; Espers</string>
+    <string name="defeated">Defeated</string>
+    <string name="weaknesses">Weak to</string>
+    <string name="resistances">Resists</string>
+    <string name="drops">Drops</string>
+    <string name="steals">Steal</string>
+    <string name="strategy">Strategy</string>
+    <string name="traits">Traits</string>
+
+    <string name="objectives">Objectives</string>
+    <string name="side_quests">Side quests</string>
+    <string name="tablet_shards">Tablet Shards</string>
+    <string name="rewards">Rewards</string>
+    <string name="unlock_route">How to get</string>
+    <string name="skills">Skills</string>
+    <string name="unlocked">Unlocked</string>
+    <string name="mastery_rank">MR %1$d</string>
+    <string name="ap_cost">AP %1$d</string>
+    <string name="awakening_tier">Awk. %1$d</string>
+    <string name="innate_skill">Innate</string>
+    <string name="acquisition">Where to get</string>
+    <string name="sell_price">Sells for %1$d Gil</string>
+    <string name="equipment_header">Equipment</string>
+    <string name="items_header">Items</string>
+    <string name="all_categories">All</string>
+    <string name="hide_collected">Hide collected</string>
+    <string name="show_collected">Show collected</string>
+    <string name="empty_list">Nothing here yet.</string>
+</resources>

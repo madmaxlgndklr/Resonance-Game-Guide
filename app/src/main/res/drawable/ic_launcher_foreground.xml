@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A faceted crystal, centred in the 72dp adaptive-icon safe zone. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#FF7FD0FF"
+        android:pathData="M54,26 L72,46 L54,82 L36,46 Z" />
+    <path
+        android:fillColor="#FFBFE8FF"
+        android:pathData="M54,26 L62,46 L54,82 L46,46 Z" />
+    <path
+        android:fillColor="#FFE8C15A"
+        android:pathData="M36,46 L72,46 L70,49 L38,49 Z" />
+</vector>
