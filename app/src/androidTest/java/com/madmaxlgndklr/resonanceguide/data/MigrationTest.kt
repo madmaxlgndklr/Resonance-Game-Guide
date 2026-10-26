@@ -33,7 +33,7 @@ class MigrationTest {
     @Throws(IOException::class)
     fun migrate1To2_dropsTheIntegerKeyedTables() {
         helper.createDatabase(DB_NAME, 1).apply {
-            // A version 1 row, keyed the old way.
+            // A version 1 row, keyed the old way, to prove progress is rebuilt.
             execSQL(
                 "INSERT INTO progress (type, entityId, completed, updatedAt) " +
                     "VALUES ('QUEST_STEP', 1001, 1, 0)",
@@ -41,9 +41,17 @@ class MigrationTest {
             close()
         }
 
-        // Room validates the resulting schema against schemas/2.json and fails
-        // the call if the migration leaves the database in the wrong shape.
-        val db = helper.runMigrationsAndValidate(DB_NAME, 2, true)
+        // The migration has to be passed in: MigrationTestHelper does not read
+        // the database's own migration list, and without it Room reports that a
+        // migration from 1 to 2 was required but not found. Room then validates
+        // the resulting schema against schemas/2.json and fails the call if the
+        // migration leaves the database in the wrong shape.
+        val db = helper.runMigrationsAndValidate(
+            DB_NAME,
+            2,
+            true,
+            GuideDatabase.MIGRATION_1_2,
+        )
 
         // progress is rebuilt empty: an integer id cannot be mapped onto a
         // string one, which is the documented cost of this migration.

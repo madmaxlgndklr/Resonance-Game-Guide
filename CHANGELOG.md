@@ -71,6 +71,15 @@ the app and to anyone reading the JSON:
   emulator job on its first run — the migration had been merged unverified.
 - `GuideSchemaV2Test` (JVM) compares that DDL against the exported schema, so
   drift is a build failure rather than a crash on a user's upgrade.
+- **`MigrationTest` never ran the migration.** It called
+  `runMigrationsAndValidate` without passing `MIGRATION_1_2` in;
+  `MigrationTestHelper` does not read the database's own migration list, so
+  Room reported that a migration from 1 to 2 was required but not found and
+  the test failed before reaching any of the schema work. The migration is now
+  `internal` and handed to the helper explicitly.
+- The emulator job now prints each instrumented test's failure message on a
+  red run. `--stacktrace` had filled the log with Gradle internals and buried
+  the actual assertion, which cost a diagnosis round.
 
 ### Changed
 - **Room schema version 2: string primary keys.** Every content table is now

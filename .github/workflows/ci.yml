@@ -174,7 +174,32 @@ jobs:
           profile: pixel_6
           ram-size: 4096M
           disable-animations: true
-          script: ./gradlew :app:connectedDebugAndroidTest --stacktrace
+          script: ./gradlew :app:connectedDebugAndroidTest
+
+      # The Gradle log reports only that the task failed. Print the per-test
+      # failure messages so a red run is diagnosable from the log alone,
+      # without downloading the artifact.
+      - name: Show instrumented test failures
+        if: failure()
+        run: |
+          python3 - <<'PY'
+          import pathlib, xml.etree.ElementTree as ET
+
+          results = sorted(
+              pathlib.Path("app/build/outputs/androidTest-results").rglob("*.xml")
+          )
+          if not results:
+              print("no androidTest result XML found")
+          for path in results:
+              for case in ET.parse(path).getroot().iter("testcase"):
+                  for outcome in list(case.iter("failure")) + list(case.iter("error")):
+                      name = f"{case.get('classname')}.{case.get('name')}"
+                      print(f"::group::{name}")
+                      print(outcome.get("message") or "")
+                      print((outcome.text or "").strip()[:4000])
+                      print("::endgroup::")
+                      print(f"::error::{name}: {outcome.get('message')}")
+          PY
 
       - name: Upload instrumented test reports
         if: always()

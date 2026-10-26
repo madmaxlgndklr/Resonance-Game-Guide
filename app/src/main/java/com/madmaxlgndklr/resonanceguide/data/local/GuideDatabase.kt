@@ -59,7 +59,10 @@ abstract class GuideDatabase : RoomDatabase() {
          * of moving to stable ids, and is why this database has no
          * `fallbackToDestructiveMigration`.
          */
-        private val MIGRATION_1_2 = object : Migration(1, 2) {
+        // internal rather than private so MigrationTest can hand it to
+        // MigrationTestHelper: that helper takes the migrations to apply as an
+        // argument and finds no path without them.
+        internal val MIGRATION_1_2 = object : Migration(1, 2) {
             override fun migrate(db: SupportSQLiteDatabase) {
                 for (table in OLD_TABLES) {
                     db.execSQL("DROP TABLE IF EXISTS `$table`")
