@@ -1,0 +1,2812 @@
+{
+  "meta": {
+    "gameTitle": "FINAL FANTASY RESONANCE",
+    "schemaVersion": "1.0.0",
+    "lastUpdated": "2026-10-26",
+    "releaseDate": "2026-10-22",
+    "demoReleaseDate": "2026-09-03",
+    "developers": [
+      "Square Enix",
+      "LANCARSE Ltd."
+    ],
+    "publisher": "Square Enix",
+    "platforms": [
+      "Nintendo Switch",
+      "Nintendo Switch 2",
+      "PlayStation 5",
+      "PC (Steam / Microsoft Store)",
+      "Xbox Series X|S"
+    ],
+    "genre": "HD-2D Turn-Based JRPG (Single-Player Adaptation of Final Fantasy Brave Exvius Arc 1 'Lapis')",
+    "estimatedCompletionHours": {
+      "mainStory": 45,
+      "completionist": 75
+    },
+    "worldTotals": {
+      "chapters": 8,
+      "playableHeroes": 8,
+      "visions": 26,
+      "sideQuests": 33,
+      "espers": 9,
+      "caveMasters": 15,
+      "colosseumBattles": 20,
+      "legendaryArmsTrials": 12,
+      "tabletShards": 99,
+      "adamantite": 8,
+      "magiciteTotal": 64,
+      "magicPots": 11,
+      "savePoints": 85,
+      "towns": 27,
+      "dungeons": 38,
+      "sanctums": 16
+    },
+    "officialSources": {
+      "officialWebsite": "https://www.square-enix.com/finalfantasyresonance/en_US/",
+      "steamStore": "https://store.steampowered.com/app/3259780/FINAL_FANTASY_RESONANCE/",
+      "squareEnixStore": "https://na.store.square-enix-games.com/final-fantasy-resonance",
+      "pressHubAssets": "https://press.es.square-enix.com/FINAL-FANTASY-RESONANCE",
+      "officialPrintGuide": "https://hobby-genki.com/en/square-enix/98034-final-fantasy-resonance-official-complete-guide-square-enix-.html"
+    },
+    "communityGuideSources": {
+      "ffResonanceWiki": "https://ffresonance.wiki/",
+      "ignWikiGuide": "https://www.ign.com/wikis/final-fantasy-resonance",
+      "atmaDatabook": "https://atma.gg/final-fantasy-resonance",
+      "meowDbWalkthrough": "https://meowdb.com/db/final-fantasy-resonance/guides/chapter-1",
+      "ffrBuilds": "https://ffrbuilds.com/",
+      "mapGenie": "https://mapgenie.io/final-fantasy-resonance/guides/espers",
+      "rpgSiteWalkthrough": "https://www.rpgsite.net/guide/21486-final-fantasy-resonance-walkthrough-100-items-all-achievements-tablet-shards-step-by-step-guide"
+    }
+  },
+  "assetsManifest": {
+    "pressKitUrl": "https://press.es.square-enix.com/FINAL-FANTASY-RESONANCE",
+    "keyArt": [
+      {
+        "id": "asset_hero_bg",
+        "title": "Official Hero Background Art (WebP)",
+        "url": "https://www.square-enix.com/finalfantasyresonance/assets/bg-sm-7B2m8Xlg.webp",
+        "sourceUrl": "https://www.square-enix.com/finalfantasyresonance/en_US/"
+      },
+      {
+        "id": "asset_cover_art",
+        "title": "Final Fantasy Resonance Cover Art",
+        "url": "https://thumb.wikimedia.org/wikipedia/en/thumb/2/28/Final_Fantasy_Resonance_cover_art.jpg/250px-Final_Fantasy_Resonance_cover_art.jpg",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Final_Fantasy_Resonance"
+      },
+      {
+        "id": "asset_complete_guide_book",
+        "title": "Official Complete Guide + Setting Material Collection Cover",
+        "url": "https://hobby-genki.com/525445-large_default/final-fantasy-resonance-official-complete-guide-square-enix-.jpg",
+        "sourceUrl": "https://hobby-genki.com/en/square-enix/98034-final-fantasy-resonance-official-complete-guide-square-enix-.html"
+      },
+      {
+        "id": "asset_world_map_preview",
+        "title": "Lapis World Map Preview",
+        "url": "https://ffresonance.wiki/maps/world/preview-2816.339b76e1.webp?s=sig4",
+        "sourceUrl": "https://ffresonance.wiki/world/map/"
+      }
+    ]
+  },
+  "combatMechanics": {
+    "coreSystems": [
+      {
+        "id": "mech_action_timeline",
+        "name": "Action Timeline",
+        "summary": "Displays upcoming turn order for allies and enemies at the top of the screen, allowing players to plan buffs, heals, and Stagger breaks before enemy turns.",
+        "sourceUrl": "https://egamersworld.com/blog/final-fantasy-resonance-beginners-guide-stagger-vi-0IfZxsh_Th"
+      },
+      {
+        "id": "mech_stagger",
+        "name": "Stagger & Devastating Attack Cancel",
+        "summary": "Every enemy has a Stagger gauge beneath its HP bar. Hitting elemental or physical weaknesses triples Stagger damage. Depleting the gauge cancels any charging Devastating Attack, delays the enemy's turn, and increases damage taken.",
+        "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-cave-masters-guide/"
+      },
+      {
+        "id": "mech_sweeping_stagger",
+        "name": "Sweeping Stagger, Extra Phase & Last Resonance",
+        "summary": "When all enemies in an encounter are staggered simultaneously, Sweeping Stagger triggers an Extra Phase (bonus action for every party member) followed by Resonance / Last Resonance finishers.",
+        "sourceUrl": "https://egamersworld.com/blog/final-fantasy-resonance-beginners-guide-stagger-vi-0IfZxsh_Th"
+      },
+      {
+        "id": "mech_visions_ap",
+        "name": "Visions, Mastery Ranks (MRP) & AP",
+        "summary": "Characters equip crystallized Visions of classic Final Fantasy heroes. Fighting earns MRP to raise Mastery Ranks and unlock active/passive abilities equipped via Ability Points (AP). Magicite Shards (Tier 1), Magicite (Tier 2), and Magicite Crysts (Tier 3) awaken Visions.",
+        "sourceUrl": "https://www.ign.com/wikis/final-fantasy-resonance/Essential_Tips_and_Tricks_-_Final_Fantasy_Resonance"
+      },
+      {
+        "id": "mech_espers",
+        "name": "Summoning Espers",
+        "summary": "Fina summons Espers onto the battlefield as independent allies for 3 turns (one active at a time) before the Esper unleashes its signature finishing move. Each Esper also provides a 'Break the Limit' passive raising the damage cap to 99,999.",
+        "sourceUrl": "https://ffresonance.wiki/database/espers/"
+      },
+      {
+        "id": "mech_gold_pots_cactuars",
+        "name": "Gold Pots & Cactuar MRP Grinding",
+        "summary": "Gold Pots in dungeons trade items (usually an Ether) for massive MRP to level unused Visions. Cactuars and Gigantuars (southwest Gronoa and outside Dragon's Maw) are best defeated using Noctis's Barrage (guaranteed hit). Switching to Expert difficulty before these encounters grants a 1.5x MRP multiplier.",
+        "sourceUrl": "https://www.ign.com/wikis/final-fantasy-resonance/Essential_Tips_and_Tricks_-_Final_Fantasy_Resonance"
+      }
+    ]
+  },
+  "walkthrough": [
+    {
+      "id": "ch_00_prologue",
+      "chapterNumber": 0,
+      "title": "Prologue",
+      "region": "Battlefield",
+      "recommendedLevel": "55 (Fixed: Play as Dark Fina)",
+      "firstObjective": "Battlefield opening sequence",
+      "pointOfNoReturn": null,
+      "storyBosses": [
+        "Cutting Edge Magitek Weapon",
+        "Iron Giant"
+      ],
+      "optionalFights": [],
+      "objectives": [
+        {
+          "step": 1,
+          "text": "Complete the Battlefield prologue as Dark Fina (Level 55)"
+        }
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-walkthrough/"
+    },
+    {
+      "id": "ch_01_tailing_the_truth",
+      "chapterNumber": 1,
+      "title": "Chapter 1: Tailing the Truth",
+      "region": "Grandshelt, Kolobos, and Grandport",
+      "recommendedLevel": "1-15",
+      "firstObjective": "Leave Grandshelt Castle",
+      "pointOfNoReturn": null,
+      "storyBosses": [
+        "Belmodar (Earth Shrine)",
+        "Hell's Rider (Grandshelt Castle)",
+        "Umbra (Grandshelt Castle - scripted loss)",
+        "The Hunger (Kolobos Ruins)",
+        "Siren (Siren's Tower - Lv. 11, 20,000 HP, Weak: Lightning)"
+      ],
+      "optionalFights": [
+        "Gilgamesh",
+        "Marauder (Lv. 15 Cave Master)",
+        "Antlion"
+      ],
+      "notableCollectibles": [
+        "12 Tablet Shards in Chapter 1 -> Trade to Enigmatic Princess at Oblivion Palace for Stagger Ring (+10% Stagger Power)",
+        "5 Visions: Leah (Story), Tronn (Story), Warrior of Light (Sanctum north of Kol), Terra (Sanctum south of Felicitas), Cloud (Sanctum northwest of desert after getting Kol chocobo)",
+        "Esper: Siren (Main Story)"
+      ],
+      "objectives": [
+        {
+          "step": 1,
+          "text": "Leave Grandshelt Castle"
+        },
+        {
+          "step": 2,
+          "text": "Investigate the Earth Shrine"
+        },
+        {
+          "step": 3,
+          "text": "Go to the town of Mitra"
+        },
+        {
+          "step": 4,
+          "text": "Go to Rain's house"
+        },
+        {
+          "step": 5,
+          "text": "Investigate Rain's house"
+        },
+        {
+          "step": 6,
+          "text": "Equip a vision"
+        },
+        {
+          "step": 7,
+          "text": "Go to Grandshelt Castle"
+        },
+        {
+          "step": 8,
+          "text": "Save the King of Grandshelt"
+        },
+        {
+          "step": 9,
+          "text": "Go to the town of Felicitas"
+        },
+        {
+          "step": 10,
+          "text": "Go to the village of Kol"
+        },
+        {
+          "step": 11,
+          "text": "Stay at the inn in the village of Kol"
+        },
+        {
+          "step": 12,
+          "text": "Rent a chocobo"
+        },
+        {
+          "step": 13,
+          "text": "Go to the town of Felicitas"
+        },
+        {
+          "step": 14,
+          "text": "Go to the Kolobos Ruins"
+        },
+        {
+          "step": 15,
+          "text": "Look for Emma's mom"
+        },
+        {
+          "step": 16,
+          "text": "Find a ship in Grandport"
+        },
+        {
+          "step": 17,
+          "text": "Visit Siren"
+        },
+        {
+          "step": 18,
+          "text": "Ride the ship out of Grandport"
+        }
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-walkthrough/"
+    },
+    {
+      "id": "ch_02_eternal_blue",
+      "chapterNumber": 2,
+      "title": "Chapter 2: Eternal Blue",
+      "region": "Dirnado",
+      "recommendedLevel": "16-24",
+      "firstObjective": "Go to Dilmagia, the machinopolis",
+      "pointOfNoReturn": "Temporary lock before Step 8 ('Save Borin at Mobliz Shipyard')",
+      "storyBosses": [
+        "Liquid Thunder",
+        "Mom Bomb",
+        "Adrastea",
+        "Aether",
+        "Guardian"
+      ],
+      "optionalFights": [
+        "Ramuh (Esper Trial - Lv. 20)",
+        "Shoggoth (Cave Master - Lv. 25)"
+      ],
+      "notableCollectibles": [
+        "3 Visions: Zidane (Sanctum after Mt. Thunderclap; teaches Steal), Noctis (Sanctum west of Mobliz Shipyard; teaches Barrage for Cactuars), Onion Knight (Sanctum via mountain pass)",
+        "Steal Tip: Steal Ring of Rage (increases Stagger) from Chimeras near Cloud's Sanctum using Zidane's Steal"
+      ],
+      "objectives": [
+        {
+          "step": 1,
+          "text": "Go to Dilmagia, the machinopolis"
+        },
+        {
+          "step": 2,
+          "text": "Gather information in Dilmagia"
+        },
+        {
+          "step": 3,
+          "text": "Find Lid at the shipyard"
+        },
+        {
+          "step": 4,
+          "text": "Cross over Mt. Thunderclap"
+        },
+        {
+          "step": 5,
+          "text": "Visit Borin at the Dwarven Forge"
+        },
+        {
+          "step": 6,
+          "text": "Defeat the monster at the forge"
+        },
+        {
+          "step": 7,
+          "text": "Report back to Borin"
+        },
+        {
+          "step": 8,
+          "text": "Save Borin at Mobliz Shipyard"
+        },
+        {
+          "step": 9,
+          "text": "Escape before time runs out"
+        },
+        {
+          "step": 10,
+          "text": "Go to the Wind Shrine"
+        },
+        {
+          "step": 11,
+          "text": "Go deeper into the Wind Shrine"
+        },
+        {
+          "step": 12,
+          "text": "Go to Dilmagia, the machinopolis"
+        },
+        {
+          "step": 13,
+          "text": "Talk to Lid"
+        },
+        {
+          "step": 14,
+          "text": "Ride the airship to Olderion"
+        }
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-walkthrough/"
+    },
+    {
+      "id": "ch_03_wardens_of_the_aquapolis",
+      "chapterNumber": 3,
+      "title": "Chapter 3: Wardens of the Aquapolis",
+      "region": "Olderion Federation",
+      "recommendedLevel": "24-29",
+      "firstObjective": "Go to Olderion, the aquapolis",
+      "pointOfNoReturn": "Temporary lock before Step 8 ('Go to Old Town, Olderion')",
+      "storyBosses": [
+        "Wave Lopros",
+        "Water Dragon",
+        "Leviathan",
+        "Alluvion"
+      ],
+      "optionalFights": [
+        "Rukh (Cave Master - Lv. 26)",
+        "Mindflayer (Cave Master - Lv. 28)",
+        "Blood Dragon (during Medicinal Mission sub quest - Lv. 28, 10,800 HP, Weak: Fire)"
+      ],
+      "notableCollectibles": [
+        "3 Visions: Firion (Sanctum northwest of starting shore), Tidus (Sanctum west of Olderion past Secluded Dwelling), Squall (Sanctum east then north of Olderion)",
+        "Esper: Carbuncle (Side quest after a rumor in Olderion)"
+      ],
+      "objectives": [
+        {
+          "step": 1,
+          "text": "Go to Olderion, the aquapolis"
+        },
+        {
+          "step": 2,
+          "text": "Gather information in Olderion"
+        },
+        {
+          "step": 3,
+          "text": "Talk to the Warden of the Waters"
+        },
+        {
+          "step": 4,
+          "text": "Go to the Cave of Waters"
+        },
+        {
+          "step": 5,
+          "text": "Save the Water Maiden"
+        },
+        {
+          "step": 6,
+          "text": "Go to Olderion, the aquapolis"
+        },
+        {
+          "step": 7,
+          "text": "Purify the waters with Luka"
+        },
+        {
+          "step": 8,
+          "text": "Go to Old Town, Olderion"
+        },
+        {
+          "step": 9,
+          "text": "Defeat the monsters"
+        },
+        {
+          "step": 10,
+          "text": "Purify the waters with Luka"
+        },
+        {
+          "step": 11,
+          "text": "Go to Lake Dorr"
+        },
+        {
+          "step": 12,
+          "text": "Go to Olderion, the aquapolis"
+        },
+        {
+          "step": 13,
+          "text": "Stay at the inn in Olderion"
+        },
+        {
+          "step": 14,
+          "text": "Go to Waterfall Way"
+        },
+        {
+          "step": 15,
+          "text": "Go to the Altar"
+        },
+        {
+          "step": 16,
+          "text": "Go to Warden's Cape"
+        },
+        {
+          "step": 17,
+          "text": "Go to the Water Shrine"
+        },
+        {
+          "step": 18,
+          "text": "Go deeper into the Water Shrine"
+        },
+        {
+          "step": 19,
+          "text": "Go to Olderion, the aquapolis"
+        },
+        {
+          "step": 20,
+          "text": "Go after Arsha"
+        },
+        {
+          "step": 21,
+          "text": "Go to Zoldaad from the port"
+        }
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-walkthrough/"
+    },
+    {
+      "id": "ch_04_banner_oath",
+      "chapterNumber": 4,
+      "title": "Chapter 4: Banner Oath",
+      "region": "Zoldaad Empire",
+      "recommendedLevel": "30-34",
+      "firstObjective": "Go to Mozul Station",
+      "pointOfNoReturn": null,
+      "storyBosses": [
+        "Ignis",
+        "Emperor of Zoldaad",
+        "Evan"
+      ],
+      "optionalFights": [
+        "Gogmagog (Cave Master - Lv. 34)",
+        "Pyroviper (Cave Master - Lv. 37)",
+        "Titan (Esper Trial - Lv. 30)",
+        "Ifrit (Esper Trial - Lv. 33)"
+      ],
+      "notableCollectibles": [
+        "Grandshelt Colosseum unlocks at the start of Chapter 4 ('Go to Mozul Station')",
+        "3 Visions: Shantotto (Sanctum east of Mozul Station), Cecil (Sanctum near Rebel Hideout), Y'shtola (Sanctum south of Weapons Factory)"
+      ],
+      "objectives": [
+        {
+          "step": 1,
+          "text": "Go to Mozul Station"
+        },
+        {
+          "step": 2,
+          "text": "Board the train"
+        },
+        {
+          "step": 3,
+          "text": "Talk to party members"
+        },
+        {
+          "step": 4,
+          "text": "Escape from the imperial soldiers"
+        },
+        {
+          "step": 5,
+          "text": "Go to Zoldaad, the imperial capital"
+        },
+        {
+          "step": 6,
+          "text": "Gather information in Zoldaad"
+        },
+        {
+          "step": 7,
+          "text": "Meet up in the alley"
+        },
+        {
+          "step": 8,
+          "text": "Go deeper into the tunnel"
+        },
+        {
+          "step": 9,
+          "text": "Talk to rebel soldiers"
+        },
+        {
+          "step": 10,
+          "text": "Share your thoughts with Jake"
+        },
+        {
+          "step": 11,
+          "text": "Stay at the inn in the hideout"
+        },
+        {
+          "step": 12,
+          "text": "Go to the weapons factory"
+        },
+        {
+          "step": 13,
+          "text": "Go deeper into the factory"
+        },
+        {
+          "step": 14,
+          "text": "Go to the rebel hideout"
+        },
+        {
+          "step": 15,
+          "text": "Go to Jake's room"
+        },
+        {
+          "step": 16,
+          "text": "Sneak into Zoldaad Castle"
+        },
+        {
+          "step": 17,
+          "text": "Rescue Shera from the dungeon"
+        },
+        {
+          "step": 18,
+          "text": "Go to the throne room"
+        },
+        {
+          "step": 19,
+          "text": "Ascend to the top of the castle"
+        },
+        {
+          "step": 20,
+          "text": "Defeat Lazarov on the Enterprise"
+        }
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-walkthrough/"
+    },
+    {
+      "id": "ch_05_scars_of_time",
+      "chapterNumber": 5,
+      "title": "Chapter 5: Scars of Time",
+      "region": "Mysidia",
+      "recommendedLevel": "34-39 (Final Boss Tellus is Lv. 39, 135,000 HP)",
+      "firstObjective": "Board the airship outside the imperial capital",
+      "pointOfNoReturn": null,
+      "storyBosses": [
+        "Phantom Train True Form",
+        "Iron Giant",
+        "Typhon",
+        "Byblos",
+        "Dark Fina",
+        "Tellus (Lv. 39, 135,000 HP)"
+      ],
+      "optionalFights": [
+        "Slagworm",
+        "Salome (Cave Master - Lv. 39)",
+        "Jotunn (Cave Master - Lv. 42)",
+        "Shiva (Esper Trial - Lv. 35)",
+        "Sephiroth (Optional Boss - Lv. 45 at Whirlpool)",
+        "Bahamut (Esper Trial - Lv. 50)"
+      ],
+      "notableCollectibles": [
+        "10 Visions available: Camille, Wilhelm, Clive, Aileen (also unlocks Aileen's Forge in Ch. 6), Bartz, Vaan, Lightning, Victoria, Amelia, Sephiroth",
+        "13 Side Quests unlock in Chapter 5 (most of any chapter)"
+      ],
+      "objectives": [
+        {
+          "step": 1,
+          "text": "Board the airship outside the imperial capital"
+        },
+        {
+          "step": 2,
+          "text": "Enter the airship's interior"
+        },
+        {
+          "step": 3,
+          "text": "Find Mysidia"
+        },
+        {
+          "step": 4,
+          "text": "Go to Sakura's house"
+        },
+        {
+          "step": 5,
+          "text": "Go to the potion factory"
+        },
+        {
+          "step": 6,
+          "text": "Go to the village of Sunioo"
+        },
+        {
+          "step": 7,
+          "text": "Go to the Nameless Ruins"
+        },
+        {
+          "step": 8,
+          "text": "Go deeper into the Nameless Ruins"
+        },
+        {
+          "step": 9,
+          "text": "Defeat the minions in the Nameless Ruins (0/2)"
+        },
+        {
+          "step": 10,
+          "text": "Defeat the minions in the Nameless Ruins (1/2)"
+        },
+        {
+          "step": 11,
+          "text": "Go deeper into the Nameless Ruins"
+        },
+        {
+          "step": 12,
+          "text": "Go to the Arcane Library"
+        },
+        {
+          "step": 13,
+          "text": "Defeat the monster tomes in the Arcane Library (0/5 to 4/5)"
+        },
+        {
+          "step": 18,
+          "text": "Find the tome in the forbidden text wing"
+        },
+        {
+          "step": 19,
+          "text": "Go to the Hessian base / Go to Umbra's camp / Talk to the Veritas / Talk to Umbra (Tower of Mysidia & Fina's Psyche sequence)"
+        },
+        {
+          "step": 34,
+          "text": "Investigate the gate"
+        },
+        {
+          "step": 35,
+          "text": "Go to the battlefield"
+        },
+        {
+          "step": 36,
+          "text": "Fight Tellus"
+        },
+        {
+          "step": 37,
+          "text": "Go to Sakura's house"
+        },
+        {
+          "step": 38,
+          "text": "Go to Gronoa"
+        }
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-walkthrough/"
+    },
+    {
+      "id": "ch_06_tranquility",
+      "chapterNumber": 6,
+      "title": "Chapter 6: Tranquility",
+      "region": "Gronoa",
+      "recommendedLevel": "40-43 (Final Boss Gelidus is Lv. 43, weak to Fire)",
+      "firstObjective": "Search the continent of Gronoa",
+      "pointOfNoReturn": null,
+      "storyBosses": [
+        "Arch Gargoyle",
+        "Lux",
+        "Elfdrit",
+        "Lasswell",
+        "Gelidus (Lv. 43)"
+      ],
+      "optionalFights": [
+        "Dark Fang",
+        "Humbaba (Cave Master - Lv. 55)",
+        "Catacumba (Cave Master - Lv. 54)",
+        "Necromonarch (Cave Master - Lv. 55)",
+        "Odin's Shadow (Esper Trial - Lv. 45)"
+      ],
+      "notableCollectibles": [
+        "Aileen's Forge opens on the Airship Deck if 'Forger of Wills' was completed",
+        "Magi-tenna found in Gaberada unlocks the Mysidia Radar on the Airship",
+        "Adamantite in chest on Gronoa's Rugged Mountain Path"
+      ],
+      "objectives": [
+        {
+          "step": 1,
+          "text": "Search the continent of Gronoa"
+        },
+        {
+          "step": 2,
+          "text": "Find information on the miasma"
+        },
+        {
+          "step": 3,
+          "text": "Get the white jade stone"
+        },
+        {
+          "step": 4,
+          "text": "Show the village elder the white jade stone"
+        },
+        {
+          "step": 5,
+          "text": "Go pick up Fina"
+        },
+        {
+          "step": 6,
+          "text": "Use Holy to cross the miasma bog"
+        },
+        {
+          "step": 7,
+          "text": "Go to Gronoa Shrine"
+        },
+        {
+          "step": 8,
+          "text": "Go deeper into Gronoa Shrine"
+        },
+        {
+          "step": 9,
+          "text": "Go to Sanctissimus Shrine"
+        },
+        {
+          "step": 10,
+          "text": "Go deeper into Sanctissimus Shrine"
+        },
+        {
+          "step": 11,
+          "text": "Fight Lasswell"
+        },
+        {
+          "step": 12,
+          "text": "Go to Gelidus"
+        },
+        {
+          "step": 13,
+          "text": "Search for clues to the Dark Crystal"
+        }
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-walkthrough/"
+    },
+    {
+      "id": "ch_07_reckoning",
+      "chapterNumber": 7,
+      "title": "Chapter 7: Reckoning",
+      "region": "Kingdom of Pharm and Crystal Tower",
+      "recommendedLevel": "46-50 (Final Boss Umbra is Lv. 50)",
+      "firstObjective": "Go to the town of Sian",
+      "pointOfNoReturn": null,
+      "storyBosses": [
+        "Umbra (Lv. 50)",
+        "Aether",
+        "Alluvion",
+        "Ignis",
+        "Tellus"
+      ],
+      "optionalFights": [
+        "Wild Maneuverer",
+        "Tartarosaurus (Cave Master - Lv. 50)",
+        "Malboro Menace (Cave Master - Lv. 60)",
+        "Titanoraidos (Cave Master - Lv. 60)"
+      ],
+      "notableCollectibles": [
+        "Final 2 Visions via Sub Quests: Charlotte ('The Shield of the Weak' in Grandport) and Ayaka ('The Admirable Apprentice' in Town of Sian)"
+      ],
+      "objectives": [
+        {
+          "step": 1,
+          "text": "Go to the town of Sian"
+        },
+        {
+          "step": 2,
+          "text": "Gather information in Sian"
+        },
+        {
+          "step": 3,
+          "text": "Go to Mt. Reizan"
+        },
+        {
+          "step": 4,
+          "text": "Go deeper into Mt. Reizan"
+        },
+        {
+          "step": 5,
+          "text": "Go after Alluvion"
+        },
+        {
+          "step": 6,
+          "text": "Go to the Wandering Lands"
+        },
+        {
+          "step": 7,
+          "text": "Go deeper into the Wandering Lands"
+        },
+        {
+          "step": 8,
+          "text": "Go to the Crystal Tower"
+        }
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-walkthrough/"
+    },
+    {
+      "id": "ch_08_beyond_hope",
+      "chapterNumber": 8,
+      "title": "Chapter 8: Beyond Hope",
+      "region": "Crystal Tower",
+      "recommendedLevel": "55",
+      "firstObjective": "Go to the top of the tower",
+      "pointOfNoReturn": "Final point of no return before the last teleport at the top of the Crystal Tower (Cleared save data lets you resume just before the final area)",
+      "storyBosses": [
+        "Behemoth",
+        "Sol",
+        "The Keen of Fury (Chaotic Darkness)"
+      ],
+      "optionalFights": [],
+      "objectives": [
+        {
+          "step": 1,
+          "text": "Go to the top of the tower"
+        }
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-walkthrough/"
+    }
+  ],
+  "playableHeroes": [
+    {
+      "id": "hero_rain",
+      "name": "Rain",
+      "baseRole": "Sentinel",
+      "weaponType": "Greatsword",
+      "damageType": "Physical",
+      "innateElements": [
+        "Fire"
+      ],
+      "recommendedVisions": [
+        "Tronn",
+        "Aileen",
+        "Camille",
+        "Victoria"
+      ],
+      "sameDamageTypeVisions": [
+        "Aileen",
+        "Cloud",
+        "Firion"
+      ],
+      "characterSubQuest": "A New Leaf (Chapter 7 - Rewards Knight's Medallion + Permanent Attribute Bonus)",
+      "aileenForgeWeapon": {
+        "name": "Save the Vermillion",
+        "physAtk": 179,
+        "magAtk": 93,
+        "effect": "Reduces damage taken from physical and magic attacks by 20%."
+      },
+      "legendaryArm": {
+        "name": "Ragnarok / Ragnarok+",
+        "physAtk": "191 / 202",
+        "guardian": "Alpherg"
+      },
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-best-vision-for-each-character/"
+    },
+    {
+      "id": "hero_lasswell",
+      "name": "Lasswell",
+      "baseRole": "Breaker",
+      "weaponType": "Katana",
+      "damageType": "Physical",
+      "innateElements": [
+        "Ice"
+      ],
+      "recommendedVisions": [
+        "Amelia",
+        "Camille",
+        "Victoria",
+        "Cecil"
+      ],
+      "sameDamageTypeVisions": [
+        "Cecil",
+        "Squall",
+        "Zidane"
+      ],
+      "characterSubQuest": "The Twin Titleholders (Chapter 6 - Rewards Crest of Criticality + Permanent Attribute Bonus)",
+      "aileenForgeWeapon": {
+        "name": "Shisui",
+        "physAtk": 197,
+        "magAtk": 148,
+        "effect": "Grants Hone Senses and Placidity for 5 turns at the start of battle."
+      },
+      "legendaryArm": {
+        "name": "Sasuke's Blade / Sasuke's Blade+",
+        "physAtk": "209 / 220",
+        "guardian": "Aldhafera"
+      },
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-best-vision-for-each-character/"
+    },
+    {
+      "id": "hero_fina",
+      "name": "Fina",
+      "baseRole": "Medic",
+      "weaponType": "Bow",
+      "damageType": "Magic",
+      "innateElements": [
+        "Light"
+      ],
+      "recommendedVisions": [
+        "Tronn",
+        "Aileen",
+        "Amelia",
+        "Camille"
+      ],
+      "sameDamageTypeVisions": [
+        "Tronn",
+        "Amelia",
+        "Camille"
+      ],
+      "characterSubQuest": "Shimmering Reflections (Chapter 6 - Rewards Blessed Pendant + Permanent Attribute Bonus)",
+      "aileenForgeWeapon": {
+        "name": "Elysium",
+        "physAtk": 114,
+        "magAtk": 162,
+        "sanctity": 141,
+        "effect": "Increases potency of healing magic by 20%."
+      },
+      "legendaryArm": {
+        "name": "Artemis Bow / Artemis Bow+",
+        "magAtk": "174 / 184",
+        "guardian": "Dabih"
+      },
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-best-vision-for-each-character/"
+    },
+    {
+      "id": "hero_lid",
+      "name": "Lid",
+      "baseRole": "Commando",
+      "weaponType": "Hammer",
+      "damageType": "Physical",
+      "innateElements": [
+        "Earth"
+      ],
+      "recommendedVisions": [
+        "Tronn",
+        "Amelia",
+        "Cecil",
+        "Clive"
+      ],
+      "sameDamageTypeVisions": [
+        "Cecil",
+        "Clive",
+        "Cloud"
+      ],
+      "characterSubQuest": "Beyond the Blue (Chapter 5 - Rewards Chocobo Nitro + Permanent Attribute Bonus)",
+      "aileenForgeWeapon": {
+        "name": "Mechabo Hammer SUPER",
+        "physAtk": 142,
+        "magAtk": 133,
+        "effect": "Grants Overclock and allows the wielder to act first at the start of battle."
+      },
+      "legendaryArm": {
+        "name": "Thor's Hammer / Thor's Hammer+",
+        "physAtk": "151 / 159",
+        "guardian": "Tegmine"
+      },
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-best-vision-for-each-character/"
+    },
+    {
+      "id": "hero_jake",
+      "name": "Jake",
+      "baseRole": "Commando",
+      "weaponType": "Gun",
+      "damageType": "Physical",
+      "innateElements": [
+        "Wind",
+        "Lightning"
+      ],
+      "recommendedVisions": [
+        "Tronn",
+        "Aileen",
+        "Amelia",
+        "Cecil"
+      ],
+      "sameDamageTypeVisions": [
+        "Aileen",
+        "Cecil",
+        "Clive"
+      ],
+      "characterSubQuest": "Token Legacy (After Chapter 4 - Rewards Trick Coin + Permanent Attribute Bonus)",
+      "aileenForgeWeapon": {
+        "name": "Caelum Renatum",
+        "physAtk": 222,
+        "magAtk": 88,
+        "effect": "Raises luck level by 8 at the start of battle. Restores 2% of max MP upon dealing damage with a standard attack."
+      },
+      "legendaryArm": {
+        "name": "Arcturus / Arcturus+",
+        "physAtk": "237 / 251",
+        "guardian": "Alhena"
+      },
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-best-vision-for-each-character/"
+    },
+    {
+      "id": "hero_nichol",
+      "name": "Nichol",
+      "baseRole": "Synergist (Unique role - no Vision has Synergist)",
+      "weaponType": "Grimoire",
+      "damageType": "Magic",
+      "innateElements": [
+        "Water"
+      ],
+      "recommendedVisions": [
+        "Tronn",
+        "Aileen",
+        "Amelia",
+        "Victoria"
+      ],
+      "sameDamageTypeVisions": [
+        "Tronn",
+        "Amelia",
+        "Victoria"
+      ],
+      "characterSubQuest": "Nichol's Duty (After Chapter 4 - Rewards Enchanted Ring, Attribute Bonus, and unlocks Leviathan Esper trial)",
+      "aileenForgeWeapon": {
+        "name": "Codex Providentiae",
+        "physAtk": 106,
+        "magAtk": 181,
+        "sanctity": 169,
+        "effect": "Grants Tactic: Fluid Warfare for 3 turns and allows the wielder to act first at the start of battle."
+      },
+      "legendaryArm": {
+        "name": "Last Resort / Last Resort+",
+        "magAtk": "193 / 204",
+        "guardian": "Elnath"
+      },
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-best-vision-for-each-character/"
+    },
+    {
+      "id": "hero_sakura",
+      "name": "Sakura",
+      "baseRole": "Commando",
+      "weaponType": "Rod",
+      "damageType": "Magic",
+      "innateElements": [
+        "Lightning",
+        "Light",
+        "Dark"
+      ],
+      "recommendedVisions": [
+        "Tronn",
+        "Aileen",
+        "Amelia",
+        "Clive"
+      ],
+      "sameDamageTypeVisions": [
+        "Tronn",
+        "Amelia",
+        "Y'shtola"
+      ],
+      "characterSubQuest": "Mysidia, Ever Blooming (After Chapter 5 - Rewards Amulet of Magic Absorption + Permanent Attribute Bonus)",
+      "aileenForgeWeapon": {
+        "name": "Roselia",
+        "physAtk": 154,
+        "magAtk": 204,
+        "effect": "Grants Concentrate for 3 turns and Sage's Eye for 4 turns at the start of battle."
+      },
+      "legendaryArm": {
+        "name": "Wizard's Rod / Wizard's Rod+",
+        "magAtk": "216 / 227",
+        "guardian": "Sheratan"
+      },
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-best-vision-for-each-character/"
+    },
+    {
+      "id": "hero_dark_fina",
+      "name": "Dark Fina",
+      "baseRole": "Saboteur",
+      "weaponType": "Whip",
+      "damageType": "Magic",
+      "innateElements": [
+        "Dark"
+      ],
+      "recommendedVisions": [
+        "Tronn",
+        "Aileen",
+        "Camille",
+        "Cecil"
+      ],
+      "sameDamageTypeVisions": [
+        "Tronn",
+        "Camille",
+        "Y'shtola"
+      ],
+      "characterSubQuest": "Last Respite (After Chapter 5 - Rewards Moonlight Ring + Permanent Attribute Bonus)",
+      "aileenForgeWeapon": {
+        "name": "Abyss",
+        "physAtk": 130,
+        "magAtk": 178,
+        "effect": "Increases the duration of debuffs and status ailments inflicted by the wielder by 2 turns."
+      },
+      "legendaryArm": {
+        "name": "Fire Birch / Fire Birch+",
+        "magAtk": "207 / 217",
+        "guardian": "Nunki"
+      },
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-best-vision-for-each-character/"
+    }
+  ],
+  "visions": [
+    {
+      "id": "vis_leah",
+      "name": "Leah",
+      "origin": "Final Fantasy Brave Exvius",
+      "role": "Medic",
+      "resonanceSkill": "Healing Wind",
+      "damageType": "MAG",
+      "chapter": 1,
+      "method": "Story",
+      "unlockRoute": "Automatic story unlock in Chapter 1 at Rain's house in Mitra.",
+      "sourceUrl": "https://ffresonance.wiki/database/visions/"
+    },
+    {
+      "id": "vis_tronn",
+      "name": "Tronn",
+      "origin": "Final Fantasy Brave Exvius",
+      "role": "Breaker",
+      "resonanceSkill": "Hibernal Fury (Ice, Stagger 29)",
+      "damageType": "MAG",
+      "chapter": 1,
+      "method": "Story",
+      "unlockRoute": "Automatic story unlock in Chapter 1 alongside Leah.",
+      "sourceUrl": "https://ffresonance.wiki/database/visions/"
+    },
+    {
+      "id": "vis_warrior_of_light",
+      "name": "Warrior of Light",
+      "origin": "Final Fantasy",
+      "role": "Sentinel",
+      "resonanceSkill": "Crystal Braver",
+      "damageType": "PHY",
+      "chapter": 1,
+      "method": "Sanctum",
+      "unlockRoute": "Sanctum of Light directly north of the Village of Kol.",
+      "sourceUrl": "https://ffresonance.wiki/database/visions/"
+    },
+    {
+      "id": "vis_cloud",
+      "name": "Cloud",
+      "origin": "Final Fantasy VII",
+      "role": "Breaker",
+      "resonanceSkill": "Ascension",
+      "damageType": "PHY",
+      "chapter": 1,
+      "method": "Sanctum",
+      "unlockRoute": "Requires Chocobo from Kol. Cross bridge south of Kol, head west past Grandport Harbor across the desert and loop around its north side to the beach.",
+      "sourceUrl": "https://ffrbuilds.com/how-to-get-visions/"
+    },
+    {
+      "id": "vis_terra",
+      "name": "Terra",
+      "origin": "Final Fantasy VI",
+      "role": "Commando",
+      "resonanceSkill": "Riot Blade - Lotus",
+      "damageType": "MAG",
+      "chapter": 1,
+      "method": "Sanctum",
+      "unlockRoute": "After visiting the Town of Felicitas, head due south to the tip of the peninsula.",
+      "sourceUrl": "https://ffrbuilds.com/how-to-get-visions/"
+    },
+    {
+      "id": "vis_zidane",
+      "name": "Zidane",
+      "origin": "Final Fantasy IX",
+      "role": "Saboteur",
+      "resonanceSkill": "Climax Edge",
+      "damageType": "PHY",
+      "chapter": 2,
+      "method": "Sanctum",
+      "unlockRoute": "After crossing Mt. Thunderclap toward the Dwarven Forge, cross two bridges and look west of the signpost. Grants Steal.",
+      "sourceUrl": "https://ffrbuilds.com/how-to-get-visions/"
+    },
+    {
+      "id": "vis_noctis",
+      "name": "Noctis",
+      "origin": "Final Fantasy XV",
+      "role": "Commando",
+      "resonanceSkill": "Armiger Unleashed",
+      "damageType": "PHY",
+      "chapter": 2,
+      "method": "Sanctum",
+      "unlockRoute": "West of the entrance to Mobliz Shipyard (left fork before the shipyard). Grants Barrage (never misses Cactuars).",
+      "sourceUrl": "https://ffrbuilds.com/how-to-get-visions/"
+    },
+    {
+      "id": "vis_onion_knight",
+      "name": "Onion Knight",
+      "origin": "Final Fantasy III",
+      "role": "Commando",
+      "resonanceSkill": "Job Change Attack",
+      "damageType": "MAG",
+      "chapter": 2,
+      "method": "Sanctum",
+      "unlockRoute": "When the Wind Shrine opens, skip Mobliz Shipyard, head east to the shrine, and follow the southern road under the bridges through the mountain pass.",
+      "sourceUrl": "https://ffrbuilds.com/how-to-get-visions/"
+    },
+    {
+      "id": "vis_firion",
+      "name": "Firion",
+      "origin": "Final Fantasy II",
+      "role": "Breaker",
+      "resonanceSkill": "Weaponsmaster",
+      "damageType": "PHY",
+      "chapter": 3,
+      "method": "Sanctum",
+      "unlockRoute": "At the start of Chapter 3 on the shore, head northwest immediately.",
+      "sourceUrl": "https://ffrbuilds.com/how-to-get-visions/"
+    },
+    {
+      "id": "vis_tidus",
+      "name": "Tidus",
+      "origin": "Final Fantasy X",
+      "role": "Breaker",
+      "resonanceSkill": "Blitz Ace",
+      "damageType": "PHY",
+      "chapter": 3,
+      "method": "Sanctum",
+      "unlockRoute": "From Olderion on the world map, travel far west over the bridges past a waterfall and the Secluded Dwelling.",
+      "sourceUrl": "https://ffrbuilds.com/how-to-get-visions/"
+    },
+    {
+      "id": "vis_squall",
+      "name": "Squall",
+      "origin": "Final Fantasy VIII",
+      "role": "Commando",
+      "resonanceSkill": "Blasting Zone",
+      "damageType": "PHY",
+      "chapter": 3,
+      "method": "Sanctum",
+      "unlockRoute": "From Olderion head east at ground level (avoid the slope to Water Cave), then follow the path north.",
+      "sourceUrl": "https://ffrbuilds.com/how-to-get-visions/"
+    },
+    {
+      "id": "vis_shantotto",
+      "name": "Shantotto",
+      "origin": "Final Fantasy XI",
+      "role": "Commando",
+      "resonanceSkill": "Colossal Shantotto II",
+      "damageType": "MAG",
+      "chapter": 4,
+      "method": "Sanctum",
+      "unlockRoute": "Start the train-station mission in Chapter 4 and disembark; walk east past Mozul Station.",
+      "sourceUrl": "https://ffrbuilds.com/how-to-get-visions/"
+    },
+    {
+      "id": "vis_cecil",
+      "name": "Cecil",
+      "origin": "Final Fantasy IV",
+      "role": "Sentinel",
+      "resonanceSkill": "Knight of Duality (Light)",
+      "damageType": "PHY",
+      "chapter": 4,
+      "method": "Sanctum",
+      "unlockRoute": "After reaching Zoldaad, head east on the world map near the Rebel Hideout marker.",
+      "sourceUrl": "https://ffrbuilds.com/how-to-get-visions/"
+    },
+    {
+      "id": "vis_yshtola",
+      "name": "Y'shtola",
+      "origin": "Final Fantasy XIV",
+      "role": "Breaker",
+      "resonanceSkill": "Aetherial Wind",
+      "damageType": "MAG",
+      "chapter": 4,
+      "method": "Sanctum",
+      "unlockRoute": "Located directly south of the Zoldaad Weapons Factory.",
+      "sourceUrl": "https://ffrbuilds.com/how-to-get-visions/"
+    },
+    {
+      "id": "vis_camille",
+      "name": "Camille",
+      "origin": "Final Fantasy Brave Exvius",
+      "role": "Commando",
+      "resonanceSkill": "Alluvial Undertow (Water, Stagger 26)",
+      "damageType": "MAG",
+      "chapter": 5,
+      "method": "Sub Quest",
+      "unlockRoute": "Complete Sub Quest 'The Call from Beyond' started in Zoldaad Imperial Residences at the start of Chapter 5.",
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-side-quests-guide/"
+    },
+    {
+      "id": "vis_wilhelm",
+      "name": "Wilhelm",
+      "origin": "Final Fantasy Brave Exvius",
+      "role": "Sentinel",
+      "resonanceSkill": "Towering Rampart",
+      "damageType": "PHY",
+      "chapter": 5,
+      "method": "Sub Quest",
+      "unlockRoute": "After completing 'The Call from Beyond', complete Sub Quest 'O General! My General!' from Ozetta in Zoldaad Castle Plaza.",
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-side-quests-guide/"
+    },
+    {
+      "id": "vis_clive",
+      "name": "Clive",
+      "origin": "Final Fantasy XVI",
+      "role": "Breaker",
+      "resonanceSkill": "True Ifrit-Primed (Fire)",
+      "damageType": "PHY",
+      "chapter": 5,
+      "method": "Sanctum",
+      "unlockRoute": "Requires Airship in Chapter 5. Fly to the isolated patch of land in Grandshelt (southwest of Mitra).",
+      "sourceUrl": "https://ffrbuilds.com/how-to-get-visions/"
+    },
+    {
+      "id": "vis_aileen",
+      "name": "Aileen",
+      "origin": "Final Fantasy Brave Exvius",
+      "role": "Breaker",
+      "resonanceSkill": "Fatal Impact (Earth, Stagger 26)",
+      "damageType": "PHY",
+      "chapter": 5,
+      "method": "Sub Quest",
+      "unlockRoute": "Complete Sub Quest 'Forger of Wills' in Dilmagia (answers: 'It's a tool of harm', 'A way to rebel against troubling times', 'Craft weapons that suit each of us well'). Also unlocks Aileen's Forge.",
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-aileen-forge-adamantite/"
+    },
+    {
+      "id": "vis_bartz",
+      "name": "Bartz",
+      "origin": "Final Fantasy V",
+      "role": "Breaker",
+      "resonanceSkill": "Spellblade-Dual Wield-Rapid Fire",
+      "damageType": "PHY",
+      "chapter": 5,
+      "method": "Sanctum",
+      "unlockRoute": "Sanctum located directly north of Mysidia.",
+      "sourceUrl": "https://ffrbuilds.com/how-to-get-visions/"
+    },
+    {
+      "id": "vis_vaan",
+      "name": "Vaan",
+      "origin": "Final Fantasy XII",
+      "role": "Breaker",
+      "resonanceSkill": "True Pyroclasm",
+      "damageType": "PHY",
+      "chapter": 5,
+      "method": "Sanctum",
+      "unlockRoute": "From Mysidia, head east past the Tower of Mysidia and Victoria's Shrine.",
+      "sourceUrl": "https://ffrbuilds.com/how-to-get-visions/"
+    },
+    {
+      "id": "vis_lightning",
+      "name": "Lightning",
+      "origin": "Final Fantasy XIII",
+      "role": "Breaker",
+      "resonanceSkill": "Zantetsuken",
+      "damageType": "PHY",
+      "chapter": 5,
+      "method": "Sanctum",
+      "unlockRoute": "South of Mysidia past the Nameless Ruins, take the eastern path.",
+      "sourceUrl": "https://ffrbuilds.com/how-to-get-visions/"
+    },
+    {
+      "id": "vis_victoria",
+      "name": "Victoria",
+      "origin": "Final Fantasy Brave Exvius",
+      "role": "Commando",
+      "resonanceSkill": "Agony (Dark, Stagger 20)",
+      "damageType": "MAG",
+      "chapter": 5,
+      "method": "Sub Quest",
+      "unlockRoute": "After delivering potions to Sunioo, complete Sub Quest 'Victoria Revivified' in Mysidia.",
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-side-quests-guide/"
+    },
+    {
+      "id": "vis_amelia",
+      "name": "Amelia",
+      "origin": "Final Fantasy Brave Exvius",
+      "role": "Saboteur",
+      "resonanceSkill": "Errand's End (Fire, Stagger 26)",
+      "damageType": "MAG",
+      "chapter": 5,
+      "method": "Sub Quest",
+      "unlockRoute": "First complete Jake's Sub Quest 'Token Legacy', then complete 'Errand's End' from the Zoldaad bulletin board.",
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-side-quests-guide/"
+    },
+    {
+      "id": "vis_sephiroth",
+      "name": "Sephiroth",
+      "origin": "Final Fantasy VII",
+      "role": "Commando",
+      "resonanceSkill": "True Octaslash",
+      "damageType": "PHY",
+      "chapter": 5,
+      "method": "Boss Fight",
+      "unlockRoute": "Fly the airship into the whirlpool between Grandshelt and Grandport Harbor and defeat Sephiroth (Level 45 optional boss).",
+      "sourceUrl": "https://ffrbuilds.com/how-to-get-visions/"
+    },
+    {
+      "id": "vis_charlotte",
+      "name": "Charlotte",
+      "origin": "Final Fantasy Brave Exvius",
+      "role": "Sentinel",
+      "resonanceSkill": "Resolute Bastion",
+      "damageType": "PHY",
+      "chapter": 7,
+      "method": "Sub Quest",
+      "unlockRoute": "Complete Sub Quest 'The Shield of the Weak' starting at Grandport Harbor in Chapter 7.",
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-side-quests-guide/"
+    },
+    {
+      "id": "vis_ayaka",
+      "name": "Ayaka",
+      "origin": "Final Fantasy Brave Exvius",
+      "role": "Medic",
+      "resonanceSkill": "Angelic Embrace",
+      "damageType": "NONE",
+      "chapter": 7,
+      "method": "Sub Quest",
+      "unlockRoute": "After meeting Ayaka in the main story at the Town of Sian, complete Sub Quest 'The Admirable Apprentice'.",
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-side-quests-guide/"
+    }
+  ],
+  "espers": [
+    {
+      "id": "esp_siren",
+      "name": "Siren",
+      "element": "Wind",
+      "location": "Siren's Tower (Kingdom of Grandshelt)",
+      "unlockMethod": "Main Story (Chapter 1)",
+      "signatureMove": "Lunatic Voice (Wind Magic AoE + Sleep/Silence)",
+      "trialLevel": 11,
+      "hpNormal": 20000,
+      "staggerGauge": 550,
+      "weaknesses": [
+        "Lightning"
+      ],
+      "resistances": [
+        "Water"
+      ],
+      "sourceUrl": "https://ffresonance.wiki/database/espers/"
+    },
+    {
+      "id": "esp_ramuh",
+      "name": "Ramuh",
+      "element": "Lightning",
+      "location": "Dirnado, the Continent of Wind",
+      "unlockMethod": "Side Quest (after a rumor, Chapter 2)",
+      "signatureMove": "Judgment Bolt (Lightning Magic AoE)",
+      "trialLevel": 20,
+      "hpNormal": 24000,
+      "staggerGauge": 600,
+      "weaknesses": [
+        "Earth"
+      ],
+      "resistances": [
+        "Immune: Lightning"
+      ],
+      "sourceUrl": "https://ffresonance.wiki/database/espers/"
+    },
+    {
+      "id": "esp_leviathan",
+      "name": "Leviathan",
+      "element": "Water",
+      "location": "Olderion Federation (Lake Dorr)",
+      "unlockMethod": "Side Quest: Nichol's Duty (After Chapter 4)",
+      "signatureMove": "Tsunami (Water Magic AoE)",
+      "trialLevel": 23,
+      "hpNormal": 40000,
+      "staggerGauge": 1000,
+      "weaknesses": [
+        "Lightning"
+      ],
+      "resistances": [
+        "Water"
+      ],
+      "sourceUrl": "https://ffresonance.wiki/database/espers/"
+    },
+    {
+      "id": "esp_carbuncle",
+      "name": "Carbuncle",
+      "element": "None",
+      "location": "Olderion Federation",
+      "unlockMethod": "Side Quest (after a rumor, Chapter 3)",
+      "signatureMove": "Ruby Light (Casts Reflect on all allies)",
+      "trialLevel": null,
+      "hpNormal": null,
+      "staggerGauge": null,
+      "weaknesses": [],
+      "resistances": [
+        "No trial fight required"
+      ],
+      "sourceUrl": "https://ffresonance.wiki/database/espers/"
+    },
+    {
+      "id": "esp_titan",
+      "name": "Titan",
+      "element": "Earth",
+      "location": "Kingdom of Grandshelt (East of Siren's Tower; requires Gaia Hammer from Colosseum Fledgling Battle 5)",
+      "unlockMethod": "Side Quest (after a rumor, Chapter 4)",
+      "signatureMove": "Gaia's Wrath (Earth Magic AoE)",
+      "trialLevel": 30,
+      "hpNormal": 65000,
+      "staggerGauge": 1500,
+      "weaknesses": [
+        "Wind"
+      ],
+      "resistances": [
+        "Immune: Earth"
+      ],
+      "sourceUrl": "https://ffresonance.wiki/database/espers/"
+    },
+    {
+      "id": "esp_ifrit",
+      "name": "Ifrit",
+      "element": "Fire",
+      "location": "Zoldaad Empire Territory",
+      "unlockMethod": "Side Quest (after a rumor, Chapter 4)",
+      "signatureMove": "Hellfire (Fire Magic AoE)",
+      "trialLevel": 33,
+      "hpNormal": 96000,
+      "staggerGauge": 1200,
+      "weaknesses": [
+        "Water"
+      ],
+      "resistances": [
+        "Immune: Fire"
+      ],
+      "sourceUrl": "https://ffresonance.wiki/database/espers/"
+    },
+    {
+      "id": "esp_shiva",
+      "name": "Shiva",
+      "element": "Ice",
+      "location": "Mysidia, the Uncharted Land",
+      "unlockMethod": "Side Quest (after a rumor, Chapter 5)",
+      "signatureMove": "Diamond Dust (Ice Magic AoE)",
+      "trialLevel": 35,
+      "hpNormal": 115000,
+      "staggerGauge": 1400,
+      "weaknesses": [
+        "Fire"
+      ],
+      "resistances": [
+        "Water",
+        "Absorbs: Ice"
+      ],
+      "sourceUrl": "https://ffresonance.wiki/database/espers/"
+    },
+    {
+      "id": "esp_odin",
+      "name": "Odin",
+      "element": "None",
+      "location": "Gronoa, the Shuttered Land (Nameless Ruins)",
+      "unlockMethod": "Side Quest: Iron Splitter (Chapter 6)",
+      "signatureMove": "Zantetsuken (Physical AoE + Instant Death chance)",
+      "trialLevel": 45,
+      "hpNormal": 175000,
+      "staggerGauge": 1500,
+      "weaknesses": [
+        "Lightning"
+      ],
+      "resistances": [],
+      "sourceUrl": "https://ffresonance.wiki/database/espers/"
+    },
+    {
+      "id": "esp_bahamut",
+      "name": "Bahamut",
+      "element": "None",
+      "location": "Dragon's Maw",
+      "unlockMethod": "Side Quest (after a rumor, Chapter 5+)",
+      "signatureMove": "Megaflare (Non-elemental Magic AoE)",
+      "trialLevel": 50,
+      "hpNormal": 200000,
+      "staggerGauge": 1500,
+      "weaknesses": [],
+      "resistances": [],
+      "sourceUrl": "https://ffresonance.wiki/database/espers/"
+    }
+  ],
+  "sideQuests": [
+    {
+      "id": "sq_01",
+      "chapter": 1,
+      "title": "Rear Support, Ahoy!",
+      "requester": "Zile",
+      "location": "Grandport Harbor",
+      "prerequisites": null,
+      "rewards": [
+        "Magicite Shard",
+        "500 Gil"
+      ],
+      "objectives": [
+        "Talk to the Grandport chocobo coachman",
+        "Defeat four human traps near Grandport",
+        "Hand the human trap extracts to the Grandport chocobo coachman"
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-side-quests-guide/"
+    },
+    {
+      "id": "sq_02",
+      "chapter": 1,
+      "title": "Dream of an Idealist",
+      "requester": "Soldier",
+      "location": "Grandshelt, the Royal Capital",
+      "prerequisites": null,
+      "rewards": [
+        "Flamberge",
+        "500 Gil"
+      ],
+      "objectives": [
+        "Talk to Scott in the village of Kol",
+        "Search the Earth Shrine for something that will convince Scott",
+        "Talk to Scott in the village of Kol",
+        "Harvest Dew of Reprieve from a monster in the east of the desert",
+        "Deliver the Dew of Reprieve to Scott in the village of Kol"
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-side-quests-guide/"
+    },
+    {
+      "id": "sq_03",
+      "chapter": 1,
+      "title": "Secrets Unearthed",
+      "requester": "Chloe",
+      "location": "Town of Felicitas",
+      "prerequisites": null,
+      "rewards": [
+        "Magicite Shard",
+        "Monk's Prayer Beads"
+      ],
+      "objectives": [
+        "Collect Kolobos core samples (0/3 to 2/3)",
+        "Get the core samples to Chloe in Felicitas"
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-side-quests-guide/"
+    },
+    {
+      "id": "sq_04",
+      "chapter": 1,
+      "title": "The Weight of Mercy",
+      "requester": "Lasswell",
+      "location": "Grandport Harbor",
+      "prerequisites": null,
+      "rewards": [
+        "Iwakirimaru",
+        "500 Gil"
+      ],
+      "objectives": [
+        "Speak with Rolan in Felicitas",
+        "Gather info from people in Grandport",
+        "Search for the thief at the Kolobos Ruins",
+        "Speak with Rolan in Felicitas"
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-side-quests-guide/"
+    },
+    {
+      "id": "sq_05",
+      "chapter": 2,
+      "title": "Arise, Mechabo!",
+      "requester": "Verun",
+      "location": "Dwarven Forge",
+      "prerequisites": null,
+      "rewards": [
+        "Magicite Shard",
+        "Repaired Mechabo"
+      ],
+      "objectives": [
+        "Defeat two Ipoohs near the Dwarven Forge",
+        "Deliver the Mechabo repair parts to Verun at the Dwarven Forge"
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-side-quests-guide/"
+    },
+    {
+      "id": "sq_06",
+      "chapter": 2,
+      "title": "Lyrical Riddles",
+      "requester": "Roy",
+      "location": "Dwarven Forge",
+      "prerequisites": null,
+      "rewards": [
+        "Magicite Shard",
+        "800 Gil"
+      ],
+      "objectives": [
+        "Find the Cid portraits at the Mobliz Shipyard entrance",
+        "Have the old man at the Dilmagia shipyard sing you a tune",
+        "Speak with Roy at the Dwarven Forge"
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-side-quests-guide/"
+    },
+    {
+      "id": "sq_07",
+      "chapter": 2,
+      "title": "Elven Maven",
+      "requester": "Silvia",
+      "location": "Dilmagia, the Machinopolis",
+      "prerequisites": null,
+      "rewards": [
+        "Magicite Shard",
+        "800 Gil"
+      ],
+      "objectives": [
+        "Search the Mt. Thunderclap flora for evidence of elves",
+        "Deliver the evidence left by elves to Silvia in Dilmagia",
+        "Speak with Silvia at the Dwarven Forge"
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-side-quests-guide/"
+    },
+    {
+      "id": "sq_08",
+      "chapter": 2,
+      "title": "Mechabo Evolved",
+      "requester": "Verun",
+      "location": "Dwarven Forge",
+      "prerequisites": "Arise, Mechabo!",
+      "rewards": [
+        "Magicite"
+      ],
+      "objectives": [
+        "Defeat three dhorme chimerae northeast of Grandport & deliver parts",
+        "Defeat three medusae southwest of Dwarven Forge & deliver parts",
+        "Defeat three destroyers in western Olderion Federation & deliver parts",
+        "Defeat three sandworms in southern Zoldaad & deliver parts"
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-side-quests-guide/"
+    },
+    {
+      "id": "sq_09",
+      "chapter": 3,
+      "title": "The Tide from the Sky",
+      "requester": "Soldier",
+      "location": "Town of Amore",
+      "prerequisites": null,
+      "rewards": [
+        "Magicite Shard",
+        "1,500 Gil"
+      ],
+      "objectives": [
+        "Talk to the pirate on the northeastern pier of Amore",
+        "Chase the pirates to the northeastern pier",
+        "Gather information on Mercedes in Olderion",
+        "Look for Mercedes at Waterfall Way"
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-side-quests-guide/"
+    },
+    {
+      "id": "sq_10",
+      "chapter": 3,
+      "title": "Medicinal Mission",
+      "requester": "Ilias",
+      "location": "Olderion, the Aquapolis",
+      "prerequisites": null,
+      "rewards": [
+        "Magicite Shard",
+        "1,500 Gil"
+      ],
+      "objectives": [
+        "Consult with the apothecary",
+        "Gather the medicinal ingredients (spawns Lv. 28 Blood Dragon south of Olderion)",
+        "Find Ilias by the Olderion inn and request medicine",
+        "Take the medicine to Sarah"
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-side-quests-guide/"
+    },
+    {
+      "id": "sq_11",
+      "chapter": 4,
+      "title": "Nichol's Duty",
+      "requester": "Nichol",
+      "location": "Olderion, the Aquapolis",
+      "prerequisites": "Complete Chapter 4",
+      "rewards": [
+        "Enchanted Ring",
+        "Attribute Bonus: Nichol",
+        "Leviathan Esper Unlock"
+      ],
+      "objectives": [
+        "Speak with the fishermen in Olderion",
+        "Seek out the God of Water at Lake Dorr",
+        "Investigate the southeast of the Olderion Federation",
+        "Track the merchant and the sahagin to the Cave of Waters",
+        "Seek out the God of Water at Lake Dorr"
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-side-quests-guide/"
+    },
+    {
+      "id": "sq_12",
+      "chapter": 4,
+      "title": "Token Legacy",
+      "requester": "Jake",
+      "location": "Inn (Outside Airship)",
+      "prerequisites": "Complete Chapter 4",
+      "rewards": [
+        "Trick Coin",
+        "Attribute Bonus: Jake"
+      ],
+      "objectives": [
+        "Speak with the Info Dealer in the slums of Zoldaad",
+        "Ride the Timber Tracks from Capital Station",
+        "Investigate Kellis Station",
+        "Talk to Shera in Zoldaad Castle"
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-side-quests-guide/"
+    },
+    {
+      "id": "sq_13",
+      "chapter": 4,
+      "title": "Errand's End",
+      "requester": "Bulletin Board",
+      "location": "Zoldaad, the Imperial Capital",
+      "prerequisites": "Token Legacy",
+      "rewards": [
+        "Vision: Amelia",
+        "Magicite"
+      ],
+      "objectives": [
+        "Show Amelia's wanted poster to Shera",
+        "Look for Amelia in Olderion",
+        "Look for Amelia at Waterfall Way",
+        "See if the wanted posters are gone in Zoldaad"
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-side-quests-guide/"
+    },
+    {
+      "id": "sq_14",
+      "chapter": 5,
+      "title": "Beyond the Blue",
+      "requester": "Lid",
+      "location": "Shipyard (Dilmagia)",
+      "prerequisites": null,
+      "rewards": [
+        "Chocobo Nitro",
+        "Attribute Bonus: Lid"
+      ],
+      "objectives": [
+        "Find the blueprints at Mobliz Shipyard",
+        "Go to the shipyard in Dilmagia",
+        "Talk to Evan on the airship",
+        "Speak with the chairman at the shipyard in Dilmagia"
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-side-quests-guide/"
+    },
+    {
+      "id": "sq_15",
+      "chapter": 5,
+      "title": "Last Respite",
+      "requester": "Dark Fina",
+      "location": "Grandshelt, the Royal Capital",
+      "prerequisites": "Complete Chapter 5",
+      "rewards": [
+        "Moonlight Ring",
+        "Attribute Bonus: Dark Fina"
+      ],
+      "objectives": [
+        "Complete Dark Fina's 5 personal story steps starting in Grandshelt"
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-side-quests-guide/"
+    },
+    {
+      "id": "sq_16",
+      "chapter": 5,
+      "title": "Mysidia, Ever Blooming",
+      "requester": "Sakura",
+      "location": "Mysidia, the Magiapolis",
+      "prerequisites": "Complete Chapter 5",
+      "rewards": [
+        "Amulet of Magic Absorption",
+        "Attribute Bonus: Sakura"
+      ],
+      "objectives": [
+        "Head for the forbidden text wing in Arcane Library",
+        "Make your way to the top of the Tower of Mysidia",
+        "Head for the desert island northwest of Grandshelt",
+        "Head for the grave in Mysidia"
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-side-quests-guide/"
+    },
+    {
+      "id": "sq_17",
+      "chapter": 5,
+      "title": "Forger of Wills",
+      "requester": "Gossiping Girl",
+      "location": "Dilmagia, the Machinopolis",
+      "prerequisites": null,
+      "rewards": [
+        "Vision: Aileen",
+        "Magicite",
+        "Unlocks Aileen's Forge in Chapter 6"
+      ],
+      "objectives": [
+        "Search for the woman who led the rebellion in Dilmagia Shipyard",
+        "Gather information on Aileen in Dilmagia, Rebel Hideout, and Village of Kol (3/3)",
+        "Find Aileen at the shipyard in Dilmagia and answer her questions"
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-side-quests-guide/"
+    },
+    {
+      "id": "sq_18",
+      "chapter": 5,
+      "title": "Victoria Revivified",
+      "requester": "Victoria",
+      "location": "Mysidia, the Magiapolis",
+      "prerequisites": "Deliver potions to Sunioo",
+      "rewards": [
+        "Vision: Victoria",
+        "Magicite"
+      ],
+      "objectives": [
+        "Go to the potion factory",
+        "Head to Victoria's shrine near the Tower of Mysidia",
+        "Defeat the black lizards on the island near Mysidia",
+        "Disperse the vanishing powder from a high place in Mysidia"
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-side-quests-guide/"
+    },
+    {
+      "id": "sq_19",
+      "chapter": 5,
+      "title": "The Call from Beyond",
+      "requester": "NPC",
+      "location": "Imperial Residences (Zoldaad)",
+      "prerequisites": null,
+      "rewards": [
+        "Vision: Camille",
+        "Magicite"
+      ],
+      "objectives": [
+        "Investigate the abandoned station in the south of Zoldaad",
+        "Speak with passengers in Phantom Train cars",
+        "Find the person giving faulty testimony and defeat the monster"
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-side-quests-guide/"
+    },
+    {
+      "id": "sq_20",
+      "chapter": 5,
+      "title": "Mechabo Unleashed",
+      "requester": "Verun",
+      "location": "Dwarven Forge",
+      "prerequisites": "Mechabo Evolved",
+      "rewards": [
+        "Magicite Cryst"
+      ],
+      "objectives": [
+        "Speak with Verun on the airship",
+        "Defeat three mahadevas on the western island of Mysidia & deliver parts",
+        "Defeat three malbodooms in western Gronoa & deliver parts"
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-side-quests-guide/"
+    },
+    {
+      "id": "sq_21",
+      "chapter": 5,
+      "title": "Rogue Rebel",
+      "requester": "Rebel",
+      "location": "Rebel Hideout",
+      "prerequisites": null,
+      "rewards": [
+        "Magicite",
+        "Rose Circlet"
+      ],
+      "objectives": [
+        "Gather information within Zoldaad Slums",
+        "Investigate the manhole",
+        "Examine Zoldaad manholes for code parts (0/5 to 4/5)",
+        "Find the robed merchant",
+        "Deliver the letter to Simon at Rebel Hideout"
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-side-quests-guide/"
+    },
+    {
+      "id": "sq_22",
+      "chapter": 5,
+      "title": "O General! My General!",
+      "requester": "Ozetta",
+      "location": "Zoldaad Castle Plaza",
+      "prerequisites": "The Call from Beyond",
+      "rewards": [
+        "Vision: Wilhelm",
+        "Magicite Cryst"
+      ],
+      "objectives": [
+        "Find the camps within the Zoldaad Empire (2/2)",
+        "Speak with Ozetta once more in Zoldaad Castle Plaza",
+        "Head for the weapons factory in southeast Zoldaad",
+        "Speak with the reporter at the Zoldaad inn"
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-side-quests-guide/"
+    },
+    {
+      "id": "sq_23",
+      "chapter": 5,
+      "title": "Mog Tag",
+      "requester": "Moogle",
+      "location": "Mysidia, the Magiapolis",
+      "prerequisites": null,
+      "rewards": [
+        "Mist X-Potion"
+      ],
+      "objectives": [
+        "Beat the moogles at tag in Mysidia"
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-side-quests-guide/"
+    },
+    {
+      "id": "sq_24",
+      "chapter": 5,
+      "title": "More Mog Tag",
+      "requester": "Moogle",
+      "location": "Mysidia, the Magiapolis",
+      "prerequisites": "Mog Tag",
+      "rewards": [
+        "Magicite"
+      ],
+      "objectives": [
+        "Beat the moogles at tag in Mysidia"
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-side-quests-guide/"
+    },
+    {
+      "id": "sq_25",
+      "chapter": 5,
+      "title": "Even More Mog Tag",
+      "requester": "Moogle",
+      "location": "Mysidia, the Magiapolis",
+      "prerequisites": "More Mog Tag",
+      "rewards": [
+        "Magicite Cryst"
+      ],
+      "objectives": [
+        "Beat the moogles at tag in Mysidia"
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-side-quests-guide/"
+    },
+    {
+      "id": "sq_26",
+      "chapter": 5,
+      "title": "Battle at the Big Bridge",
+      "requester": "Crew",
+      "location": "Airship Deck",
+      "prerequisites": null,
+      "rewards": [
+        "Gilgamesh Battle Reward"
+      ],
+      "objectives": [
+        "Visit the bridges in each region (4/4)",
+        "Head for the Kolobos Bridge",
+        "Battle Gilgamesh on the Kolobos Bridge"
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-side-quests-guide/"
+    },
+    {
+      "id": "sq_27",
+      "chapter": 6,
+      "title": "The Twin Titleholders",
+      "requester": "Lasswell",
+      "location": "Gaberada, the Undertown",
+      "prerequisites": "Complete Chapter 6",
+      "rewards": [
+        "Crest of Criticality",
+        "Attribute Bonus: Lasswell"
+      ],
+      "objectives": [
+        "Make your way to the witnesses in Gaberada",
+        "Defeat the adamandelion on the island near Olderion",
+        "Speak with the village elder in Gaberada",
+        "Head to the Lost Cave north of Grandshelt Castle"
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-side-quests-guide/"
+    },
+    {
+      "id": "sq_28",
+      "chapter": 6,
+      "title": "Shimmering Reflections",
+      "requester": "Fina",
+      "location": "Mysidia, the Magiapolis",
+      "prerequisites": null,
+      "rewards": [
+        "Blessed Pendant",
+        "Attribute Bonus: Fina"
+      ],
+      "objectives": [
+        "Go to the Earth Crystal Chamber in Earth Shrine",
+        "Speak with Siren atop Siren's Tower",
+        "Go to Olderion, the aquapolis",
+        "Go to Lake Dorr"
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-side-quests-guide/"
+    },
+    {
+      "id": "sq_29",
+      "chapter": 6,
+      "title": "\"Reunion\"",
+      "requester": "Villager",
+      "location": "Gaberada, the Undertown",
+      "prerequisites": "Elven Maven and Lyrical Riddles",
+      "rewards": [
+        "Magicite",
+        "2,500 Gil"
+      ],
+      "objectives": [
+        "Search Sunioo for evidence of elves",
+        "Go to the tree on Mt. Thunderclap bearing evidence of elves",
+        "Learn more about elves at the Dwarven Forge"
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-side-quests-guide/"
+    },
+    {
+      "id": "sq_30",
+      "chapter": 6,
+      "title": "Iron Splitter",
+      "requester": "Bladerain Stele",
+      "location": "Bladerain Stele (Gronoa)",
+      "prerequisites": null,
+      "rewards": [
+        "Esper: Odin"
+      ],
+      "objectives": [
+        "Search for the broken sword on the western precipice of Gronoa",
+        "Return the sword to its owner at the Nameless Ruins and defeat Odin's Shadow"
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-side-quests-guide/"
+    },
+    {
+      "id": "sq_31",
+      "chapter": 7,
+      "title": "A New Leaf",
+      "requester": "Rain",
+      "location": "Airship Deck",
+      "prerequisites": null,
+      "rewards": [
+        "Knight's Medallion",
+        "Attribute Bonus: Rain"
+      ],
+      "objectives": [
+        "Complete Rain's 4 personal story objectives"
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-side-quests-guide/"
+    },
+    {
+      "id": "sq_32",
+      "chapter": 7,
+      "title": "The Shield of the Weak",
+      "requester": "Charlotte",
+      "location": "Grandport Harbor",
+      "prerequisites": "Reach Chapter 7",
+      "rewards": [
+        "Vision: Charlotte",
+        "Magicite Cryst"
+      ],
+      "objectives": [
+        "Gather information at Grandshelt Castle (3/3)",
+        "Check in on the Kolobos Ruins",
+        "Find 'Mother' at the Cavern of Swords northeast of Siren's Tower",
+        "Go meet Charlotte in Grandshelt"
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-side-quests-guide/"
+    },
+    {
+      "id": "sq_33",
+      "chapter": 7,
+      "title": "The Admirable Apprentice",
+      "requester": "Ayaka",
+      "location": "Town of Sian",
+      "prerequisites": "Meet Ayaka in Chapter 7 main story",
+      "rewards": [
+        "Vision: Ayaka",
+        "Magicite Cryst"
+      ],
+      "objectives": [
+        "Head for the ley line at Waterfall Way in Olderion",
+        "Head for the ley line in the Infernal Hollow of Zoldaad's volcano",
+        "Head for the ley line on Mt. Thunderclap in Dirnado",
+        "Check in on Ayaka in the town of Sian"
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-side-quests-guide/"
+    }
+  ],
+  "caveMasters": [
+    {
+      "id": "cm_01_marauder",
+      "name": "Marauder",
+      "level": 15,
+      "hp": 30000,
+      "staggerGauge": 500,
+      "weaknesses": [
+        "Wind"
+      ],
+      "devastatingAttacks": [
+        "Thwack"
+      ],
+      "location": "Marauder Cave (Grandport)",
+      "rewards": [
+        "Magicite Shard",
+        "Turbo Ether"
+      ],
+      "strategy": "Single-target physical boss; stagger with Wind before Thwack lands.",
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-cave-masters-guide/"
+    },
+    {
+      "id": "cm_02_shoggoth",
+      "name": "Shoggoth",
+      "level": 25,
+      "hp": 45500,
+      "staggerGauge": 800,
+      "weaknesses": [
+        "Earth",
+        "Water"
+      ],
+      "devastatingAttacks": [
+        "Gigavolt"
+      ],
+      "location": "Shoggoth Cave (Dirnado)",
+      "rewards": [
+        "Magicite Shard",
+        "Turbo Ether"
+      ],
+      "strategy": "Immune to physical attacks. Use Earth or Water magic only, and keep Shell up against Lightning magic.",
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-cave-masters-guide/"
+    },
+    {
+      "id": "cm_03_rukh",
+      "name": "Rukh",
+      "level": 26,
+      "hp": 46800,
+      "staggerGauge": 600,
+      "weaknesses": [
+        "Wind"
+      ],
+      "devastatingAttacks": [
+        "Cyclone"
+      ],
+      "location": "Rukh Cave (Olderion)",
+      "rewards": [
+        "Magicite Shard",
+        "X-Ether"
+      ],
+      "strategy": "Immune to Earth. Use Dispel on Mighty Guard/Scatter Feathers and Light Veil to block Petrifying Gaze.",
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-cave-masters-guide/"
+    },
+    {
+      "id": "cm_04_mindflayer",
+      "name": "Mindflayer",
+      "level": 28,
+      "hp": 52000,
+      "staggerGauge": 600,
+      "weaknesses": [
+        "Earth"
+      ],
+      "devastatingAttacks": [
+        "Mind Blast"
+      ],
+      "location": "Mindflayer Cave (Olderion)",
+      "rewards": [
+        "Magicite",
+        "Mist Turbo Ether"
+      ],
+      "strategy": "Defeat the 2 Mind Elementals (Lv. 27, 1,800 HP, Weak: Fire) first so every break on Mindflayer is a Sweeping Stagger.",
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-cave-masters-guide/"
+    },
+    {
+      "id": "cm_05_gogmagog",
+      "name": "Gogmagog",
+      "level": 34,
+      "hp": 78000,
+      "staggerGauge": 700,
+      "weaknesses": [
+        "Wind",
+        "Light"
+      ],
+      "devastatingAttacks": [
+        "Fist of Ferocity"
+      ],
+      "location": "Gogmagog Cave (Zoldaad)",
+      "rewards": [
+        "Magicite",
+        "Mist Turbo Ether"
+      ],
+      "strategy": "Heavy physical bruiser. Keep Protect up and Dispel its +50% Bravery buff.",
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-cave-masters-guide/"
+    },
+    {
+      "id": "cm_06_pyroviper",
+      "name": "Pyroviper",
+      "level": 37,
+      "hp": 89700,
+      "staggerGauge": 700,
+      "weaknesses": [
+        "Water"
+      ],
+      "devastatingAttacks": [
+        "Burn to Ashes"
+      ],
+      "location": "Pyroviper Cave (Zoldaad)",
+      "rewards": [
+        "Magicite",
+        "Mist Turbo Ether"
+      ],
+      "strategy": "Immune to Fire; acts twice per turn. Maintain both Protect and Shell.",
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-cave-masters-guide/"
+    },
+    {
+      "id": "cm_07_salome",
+      "name": "Salome",
+      "level": 39,
+      "hp": 200000,
+      "staggerGauge": 1050,
+      "weaknesses": [
+        "Wind"
+      ],
+      "devastatingAttacks": [
+        "Perforate"
+      ],
+      "location": "Salome Cave (Mysidia)",
+      "rewards": [
+        "Magicite",
+        "Mist X-Ether"
+      ],
+      "strategy": "Halves Earth; acts twice per turn. Cast Fina's Light Veil before Allure to prevent party-wide Charm.",
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-cave-masters-guide/"
+    },
+    {
+      "id": "cm_08_jotunn",
+      "name": "Jotunn",
+      "level": 42,
+      "hp": 240000,
+      "staggerGauge": 1150,
+      "weaknesses": [
+        "Fire",
+        "Dark"
+      ],
+      "devastatingAttacks": [
+        "Revenge Blast"
+      ],
+      "location": "Jotunn Cave (Mysidia)",
+      "rewards": [
+        "Magicite",
+        "Mist X-Ether"
+      ],
+      "strategy": "Immune to Ice. Revenge Blast scales with missing HP—save Stagger break for low HP.",
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-cave-masters-guide/"
+    },
+    {
+      "id": "cm_09_malboro_varietas",
+      "name": "Malboro Varietas",
+      "level": 45,
+      "hp": 270000,
+      "staggerGauge": 1250,
+      "weaknesses": [
+        "Fire"
+      ],
+      "devastatingAttacks": [
+        "Bad Breath"
+      ],
+      "location": "Malboro Varietas Cave (Olderion)",
+      "rewards": [
+        "Magicite",
+        "Mist X-Ether"
+      ],
+      "strategy": "Immune to all status ailments. Use Light Veil before Bad Breath and burst down with Fire.",
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-cave-masters-guide/"
+    },
+    {
+      "id": "cm_10_tartarosaurus",
+      "name": "Tartarosaurus",
+      "level": 50,
+      "hp": 350000,
+      "staggerGauge": 1500,
+      "weaknesses": [
+        "Ice"
+      ],
+      "devastatingAttacks": [
+        "Meteor"
+      ],
+      "location": "Tartarosaurus Cave (Pharm)",
+      "rewards": [
+        "Magicite Cryst",
+        "Elixir"
+      ],
+      "strategy": "Halves Earth. Uses powerful skills more frequently at low HP; save Resonance for the final phase.",
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-cave-masters-guide/"
+    },
+    {
+      "id": "cm_11_catacumba",
+      "name": "Catacumba",
+      "level": 54,
+      "hp": 380000,
+      "staggerGauge": 1650,
+      "weaknesses": [
+        "Fire",
+        "Light"
+      ],
+      "devastatingAttacks": [
+        "Disaster",
+        "Bone Toss"
+      ],
+      "location": "Catacumba Cave (Gronoa)",
+      "rewards": [
+        "Magicite Cryst",
+        "Elixir"
+      ],
+      "strategy": "Bone Toss deals 99% current HP; Disaster inflicts Doom (3-turn countdown). Open with heavy burst to lower its HP quickly.",
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-cave-masters-guide/"
+    },
+    {
+      "id": "cm_12_necromonarch",
+      "name": "Necromonarch",
+      "level": 55,
+      "hp": 444444,
+      "staggerGauge": 1800,
+      "weaknesses": [
+        "Fire",
+        "Light"
+      ],
+      "devastatingAttacks": [
+        "Paralysis Fang"
+      ],
+      "location": "Necromonarch Cave (Gronoa)",
+      "rewards": [
+        "Magicite Cryst",
+        "Elixir"
+      ],
+      "strategy": "Counters magic attacks of its elemental weakness—use physical Fire/Light skills (e.g., Rain/Clive/Cecil) to outpace its 20% HP Rejuvenate.",
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-cave-masters-guide/"
+    },
+    {
+      "id": "cm_13_humbaba",
+      "name": "Humbaba",
+      "level": 55,
+      "hp": 450000,
+      "staggerGauge": 1875,
+      "weaknesses": [
+        "Wind"
+      ],
+      "devastatingAttacks": [
+        "Ruthless Rampage",
+        "Revenge Blast"
+      ],
+      "location": "Humbaba Cave (Gronoa)",
+      "rewards": [
+        "Magicite Cryst",
+        "Elixir"
+      ],
+      "strategy": "Bring two healers and Light Veil for Ruthless Rampage and Rabid Claw (Confuse/Berserk).",
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-cave-masters-guide/"
+    },
+    {
+      "id": "cm_14_malboro_menace",
+      "name": "Malboro Menace",
+      "level": 60,
+      "hp": 700000,
+      "staggerGauge": 2025,
+      "weaknesses": [
+        "Fire"
+      ],
+      "devastatingAttacks": [
+        "Putrid Breath",
+        "Whack and Smack"
+      ],
+      "location": "Malboro Menace Cave (Pharm)",
+      "rewards": [
+        "Magicite Cryst",
+        "Megalixir"
+      ],
+      "strategy": "Counters after a set number of Fire hits, but loses 1 action on the following turn. Keep Light Veil active before Putrid Breath.",
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-cave-masters-guide/"
+    },
+    {
+      "id": "cm_15_titanoraidos",
+      "name": "Titanoraidos",
+      "level": 60,
+      "hp": 800000,
+      "staggerGauge": 2025,
+      "weaknesses": [
+        "Ice"
+      ],
+      "devastatingAttacks": [
+        "Ultima",
+        "Snort"
+      ],
+      "location": "Titanoraidos Cave (Pharm)",
+      "rewards": [
+        "Magicite Cryst",
+        "Megalixir"
+      ],
+      "strategy": "Snort permanently removes a party member from battle—always break the Stagger gauge before Snort triggers.",
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-cave-masters-guide/"
+    }
+  ],
+  "colosseumLeagues": [
+    {
+      "id": "col_fledgling",
+      "name": "Fledgling League",
+      "recommendedLevels": "25-32",
+      "repeatReward": "Hi-Potion",
+      "clearCertificate": "Fledgling's Proof of Victory",
+      "battles": [
+        {
+          "battle": 1,
+          "recLevel": 25,
+          "enemies": "Wyvern (26), Magma Tortoise (26), Coeurl (27)",
+          "firstWinReward": "Magicite Shard"
+        },
+        {
+          "battle": 2,
+          "recLevel": 27,
+          "enemies": "Chimera (28)",
+          "firstWinReward": "Adamantite"
+        },
+        {
+          "battle": 3,
+          "recLevel": 29,
+          "enemies": "Balaur x2 (32), Simurgh (32), Blood Worm (32)",
+          "firstWinReward": "Ancient Greatsword"
+        },
+        {
+          "battle": 4,
+          "recLevel": 31,
+          "enemies": "Ice Lizard (34), Gray Bomb (33), Lieutenant (34)",
+          "firstWinReward": "Magicite Shard"
+        },
+        {
+          "battle": 5,
+          "recLevel": 32,
+          "enemies": "Allosaur (37), Ice Sculpture (37), Ahriman (37)",
+          "firstWinReward": "Gaia Hammer (Unlocks Titan Esper stone)"
+        }
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-colosseum-guide/"
+    },
+    {
+      "id": "col_brawler",
+      "name": "Brawler League",
+      "recommendedLevels": "40-48",
+      "repeatReward": "Turbo Ether",
+      "clearCertificate": "Brawler's Proof of Victory",
+      "battles": [
+        {
+          "battle": 1,
+          "recLevel": 40,
+          "enemies": "Wild Maneuverer (40, Weak: Fire), Dark Fang (40, Weak: Wind)",
+          "firstWinReward": "Magicite"
+        },
+        {
+          "battle": 2,
+          "recLevel": 41,
+          "enemies": "Chaos Dragon (41, Weak: Lightning/Light), Hexadragon (41, Weak: Earth/Light)",
+          "firstWinReward": "Adamantite"
+        },
+        {
+          "battle": 3,
+          "recLevel": 43,
+          "enemies": "Ochu (43, 510,000 HP, Weak: Earth) + Microchu x2 (43, 13,500 HP)",
+          "firstWinReward": "Adamantite"
+        },
+        {
+          "battle": 4,
+          "recLevel": 45,
+          "enemies": "Flan Princess x5 (45 - Absorbs all 8 elements; use non-elemental physical attacks)",
+          "firstWinReward": "Magicite"
+        },
+        {
+          "battle": 5,
+          "recLevel": 48,
+          "enemies": "7 Elementals across 2 waves (Red, Blue, Earth, Aqua -> Dark, White, Green)",
+          "firstWinReward": "Ancient Cuirass"
+        }
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-colosseum-guide/"
+    },
+    {
+      "id": "col_gladiator",
+      "name": "Gladiator League",
+      "recommendedLevels": "55-70",
+      "repeatReward": "X-Potion",
+      "clearCertificate": "Gladiator's Proof of Victory",
+      "battles": [
+        {
+          "battle": 1,
+          "recLevel": 55,
+          "enemies": "Zone Eater (55)",
+          "firstWinReward": "Magicite Cryst"
+        },
+        {
+          "battle": 2,
+          "recLevel": 58,
+          "enemies": "Hidon (58)",
+          "firstWinReward": "Reflect Ring"
+        },
+        {
+          "battle": 3,
+          "recLevel": 62,
+          "enemies": "Donchu (62)",
+          "firstWinReward": "Barrier Ring"
+        },
+        {
+          "battle": 4,
+          "recLevel": 66,
+          "enemies": "Death Machine (66)",
+          "firstWinReward": "Protect Ring"
+        },
+        {
+          "battle": 5,
+          "recLevel": 70,
+          "enemies": "Gargantuan Gigantuar (70)",
+          "firstWinReward": "Magicite Cryst"
+        }
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-colosseum-guide/"
+    },
+    {
+      "id": "col_champion",
+      "name": "Champion League",
+      "recommendedLevels": "75-99",
+      "repeatReward": "X-Ether",
+      "clearCertificate": "Champion's Proof of Victory",
+      "battles": [
+        {
+          "battle": 1,
+          "recLevel": 75,
+          "enemies": "Malboro Queen (75)",
+          "firstWinReward": "Super Ribbon"
+        },
+        {
+          "battle": 2,
+          "recLevel": 80,
+          "enemies": "Holy Dragon (80)",
+          "firstWinReward": "Lorica Sancta"
+        },
+        {
+          "battle": 3,
+          "recLevel": 90,
+          "enemies": "Beast of Ruin (90)",
+          "firstWinReward": "Lorica Apocalyptica"
+        },
+        {
+          "battle": 4,
+          "recLevel": 95,
+          "enemies": "Shinryu (95 - 4,000,000 HP, 6,000 Stagger, Absorbs Water, Resists Light, No Weakness)",
+          "firstWinReward": "Dragon Seal (Prevents random encounters)"
+        },
+        {
+          "battle": 5,
+          "recLevel": 99,
+          "enemies": "Omega (99 - 9,999,999 HP, 15,000 Stagger, Weak: Lightning)",
+          "firstWinReward": "Omega Badge (Significantly reduces MP cost of magic/skills)"
+        }
+      ],
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-colosseum-guide/"
+    }
+  ],
+  "chamberOfArms": [
+    {
+      "id": "coa_01_alpherg",
+      "guardian": "Alpherg",
+      "trialName": "Trial of the Greatsword",
+      "levels": "50 / 75",
+      "reward": "Ragnarok / Ragnarok+",
+      "formsSummary": "Form 1: 200k/980k HP, Weak: Ice/Wind, Constant Reflect, Absorbs Water. Form 2 (3 bodies): 360k/1.05M HP each, Weak: Lightning.",
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-legendary-arms-guardians/"
+    },
+    {
+      "id": "coa_02_aldhafera",
+      "guardian": "Aldhafera",
+      "trialName": "Trial of the Katana",
+      "levels": "50 / 75",
+      "reward": "Sasuke's Blade / Sasuke's Blade+",
+      "formsSummary": "Form 1: 200k/950k HP, Weak: Lightning. Form 2: 240k/1.05M HP, Weak: Wind/Earth (3 actions/turn).",
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-legendary-arms-guardians/"
+    },
+    {
+      "id": "coa_03_dabih",
+      "guardian": "Dabih",
+      "trialName": "Trial of the Bow",
+      "levels": "50 / 75",
+      "reward": "Artemis Bow / Artemis Bow+",
+      "formsSummary": "Fights with Cultist & Warlock adds. Form 1 Dabih: 125k/500k HP (Weak: Ice/Light). Form 2 Dabih: 170k/650k HP (Weak: Ice/Light).",
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-legendary-arms-guardians/"
+    },
+    {
+      "id": "coa_04_tegmine",
+      "guardian": "Tegmine",
+      "trialName": "Trial of the Hammer",
+      "levels": "50 / 75",
+      "reward": "Thor's Hammer / Thor's Hammer+",
+      "formsSummary": "Form 1: 200k/800k HP (Weak: Dark, Absorbs Water/Light). Form 2: 240k/1.2M HP (Weak: Earth). Has 3rd form.",
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-legendary-arms-guardians/"
+    },
+    {
+      "id": "coa_05_elnath",
+      "guardian": "Elnath",
+      "trialName": "Trial of the Tome",
+      "levels": "50 / 75",
+      "reward": "Last Resort / Last Resort+",
+      "formsSummary": "Form 1: 100k/500k HP (Weak: Lightning). Form 2 splits into Body + Right/Left Arms.",
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-legendary-arms-guardians/"
+    },
+    {
+      "id": "coa_06_alhena",
+      "guardian": "Alhena",
+      "trialName": "Trial of the Firearm",
+      "levels": "50 / 75",
+      "reward": "Arcturus / Arcturus+",
+      "formsSummary": "Guardian of the legendary Gun (Lv. 50 base / Lv. 75 awakened).",
+      "sourceUrl": "https://ffresonance.wiki/game/optional-bosses/"
+    },
+    {
+      "id": "coa_07_sheratan",
+      "guardian": "Sheratan",
+      "trialName": "Trial of the Rod",
+      "levels": "50 / 75",
+      "reward": "Wizard's Rod / Wizard's Rod+",
+      "formsSummary": "Guardian of the legendary Rod (Lv. 50 base / Lv. 75 awakened).",
+      "sourceUrl": "https://ffresonance.wiki/game/optional-bosses/"
+    },
+    {
+      "id": "coa_08_nunki",
+      "guardian": "Nunki",
+      "trialName": "Trial of the Whip",
+      "levels": "50 / 75",
+      "reward": "Fire Birch / Fire Birch+",
+      "formsSummary": "Guardian of the legendary Whip (Lv. 50 base / Lv. 75 awakened).",
+      "sourceUrl": "https://ffresonance.wiki/game/optional-bosses/"
+    },
+    {
+      "id": "coa_09_sadalsuud",
+      "guardian": "Sadalsuud",
+      "trialName": "Trial of the Cuirass",
+      "levels": "50 / 75",
+      "reward": "Tatenashi Armor / Tatenashi Armor+",
+      "formsSummary": "Guardian of the legendary Heavy Armor (Lv. 50 base / Lv. 75 awakened).",
+      "sourceUrl": "https://ffresonance.wiki/game/optional-bosses/"
+    },
+    {
+      "id": "coa_10_vindemiatrix",
+      "guardian": "Vindemiatrix",
+      "trialName": "Trial of the Garment",
+      "levels": "50 / 75",
+      "reward": "Mirage Vest / Mirage Vest+",
+      "formsSummary": "Guardian of the legendary Garment (Lv. 50 base / Lv. 75 awakened).",
+      "sourceUrl": "https://ffresonance.wiki/game/optional-bosses/"
+    },
+    {
+      "id": "coa_11_shaula",
+      "guardian": "Shaula",
+      "trialName": "Trial of the Cloak",
+      "levels": "50 / 75",
+      "reward": "Lordly Robes / Lordly Robes+",
+      "formsSummary": "Guardian of the legendary Cloak (Lv. 50 base / Lv. 75 awakened).",
+      "sourceUrl": "https://ffresonance.wiki/game/optional-bosses/"
+    },
+    {
+      "id": "coa_12_brachium",
+      "guardian": "Brachium",
+      "trialName": "Trial of the Accessory",
+      "levels": "50 / 75",
+      "reward": "Gold Hairpin (Halves MP cost when awakened at Lv. 75)",
+      "formsSummary": "Guardian of the legendary Accessory (Lv. 50 base / Lv. 75 awakened).",
+      "sourceUrl": "https://ffresonance.wiki/game/optional-bosses/"
+    }
+  ],
+  "adamantiteLocations": [
+    {
+      "id": "adam_01",
+      "source": "Colosseum: Fledgling Battle 2 (First Win)",
+      "requirement": "Recommended Level 27 (Defeat Chimera)",
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-aileen-forge-adamantite/"
+    },
+    {
+      "id": "adam_02",
+      "source": "Colosseum: Brawler Battle 2 (First Win)",
+      "requirement": "Recommended Level 41 (Defeat Chaos Dragon & Hexadragon)",
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-aileen-forge-adamantite/"
+    },
+    {
+      "id": "adam_03",
+      "source": "Colosseum: Brawler Battle 3 (First Win)",
+      "requirement": "Recommended Level 43 (Defeat Ochu & Microchus)",
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-aileen-forge-adamantite/"
+    },
+    {
+      "id": "adam_04",
+      "source": "Chest: Gronoa Rugged Mountain Path",
+      "requirement": "Reach Gronoa in Chapter 6",
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-aileen-forge-adamantite/"
+    },
+    {
+      "id": "adam_05",
+      "source": "Mysidia Radar: Treasure #1 (Olderion Federation)",
+      "requirement": "Collect Magi-tenna in Gaberada (Chapter 6) and speak to Lid on Airship",
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-aileen-forge-adamantite/"
+    },
+    {
+      "id": "adam_06",
+      "source": "Merchant Ship on Open Sea",
+      "requirement": "Purchase for 35,000 Gil (Available from Chapter 6)",
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-aileen-forge-adamantite/"
+    },
+    {
+      "id": "adam_07",
+      "source": "Oblivion Palace: 3-Star Chamber (Enigmatic Princess)",
+      "requirement": "Trade 80 Tablet Shards",
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-aileen-forge-adamantite/"
+    },
+    {
+      "id": "adam_08",
+      "source": "Oblivion Palace: 4-Star Chamber (Enigmatic Princess)",
+      "requirement": "Trade 89 Tablet Shards",
+      "sourceUrl": "https://ffresonance.wiki/guides/ff-resonance-aileen-forge-adamantite/"
+    }
+  ]
+}

@@ -10,3 +10,8 @@ build/
 .kotlin/
 *.apk
 *.aab
+
+# Pipeline HTTP cache
+scripts/guide_pipeline/.cache/
+__pycache__/
+*.pyc
