@@ -11,7 +11,46 @@ version below; `versionCode` increments by one for every release.
 ## [Unreleased]
 
 ### Added
-- Nothing yet.
+- **Real guide dataset** at `app/src/main/assets/ff_resonance_guide.json`
+  (954 KiB), replacing the invented `SeedData.kt` sample content. Built from a
+  hand-verified seed plus the sub-tables we are permitted to crawl: 9 chapters
+  with their objectives, 8 heroes, 26 Visions with learnable skills / Mastery
+  Ranks / AP costs, 9 Espers, 33 side quests, 15 Cave Masters, 20 Colosseum
+  battles, 12 Chamber of Arms trials, 8 Adamantite sources, 454 equipment
+  rows, 88 items, 596 bestiary entries, 798 skills and the 25 Oblivion Palace
+  reward tiers. Every trackable record carries an immutable snake_case `id`.
+- **`scripts/guide_pipeline/`** — the pipeline that builds and checks the
+  dataset: a source registry that records each site's robots.txt position, a
+  fetcher that refuses any host the registry does not clear, pydantic
+  validation, deterministic id helpers, a validator covering UTF-8 / schema /
+  id uniqueness / foreign keys / counts, and a generator that emits the app's
+  Kotlin models from the same schema.
+- **`data/model/GuideModels.kt`** — 27 generated `@Serializable` data classes
+  mirroring the dataset, plus `GuideDataSource` to load and cache it off the
+  main thread.
+
+### Known gaps in the dataset
+Recorded in the file itself under `meta.coverage.gaps`, so they are visible to
+the app and to anyone reading the JSON:
+- **The 99 Tablet Shard locations are absent.** Every source that publishes
+  them prohibits automated retrieval — IGN's terms bar scraping and dataset
+  creation outright — so the table ships empty rather than invented. It needs
+  either licensing or manual entry.
+- `dialogueChoices` is empty: no permitted source publishes the stat-bonus
+  conversation options.
+- Equipment counts disagree between sources (82/36/51 per IGN versus
+  250/108/96 per atma.gg). The dataset carries the figures it could verify and
+  records both.
+
+### Not done, deliberately
+- **No artwork is bundled.** `assetsManifest` records official art by URL with
+  its licence status and `bundled: false`. Press and promotional material is
+  licensed for editorial coverage, not for redistribution inside an
+  application, and the Wikipedia cover art is non-free media. See
+  `scripts/guide_pipeline/README.md`.
+- The Room schema still uses integer primary keys, so the app does not yet
+  read the new dataset into its database. Wiring it up means moving the
+  content tables to the dataset's string ids (schema version 2).
 
 ## [0.1.0] - 2026-10-24
 

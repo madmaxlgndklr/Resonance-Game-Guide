@@ -134,21 +134,61 @@ Room (DAOs)  ──►  GuideRepository  ──►  ViewModel (StateFlow)  ─�
 
 ## Guide content
 
-Content lives in
+The real dataset ships at **`app/src/main/assets/ff_resonance_guide.json`**
+(954 KiB) and is built by [`scripts/guide_pipeline/`](scripts/guide_pipeline/),
+which also generates the app's Kotlin models. Load it with `GuideDataSource`.
+
+| Table | Rows |
+| --- | --- |
+| Chapters (with objectives) | 9 |
+| Heroes | 8 |
+| Visions (with skills, Mastery Ranks, AP costs) | 26 |
+| Espers | 9 |
+| Side quests | 33 |
+| Cave Masters | 15 |
+| Colosseum battles | 20 |
+| Chamber of Arms trials | 12 |
+| Adamantite sources | 8 |
+| Equipment | 454 |
+| Items | 88 |
+| Bestiary | 596 |
+| Skills | 798 |
+| Oblivion Palace reward tiers | 25 |
+| **Tablet Shard locations** | **0 of 99 — see below** |
+
+Every trackable record has an immutable snake_case `id`, so checklist state
+keyed by it survives dataset updates.
+
+### Known gaps
+
+The dataset records its own shortfalls in `meta.coverage.gaps`, and
+`validate_json.py` fails the build on a shortfall that is *not* recorded — so
+it cannot be quietly incomplete. The notable one:
+
+> **The 99 Tablet Shard locations are not included.** Every source that
+> publishes the full list prohibits automated retrieval; IGN's terms bar
+> scraping and dataset creation outright. They were left out rather than
+> invented, and need licensing or manual entry.
+
+### Rebuilding the dataset
+
+```bash
+cd scripts/guide_pipeline
+python3 -m pip install -r requirements.txt
+python3 build_guide.py --seed seed/ff_resonance_android_guide_data.json --details
+python3 validate_json.py
+python3 gen_kotlin.py        # after any schema.py change
+```
+
+`scripts/guide_pipeline/README.md` documents which sources are crawled and
+which refuse automated access, and the fetcher enforces that list.
+
+### Legacy placeholder content
+
 [`data/local/SeedData.kt`](app/src/main/java/com/madmaxlgndklr/resonanceguide/data/local/SeedData.kt)
-and is written into Room on first launch.
-
-> ⚠️ **The bundled content is invented placeholder data** that exists only to
-> exercise the schema and screens. Replace it with verified guide data before
-> any release.
-
-To update content:
-
-1. Edit the lists in `SeedData.kt`, keeping IDs stable so existing progress
-   still matches.
-2. Increment `SeedData.VERSION`.
-3. On the next launch, installed copies rewrite their content tables. The
-   `progress` table is left untouched, so users keep their check-offs.
+still holds the original invented sample rows that seed Room on first launch.
+Moving the database over to the real dataset means migrating the content tables
+to its string ids (schema version 2) — see the roadmap.
 
 ### Database migrations
 
@@ -227,9 +267,13 @@ git push origin v0.1.0
 
 ## Roadmap
 
-- [ ] Replace placeholder content with verified guide data
-- [ ] Move guide content to a JSON asset so it can be edited without Kotlin
-- [ ] Add map and sprite art
+- [x] Replace placeholder content with verified guide data
+- [x] Move guide content to a JSON asset so it can be edited without Kotlin
+- [ ] Migrate the Room content tables to the dataset's string ids (schema v2)
+      and seed from the asset instead of `SeedData.kt`
+- [ ] Surface the new tables (equipment, bestiary, skills, shard rewards) in the UI
+- [ ] Fill the 99 Tablet Shard locations from a licensed or manual source
+- [ ] Original or licensed artwork (nothing is bundled today)
 - [ ] Reset-progress action (already supported by the repository layer)
 - [ ] Instrumented tests for the database and progress persistence
 - [ ] GitHub Actions workflow to build on every push
