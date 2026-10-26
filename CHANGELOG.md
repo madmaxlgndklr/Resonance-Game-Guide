@@ -11,6 +11,20 @@ version below; `versionCode` increments by one for every release.
 ## [Unreleased]
 
 ### Added
+- **CI workflow** (`.github/workflows/ci.yml`) on every push to `main` and
+  every pull request, in three jobs:
+  - **Build** — `assembleDebug`, `testDebugUnitTest` and `lintDebug`, with the
+    lint report parsed so any error is annotated on the PR. Uploads the APK and
+    the test and lint reports as artifacts.
+  - **Dataset** — runs `validate_json.py`, and regenerates `GuideModels.kt` to
+    fail if it has drifted from `schema.py`. That drift is what caused the
+    decode failure fixed in this release, so it is now a build error. CI never
+    crawls: both checks work offline against the committed dataset.
+  - **Instrumented** — boots an API 35 emulator and runs
+    `connectedDebugAndroidTest`, which is the only place `MigrationTest` and
+    `GuideSeederTest` execute.
+- `lint { abortOnError = true }` in `app/build.gradle.kts`, making explicit
+  that a lint error fails the build while advisory warnings do not.
 - **Real guide dataset** at `app/src/main/assets/ff_resonance_guide.json`
   (954 KiB), replacing the invented `SeedData.kt` sample content. Built from a
   hand-verified seed plus the sub-tables we are permitted to crawl: 9 chapters
@@ -89,10 +103,9 @@ the app and to anyone reading the JSON:
   licensed for editorial coverage, not for redistribution inside an
   application, and the Wikipedia cover art is non-free media. See
   `scripts/guide_pipeline/README.md`.
-- The instrumented tests have not been run: this environment has no emulator,
-  so the migration and seeding are verified only by compilation, Room's
-  compile-time query and schema validation, and the JVM dataset test. Run
-  `./gradlew :app:connectedDebugAndroidTest` on a device before trusting them.
+- The instrumented tests had not been run as of the schema v2 commit; the CI
+  workflow added here is what runs them. Check the first green run of the
+  `Instrumented tests (emulator)` job before trusting the migration.
 
 ## [0.1.0] - 2026-10-24
 

@@ -48,6 +48,25 @@ Across all tabs:
 - **Immersive media viewer** — maps and sprites open full-screen with the system
   bars hidden, with pinch and double-tap zoom.
 
+## Continuous integration
+
+[`.github/workflows/ci.yml`](.github/workflows/ci.yml) runs on every push to
+`main` and every pull request:
+
+| Job | What it does |
+| --- | --- |
+| **Build, unit tests and lint** | `assembleDebug`, `testDebugUnitTest`, `lintDebug`; fails on any lint error and annotates it on the PR. Uploads the APK and reports. |
+| **Dataset validation** | `validate_json.py`, plus a check that `GuideModels.kt` still matches `schema.py`. Never crawls — both run offline against the committed data. |
+| **Instrumented tests (emulator)** | API 35 emulator running `connectedDebugAndroidTest`: the Room migration and seeding tests. |
+
+Reproduce the first two jobs locally with:
+
+```bash
+./gradlew :app:assembleDebug :app:testDebugUnitTest :app:lintDebug
+python3 scripts/guide_pipeline/validate_json.py
+python3 scripts/guide_pipeline/gen_kotlin.py && git diff --exit-code
+```
+
 ## Requirements
 
 | | |
@@ -280,8 +299,7 @@ git push origin v0.1.0
       and seed from the asset instead of `SeedData.kt`
 - [x] Surface the new tables (equipment, bestiary, vision skills, shards) in the UI
 - [x] Fill the 99 Tablet Shard locations from a permitted source
-- [ ] Run the instrumented migration and seeding tests on a device
+- [x] Run the instrumented migration and seeding tests (CI emulator job)
 - [ ] Reset-progress action (already supported by the repository layer)
 - [ ] Original or licensed artwork (nothing is bundled today)
-- [ ] GitHub Actions workflow to build on every push
 - [ ] Baseline profile for faster startup and smoother first-run scrolling
