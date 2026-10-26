@@ -11,6 +11,20 @@ version below; `versionCode` increments by one for every release.
 ## [Unreleased]
 
 ### Added
+- **CI workflow** (`.github/workflows/ci.yml`) on every push to `main` and
+  every pull request, in three jobs:
+  - **Build** — `assembleDebug`, `testDebugUnitTest` and `lintDebug`, with the
+    lint report parsed so any error is annotated on the PR. Uploads the APK and
+    the test and lint reports as artifacts.
+  - **Dataset** — runs `validate_json.py`, and regenerates `GuideModels.kt` to
+    fail if it has drifted from `schema.py`. That drift is what caused the
+    decode failure fixed in this release, so it is now a build error. CI never
+    crawls: both checks work offline against the committed dataset.
+  - **Instrumented** — boots an API 35 emulator and runs
+    `connectedDebugAndroidTest`, which is the only place `MigrationTest` and
+    `GuideSeederTest` execute.
+- `lint { abortOnError = true }` in `app/build.gradle.kts`, making explicit
+  that a lint error fails the build while advisory warnings do not.
 - **Real guide dataset** at `app/src/main/assets/ff_resonance_guide.json`
   (954 KiB), replacing the invented `SeedData.kt` sample content. Built from a
   hand-verified seed plus the sub-tables we are permitted to crawl: 9 chapters
@@ -45,6 +59,27 @@ the app and to anyone reading the JSON:
 - Equipment counts disagree between sources (82/36/51 per IGN versus
   250/108/96 per atma.gg). The dataset carries the figures it could verify and
   records both.
+
+### Fixed
+- **`MIGRATION_1_2` left the database with no tables.** It dropped the version
+  1 tables but never created the version 2 ones, and Room creates tables only
+  when a database is first created, never on an upgrade path. Any user
+  upgrading from a version 1 install would have ended up with an empty
+  database and a failed schema validation. The migration now recreates the
+  version 2 schema from `GuideSchemaV2`, which holds the `createSql` of every
+  entity and index in the exported `2.json` verbatim. Caught by the new CI
+  emulator job on its first run — the migration had been merged unverified.
+- `GuideSchemaV2Test` (JVM) compares that DDL against the exported schema, so
+  drift is a build failure rather than a crash on a user's upgrade.
+- **`MigrationTest` never ran the migration.** It called
+  `runMigrationsAndValidate` without passing `MIGRATION_1_2` in;
+  `MigrationTestHelper` does not read the database's own migration list, so
+  Room reported that a migration from 1 to 2 was required but not found and
+  the test failed before reaching any of the schema work. The migration is now
+  `internal` and handed to the helper explicitly.
+- The emulator job now prints each instrumented test's failure message on a
+  red run. `--stacktrace` had filled the log with Gradle internals and buried
+  the actual assertion, which cost a diagnosis round.
 
 ### Changed
 - **Room schema version 2: string primary keys.** Every content table is now
@@ -89,10 +124,9 @@ the app and to anyone reading the JSON:
   licensed for editorial coverage, not for redistribution inside an
   application, and the Wikipedia cover art is non-free media. See
   `scripts/guide_pipeline/README.md`.
-- The instrumented tests have not been run: this environment has no emulator,
-  so the migration and seeding are verified only by compilation, Room's
-  compile-time query and schema validation, and the JVM dataset test. Run
-  `./gradlew :app:connectedDebugAndroidTest` on a device before trusting them.
+- The instrumented tests had not been run as of the schema v2 commit; the CI
+  workflow added here is what runs them. Check the first green run of the
+  `Instrumented tests (emulator)` job before trusting the migration.
 
 ## [0.1.0] - 2026-10-24
 

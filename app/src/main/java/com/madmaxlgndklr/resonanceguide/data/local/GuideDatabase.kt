@@ -42,18 +42,33 @@ abstract class GuideDatabase : RoomDatabase() {
          * An integer id from version 1 cannot be mapped onto a string id --
          * `5` told us nothing about which record it was, only its position in
          * a hand-written list that no longer exists -- so this migration drops
-         * the old tables, `progress` included, and lets the seeder repopulate
-         * from the asset. Version 1 was never released, so the only state lost
-         * is from pre-release test installs.
+         * the version 1 tables, `progress` included, and recreates the version
+         * 2 schema empty for the seeder to repopulate from the asset. Version
+         * 1 was never released, so the only state lost is from pre-release
+         * test installs.
+         *
+         * A migration has to leave the schema exactly as Room expects it:
+         * Room creates tables only when a database is first created, never on
+         * an upgrade path, so dropping without recreating would leave the
+         * database with no tables at all. [GuideSchemaV2] therefore holds the
+         * `createSql` of every entity and index in
+         * `app/schemas/...GuideDatabase/2.json`, verbatim, and
+         * `GuideSchemaV2Test` fails if the two drift apart.
          *
          * Future migrations must preserve `progress`. That is the whole point
          * of moving to stable ids, and is why this database has no
          * `fallbackToDestructiveMigration`.
          */
-        private val MIGRATION_1_2 = object : Migration(1, 2) {
+        // internal rather than private so MigrationTest can hand it to
+        // MigrationTestHelper: that helper takes the migrations to apply as an
+        // argument and finds no path without them.
+        internal val MIGRATION_1_2 = object : Migration(1, 2) {
             override fun migrate(db: SupportSQLiteDatabase) {
                 for (table in OLD_TABLES) {
                     db.execSQL("DROP TABLE IF EXISTS `$table`")
+                }
+                for (statement in GuideSchemaV2.STATEMENTS) {
+                    db.execSQL(statement)
                 }
             }
         }

@@ -70,6 +70,17 @@ android {
         buildConfig = true
     }
 
+    lint {
+        // A lint error fails the build, here and in CI. Warnings do not:
+        // several are advisory (dependency updates, plural candidates) and are
+        // tuned in app/lint.xml instead.
+        abortOnError = true
+        warningsAsErrors = false
+        checkDependencies = true
+        xmlReport = true
+        sarifReport = true
+    }
+
     packaging {
         resources.excludes += "/META-INF/{AL2.0,LGPL2.1}"
     }
