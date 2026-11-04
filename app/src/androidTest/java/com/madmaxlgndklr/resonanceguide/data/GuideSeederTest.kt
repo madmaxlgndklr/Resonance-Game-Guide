@@ -69,6 +69,36 @@ class GuideSeederTest {
         // Cave Masters plus Espers.
         assertEquals(24, dao.observeOptionalBosses().first().size)
         assertEquals(25, dao.observeOblivionTiers().first().size)
+
+        // Every chapter gets its route notes, and the areas' shard counts
+        // account for all 99 shards.
+        val summaries = dao.observeChapterSummaries().first()
+        summaries.forEach { summary ->
+            val areas = dao.observeWalkthroughAreas(summary.chapter.id).first()
+            assertTrue(
+                "chapter ${summary.chapter.id} seeded no walkthrough areas",
+                areas.isNotEmpty(),
+            )
+            assertEquals(
+                "chapter ${summary.chapter.id} areas are not ordered 1..n",
+                (1..areas.size).toList(),
+                areas.map { it.area.sortOrder },
+            )
+        }
+        val countedShards = summaries.sumOf { summary ->
+            dao.observeWalkthroughAreas(summary.chapter.id).first()
+                .sumOf { it.area.shardCount }
+        }
+        assertEquals(99, countedShards)
+
+        // The stat-bonus conversations: three options each, in chapters 1 to 6.
+        val dialogue = (0..8).flatMap {
+            dao.observeDialogueChoicesForChapter(it).first()
+        }
+        assertEquals(24, dialogue.size)
+        dialogue.groupBy { it.speaker to it.prompt }.forEach { (key, options) ->
+            assertEquals("conversation $key is not a set of three", 3, options.size)
+        }
     }
 
     @Test

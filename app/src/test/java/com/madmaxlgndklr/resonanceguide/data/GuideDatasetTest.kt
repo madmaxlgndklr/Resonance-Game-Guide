@@ -60,7 +60,9 @@ class GuideDatasetTest {
             guide.chapters.forEach { chapter ->
                 add(chapter.id)
                 chapter.objectives.forEach { add(it.id) }
+                chapter.walkthroughAreas.forEach { add(it.id) }
             }
+            guide.dialogueChoices.forEach { add(it.id) }
             guide.visions.forEach { add(it.id) }
             guide.espers.forEach { add(it.id) }
             guide.sideQuests.forEach { add(it.id) }
@@ -112,6 +114,67 @@ class GuideDatasetTest {
             assertTrue(asset.licenseStatus.isNotBlank())
         }
         assertNotNull(guide.assetsManifest.licenceNote)
+    }
+
+    @Test
+    fun `every chapter has ordered walkthrough areas`() {
+        guide.chapters.forEach { chapter ->
+            assertTrue(
+                "chapter ${chapter.id} has no walkthrough areas",
+                chapter.walkthroughAreas.isNotEmpty(),
+            )
+            assertEquals(
+                "chapter ${chapter.id} areas are not ordered 1..n",
+                (1..chapter.walkthroughAreas.size).toList(),
+                chapter.walkthroughAreas.map { it.order },
+            )
+            chapter.walkthroughAreas.forEach { area ->
+                assertTrue("area ${area.id} has no name", area.name.isNotBlank())
+                assertTrue(
+                    "area ${area.id} says nothing: no summary and no steps",
+                    !area.summary.isNullOrBlank() || area.steps.isNotEmpty(),
+                )
+                assertTrue(
+                    "area ${area.id} has no source",
+                    !area.sourceUrl.isNullOrBlank(),
+                )
+            }
+        }
+    }
+
+    @Test
+    fun `area shard counts add up to the numbered shard list`() {
+        val counted = guide.chapters.sumOf { chapter ->
+            chapter.walkthroughAreas.sumOf { it.shardCount }
+        }
+        assertEquals(guide.collectibles.tabletShards.size, counted)
+    }
+
+    @Test
+    fun `no area text numbers a Tablet Shard`() {
+        // Shard numbering differs between guides and collectibles.tabletShards
+        // follows one of them, so a number in an area's own text would read as
+        // a cross-reference into that list while pointing somewhere else.
+        val numbered = Regex("Tablet Shards?\\s*[#(]?\\s*\\d")
+        val offenders = guide.chapters
+            .flatMap { it.walkthroughAreas }
+            .flatMap { area -> (area.chests + area.steps).map { area.id to it } }
+            .filter { (_, text) -> numbered.containsMatchIn(text) }
+        assertEquals(emptyList<Pair<String, String>>(), offenders)
+    }
+
+    @Test
+    fun `every stat-bonus conversation carries three options with a bonus`() {
+        assertTrue("no dialogue choices shipped", guide.dialogueChoices.isNotEmpty())
+        guide.dialogueChoices.forEach { choice ->
+            assertTrue("dialogue ${choice.id} has no bonus", !choice.bonus.isNullOrBlank())
+            assertTrue("dialogue ${choice.id} has no option text", !choice.choice.isNullOrBlank())
+            assertNotNull("dialogue ${choice.id} has no chapter", choice.chapter)
+        }
+        val byConversation = guide.dialogueChoices.groupBy { it.speaker to it.prompt }
+        byConversation.forEach { (key, options) ->
+            assertEquals("conversation $key does not offer three options", 3, options.size)
+        }
     }
 
     @Test

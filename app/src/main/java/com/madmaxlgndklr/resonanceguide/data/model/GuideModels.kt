@@ -63,6 +63,23 @@ data class Objective(
 )
 
 @Serializable
+data class WalkthroughArea(
+    val sourceUrl: String? = null,
+    val notes: String? = null,
+    val id: String,
+    val order: Int,
+    val name: String,
+    val kind: String? = null,
+    val summary: String? = null,
+    val steps: List<String> = emptyList(),
+    val chests: List<String> = emptyList(),
+    val bosses: List<String> = emptyList(),
+    val shardCount: Int = 0,
+    val sideQuests: List<String> = emptyList(),
+    val notableSteals: List<String> = emptyList(),
+)
+
+@Serializable
 data class Chapter(
     val sourceUrl: String? = null,
     val notes: String? = null,
@@ -77,6 +94,7 @@ data class Chapter(
     val optionalFights: List<String> = emptyList(),
     val notableCollectibles: List<String> = emptyList(),
     val objectives: List<Objective> = emptyList(),
+    val walkthroughAreas: List<WalkthroughArea> = emptyList(),
 )
 
 @Serializable
@@ -333,7 +351,7 @@ data class Asset(
     val localPath: String? = null,
     val thumbnailPath: String? = null,
     val licenseStatus: String,
-    val bundled: Boolean,
+    val bundled: Boolean = false,
 )
 
 @Serializable

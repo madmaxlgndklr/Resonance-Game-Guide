@@ -9,6 +9,7 @@ cannot drift: change schema.py, re-run this, and the app's models follow.
 from __future__ import annotations
 
 import datetime as dt
+import json
 import types
 import typing
 from pathlib import Path
@@ -39,6 +40,7 @@ ORDER = [
     schema.Meta,
     schema.Mechanic,
     schema.Objective,
+    schema.WalkthroughArea,
     schema.Chapter,
     schema.Hero,
     schema.VisionSkill,
@@ -122,6 +124,21 @@ def default_for(kotlin: str, nullable: bool, info: FieldInfo) -> str | None:
             return None
         if isinstance(produced, BaseModel):
             return f"{type(produced).__name__}()"
+        return None
+    # A non-null scalar default carries over, so a record written before the
+    # field existed still decodes. Without this, `shardCount: Int` would be a
+    # required key and an older data file would fail to parse rather than
+    # falling back -- which is exactly the drift the header warns about.
+    if kotlin == "Boolean" and isinstance(info.default, bool):
+        return "true" if info.default else "false"
+    if kotlin == "Int" and isinstance(info.default, int) and not isinstance(
+        info.default, bool
+    ):
+        return str(info.default)
+    if kotlin == "Double" and isinstance(info.default, float):
+        return repr(info.default)
+    if kotlin == "String" and isinstance(info.default, str):
+        return json.dumps(info.default)
     return None
 
 

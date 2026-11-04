@@ -14,6 +14,11 @@ python3 build_guide.py --seed /path/to/ff_resonance_android_guide_data.json
 # (~1,100 requests at 1.5 s each; resumable — the cache makes a re-run cheap)
 python3 build_guide.py --seed /path/to/seed.json --details
 
+# Re-apply only the hand-written walkthrough notes to the shipped dataset,
+# without re-crawling the ~1,100 detail pages a full build needs
+python3 apply_walkthrough_detail.py
+python3 apply_walkthrough_detail.py --check   # what CI runs
+
 # Validate the result
 python3 validate_json.py
 
@@ -26,6 +31,8 @@ python3 gen_kotlin.py
 | File | Role |
 | --- | --- |
 | `sources.py` | Every source and what it permits. **Read this first.** |
+| `walkthrough_detail.json` | Hand-written area-by-area route notes and the stat-bonus dialogue choices. |
+| `apply_walkthrough_detail.py` | Merges that file into an already-built dataset, so a wording fix needs no crawl. |
 | `fetch.py` | Polite cached fetcher; refuses any host `sources.py` does not clear. |
 | `parse_atma.py` | Catalog, table and detail-page parsers. |
 | `schema.py` | Pydantic models — the contract for the shipped JSON. |
@@ -53,19 +60,31 @@ automated access:
 | mapgenie.io | esper map locations | refused — same terms |
 | ffresonance.wiki | visions, bestiary, equipment | refused — `User-agent: ClaudeBot → Disallow: /` |
 | meowdb.com | chapter walkthroughs, puzzles | refused — disallows ClaudeBot, Claude-Web, anthropic-ai |
-| rpgsite.net | 100% walkthrough | refused — robots.txt returns HTTP 500, which RFC 9309 says to treat as full disallow |
+| **rpgsite.net** | chapter route order, chests, boss weaknesses, sidequest chains, stat-bonus dialogue choices | **crawlable** (re-read 2026-11-04) — robots.txt now returns 200 and has no `User-agent: *` group, only groups for three named search crawlers |
 | press.es.square-enix.com | official art | asset paths `/Files/Download` and `/Files/File` disallowed |
 
 The fetcher enforces this. A refused host raises `NotPermitted`, which is a
 permanent answer, not something to retry or work around by changing the user
 agent.
 
+A status is not permanent. rpgsite.net was listed as refused on the
+2026-10-26 reading because its robots.txt returned HTTP 500, which RFC 9309
+says to treat as a full disallow. On 2026-11-04 it returns a file that
+restricts nobody but Googlebot, Bingbot and Mediapartners-Google, and
+disallows only `/search`, `/toggle` and sorted query strings. Each entry's
+`note` carries the date and the reasoning behind its status, so a change is
+auditable rather than a quiet edit. Re-run `python3 sources.py --recheck`
+before relying on any of them.
+
 ## Rules this pipeline follows
 
 1. **Facts, not prose.** Numeric stats, item names, objective strings and
    mechanical effect text (game strings) are extracted. Editorial writing from
    community wikis is not copied; strategy summaries in the seed are original
-   phrasing.
+   phrasing, and so is every line in `walkthrough_detail.json`. Which area
+   comes next, what it holds and what a boss is weak to are facts; the
+   sentences describing them are ours. The two things kept verbatim are proper
+   names and the game's own dialogue option lines, both game strings.
 2. **No invented data.** A field with no confirmed source is `null`, and the
    shortfall is recorded in `meta.coverage.gaps`. `validate_json.py` treats an
    unrecorded shortfall as an error, so the dataset cannot be quietly
@@ -74,12 +93,18 @@ agent.
    derived only from its name and, where available, the game's own catalog
    number — never from list position. Checklist state keys off these, so an id
    must never change once shipped.
-4. **Conflicts are recorded, not resolved.** Where sources disagree, both
+4. **No false cross-references.** `walkthroughAreas[].shardCount` says how
+   many Tablet Shards an area holds and never which ones. Guides number the 99
+   shards differently from one another and `collectibles.tabletShards` follows
+   PowerPyx, so a number written into an area's own text would read as a
+   pointer into that list while meaning something else.
+   `validate_json.py` fails the build if one appears.
+5. **Conflicts are recorded, not resolved.** Where sources disagree, both
    readings go in a `notes` field. For example the seed's equipment counts
    (82 weapons / 36 armor / 51 accessories, from IGN) disagree with atma.gg's
    catalog (250 / 108 / 96); the dataset carries atma's rows, because that is
    the source it could verify, and `meta.coverage` records both figures.
-5. **No bundled artwork.** See below.
+6. **No bundled artwork.** See below.
 
 ## Artwork
 

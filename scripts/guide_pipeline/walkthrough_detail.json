@@ -1,0 +1,2605 @@
+{
+ "_comment": [
+  "Our own area-by-area walkthrough notes, keyed by chapter number.",
+  "The facts here -- which area comes next, which chests and Tablet Shards it",
+  "holds, which boss waits at the end and what it is weak to, which sidequest",
+  "starts where -- are extracted from the sources listed in sources.py. The",
+  "wording is original, written for this project: the guides' own directions",
+  "are their authors' editorial writing and are not ours to reproduce. Every",
+  "shipped record carries a sourceUrl so a reader can go and read the original.",
+  "",
+  "Two exceptions are kept verbatim because they are the game's own strings,",
+  "not a guide author's prose: the dialogue option lines in dialogueChoices,",
+  "and item, weapon, boss and area names throughout.",
+  "",
+  "A 'Tablet Shard' entry in an area's chests says only that a shard is there.",
+  "It carries no number on purpose: shard numbering differs between guides, and",
+  "the numbered list in collectibles.tabletShards follows PowerPyx. Match by",
+  "area, never by number, when cross-checking against another guide.",
+  "",
+  "The two 'World Map Airship Exploration' interludes in the source walkthrough",
+  "are not separate chapters in-game. Exploration I is attached to chapter 4 and",
+  "Exploration II to chapter 5, both with kind 'interlude', so the chapter list",
+  "stays at the nine entries the seed asserts."
+ ],
+ "sourceUrl": "https://www.rpgsite.net/guide/21486-final-fantasy-resonance-walkthrough-100-items-all-achievements-tablet-shards-step-by-step-guide",
+ "lastUpdated": "2026-11-04",
+ "chapters": {
+  "0": [
+   {
+    "name": "Battlefield",
+    "kind": "event",
+    "summary": "A fixed-party opening played as Dark Fina at level 55. Nothing here is collectable.",
+    "steps": [
+     "Walk forward from the opening scene into the first tutorial battle; Dystopia ends it in one go.",
+     "Keep going for a second battle, which introduces elemental effectiveness and Limit Breaks.",
+     "Advance one more screen for the Iron Giant. Bahamut becomes available on turn three and Megaflare closes the fight by itself, so the Thundaga weakness is optional."
+    ],
+    "chests": [],
+    "bosses": [
+     "Cutting Edge Magitek Weapon (scripted tutorial)",
+     "Iron Giant (weak: Lightning; ends on Bahamut's Megaflare)"
+    ],
+    "shardCount": 0,
+    "sideQuests": [],
+    "notableSteals": []
+   }
+  ],
+  "1": [
+   {
+    "name": "Grandshelt Castle",
+    "kind": "event",
+    "summary": "Control opens here. Save, then leave the castle to be moved on automatically.",
+    "steps": [
+     "Use the save point by the entrance.",
+     "Head out of the castle for a run of scenes, which drop you at the Earth Shrine without a world-map trip."
+    ],
+    "chests": [],
+    "bosses": [],
+    "shardCount": 0,
+    "sideQuests": [],
+    "notableSteals": []
+   },
+   {
+    "name": "Earth Shrine",
+    "kind": "dungeon",
+    "summary": "The first dungeon: near-linear, with a handful of short dead ends worth clearing. Two NPCs at the entrance heal and sell Potions, Tents and Smoke Bombs.",
+    "steps": [
+     "Answer the question at the entrance to bank a permanent stat point for Rain (see the chapter's dialogue choices).",
+     "Heal and stock up at the two NPCs before going in.",
+     "Take the two chests just inside, then follow the main route and sweep each dead end.",
+     "For the Nodachi, go east underneath the foot of the tall staircase.",
+     "Before climbing to the save point, detour into the north-east room for its three pickups.",
+     "Battles here support a turbo toggle on the shoulder button, which speeds up grinding considerably."
+    ],
+    "chests": [
+     "Potion (entrance)",
+     "Ether (entrance)",
+     "Phoenix Down",
+     "Nodachi (east, under the base of the large staircase)",
+     "Flame Scroll I",
+     "Potion (north-east room before the stairs)",
+     "Bulletproof Vest (north-east room before the stairs)",
+     "400G (north-east room before the stairs)"
+    ],
+    "bosses": [
+     "Belmodar (weak: Fire)"
+    ],
+    "shardCount": 0,
+    "sideQuests": [],
+    "notableSteals": []
+   },
+   {
+    "name": "World Map - Kingdom of Grandshelt",
+    "kind": "world_map",
+    "summary": "First taste of the overworld. Loose items show as white sparkles on the ground.",
+    "steps": [
+     "Collect the sparkle on the way to Mitra for a Potion."
+    ],
+    "chests": [
+     "Potion (sparkle on the road to Mitra)"
+    ],
+    "bosses": [],
+    "shardCount": 0,
+    "sideQuests": [],
+    "notableSteals": []
+   },
+   {
+    "name": "Mitra",
+    "kind": "town",
+    "summary": "Rain's home village. Shops are worth a visit before the story sends you to the blue-roofed house.",
+    "steps": [
+     "Upgrade gear if you have the gil, then sweep the five pickups below.",
+     "In the blue-roofed house, search the drawers by the bed for 200G before checking the door.",
+     "Finish the path for scenes that award Vision: Leah and Vision: Tronn."
+    ],
+    "chests": [
+     "Ether (chest in the back yard of the south-east house)",
+     "Phoenix Down (on the pier)",
+     "Ether (path west of the equipment shop)",
+     "Phoenix Down (chocobo pen of the north-east house)",
+     "Tent (back entrance of the inn)",
+     "200G (drawers by the bed in the blue-roofed house)"
+    ],
+    "bosses": [],
+    "shardCount": 0,
+    "sideQuests": [],
+    "notableSteals": []
+   },
+   {
+    "name": "World Map - the road to Grandshelt",
+    "kind": "world_map",
+    "summary": "A short overworld leg with seven sparkles, the last cluster sitting just south of Grandshelt.",
+    "steps": [
+     "Sweep the sparkles along the route; Idaten's Shoes are in the group immediately south of the city."
+    ],
+    "chests": [
+     "Antidote Herb x2",
+     "Potion x2",
+     "Tent",
+     "Mist Potion",
+     "Ether",
+     "Flame Scroll I",
+     "Idaten's Shoes (just south of Grandshelt)"
+    ],
+    "bosses": [],
+    "shardCount": 0,
+    "sideQuests": [],
+    "notableSteals": []
+   },
+   {
+    "name": "Grandshelt (story event)",
+    "kind": "event",
+    "summary": "The city is a scripted sequence before it opens as a town. Charlotte joins as a guest for it. Clear every chest listed here before entering the throne room, because the event moves on.",
+    "steps": [
+     "Outside: go north to the save point, then take the west path for gil and the east path for Phoenix Downs.",
+     "1F: take the east chest, win the event battle to the west, open the north-west room's chest, then cross to the far north-east corner.",
+     "1F: fight the event battle in the north-east room and take the ladder up.",
+     "2F: the knight in the north-east room hands over a Mist Potion, then Hell's Rider attacks.",
+     "2F: sweep the south-east and north-west chests after the fight. A Black Garb sits behind a statue to the north-west; it can also be picked up much later, when Grandshelt Castle reopens in Chapter 4.",
+     "Enter the throne room in the middle of 2F once everything above is collected."
+    ],
+    "chests": [
+     "400G (west of the outdoor save point)",
+     "Phoenix Down x3 (east of the outdoor save point)",
+     "Flame Scroll I (east, 1F)",
+     "Phoenix Down x3 (reward for the west event battle, 1F)",
+     "Flame Scroll I (north-west room, 1F)",
+     "Antidote Herb x4 (far north-east, 1F)",
+     "Mist Potion (from the knight in the north-east room, 2F)",
+     "Phoenix Down x2 (south-east, 2F)",
+     "Phoenix Down (north-west room, 2F)",
+     "Black Garb (behind the statue to the north-west; also reachable in Chapter 4)"
+    ],
+    "bosses": [
+     "Hell's Rider (leans on poison; bring Antidote Herbs)",
+     "Umbra (scripted loss after a few turns)"
+    ],
+    "shardCount": 0,
+    "sideQuests": [],
+    "notableSteals": []
+   },
+   {
+    "name": "Grandshelt (town)",
+    "kind": "town",
+    "summary": "The capital opens up properly. The dialogue choice after the battle has no mechanical effect. Fina joins the party the moment you leave.",
+    "steps": [
+     "Sweep the pickups below, including the hidden chest tucked at the very back behind the woman to the north-east.",
+     "Pick up Sub Quest: Dream of an Idealist on your way out of town.",
+     "Tablet Shards start appearing here. There are 99 in the game, turned in for rewards at Oblivion Palace south-west of Kol; none of them are required for achievements."
+    ],
+    "chests": [
+     "Tablet Shard (north-west of the shops)",
+     "300G (path behind the building to the north-east)",
+     "Ether (from the man in the shop)",
+     "300G (house east of the shops)",
+     "Potion x3 (from the woman to the north-east)",
+     "Healing Spring (hidden chest at the very rear, behind that woman)"
+    ],
+    "bosses": [],
+    "shardCount": 1,
+    "sideQuests": [
+     "Dream of an Idealist (picked up on the way out)"
+    ],
+    "notableSteals": []
+   },
+   {
+    "name": "World Map - the desert continent",
+    "kind": "world_map",
+    "summary": "The crossing to Kol, with a Sanctum of Light detour that is well worth the walk.",
+    "steps": [
+     "Grab the Antidote Herb sparkle on the way.",
+     "Visit the glowing Sanctum north-west of Kol for Vision: Warrior of Light."
+    ],
+    "chests": [
+     "Antidote Herb (sparkle en route to Kol)",
+     "Vision: Warrior of Light (Sanctum north-west of Kol)"
+    ],
+    "bosses": [],
+    "shardCount": 0,
+    "sideQuests": [],
+    "notableSteals": []
+   },
+   {
+    "name": "Kol",
+    "kind": "town",
+    "summary": "Chocobo town. Dream of an Idealist can be closed out here before the story moves on.",
+    "steps": [
+     "Talk to Scott on the west side to advance Dream of an Idealist.",
+     "Rest at the inn for scenes.",
+     "Before you check the chocobos in the morning, finish the quest: fast travel to the Earth Shrine, take the marked item by the entrance, report to Scott, beat a Poison Flora east of Kol on the world map for Dew of Reprieve, then return to Scott for Flamberge and 500G.",
+     "Sweep the town pickups, then talk to the chocobo stablehand when you are ready to move on."
+    ],
+    "chests": [
+     "Tent (building near the chocobo stables)",
+     "Antidote Herb x3 (west building)",
+     "Tablet Shard (south-west corner, in the pond)",
+     "Flamberge (Dream of an Idealist reward)",
+     "500G (Dream of an Idealist reward)"
+    ],
+    "bosses": [],
+    "shardCount": 1,
+    "sideQuests": [
+     "Dream of an Idealist (completed here)"
+    ],
+    "notableSteals": []
+   },
+   {
+    "name": "World Map - Grandshelt desert",
+    "kind": "world_map",
+    "summary": "Chocobo country. Riding over the sand whirlpool skips an optional boss that is well above your level for now.",
+    "steps": [
+     "Travelling south-west triggers the Chocobo Comforts Active Time Chat.",
+     "Inspecting the sand whirlpool on foot starts a fight with Antlion at level 20. Cross it on chocobo-back instead and come back at the end of the chapter.",
+     "Put Oblivion Palace, south-west of Kol, on your map; it is where Tablet Shards are redeemed.",
+     "Siren's Tower to the north-west has nothing in it yet, but stepping inside unlocks it as a fast-travel point.",
+     "Sweep the three sparkles, then carry on to Grandport Harbor."
+    ],
+    "chests": [
+     "Floral Arc (south-east peninsula)",
+     "Ether x2 (south-west beach, under the bridge)",
+     "Potion x3 (south-west beach, over the bridge)"
+    ],
+    "bosses": [
+     "Antlion (optional, level 20; skip for now)"
+    ],
+    "shardCount": 0,
+    "sideQuests": [],
+    "notableSteals": []
+   },
+   {
+    "name": "Grandport Harbor",
+    "kind": "town",
+    "summary": "The best shops so far, and more stock than you can afford. Expect to grind a little gil if you want the full set.",
+    "steps": [
+     "Buy what you can and take the four pickups below.",
+     "Two Tablet Shards sit out in the open here: one by the tree west of the shops, one among the barrels on the southern pier."
+    ],
+    "chests": [
+     "Tablet Shard (tree west of the shops)",
+     "Tablet Shard (barrels on the south pier)",
+     "Lightning Scroll I x2 (chest on the canal path)",
+     "Smoke Bomb x2 (chest in the north-west corner, behind the building)"
+    ],
+    "bosses": [],
+    "shardCount": 2,
+    "sideQuests": [],
+    "notableSteals": []
+   },
+   {
+    "name": "World Map - desert north-east of Grandport",
+    "kind": "world_map",
+    "summary": "Most of this stretch is manageable, with one exception. Marauder Cave is here but better left until the end of the chapter.",
+    "steps": [
+     "Run from Chimeras for now; everything else in this stretch is fair.",
+     "Put Marauder Cave on the map and leave the Cave Master inside for later.",
+     "Cavern of Swords to the north holds a Tablet Shard.",
+     "Visit the north-west Sanctum for Vision: Cloud, then sweep the two cliff sparkles."
+    ],
+    "chests": [
+     "Tablet Shard (Cavern of Swords, to the north)",
+     "Vision: Cloud (north-west Sanctum)",
+     "Water Scroll I x2 (north-west cliff)",
+     "Mist Ether (north-east cliff)"
+    ],
+    "bosses": [],
+    "shardCount": 1,
+    "sideQuests": [],
+    "notableSteals": []
+   },
+   {
+    "name": "World Map - south-east island",
+    "kind": "world_map",
+    "summary": "The island south-east on the map, with an event battle in the middle and five pickups around the edges.",
+    "steps": [
+     "Clear the event battle against three Goblins at the centre.",
+     "Sweep the pickups, including the Tent reached by heading west through the mountains from the bridge south of Felicitas.",
+     "Take the south-west Sanctum for Vision: Terra, then head into Felicitas."
+    ],
+    "chests": [
+     "Tent (west through the mountains from the bridge south of Felicitas)",
+     "Ice Scroll I x2 (north-east corner)",
+     "Knife of Poison x2 (west side)",
+     "Ether (south-east corner)",
+     "Vision: Terra (south-west Sanctum)"
+    ],
+    "bosses": [],
+    "shardCount": 0,
+    "sideQuests": [],
+    "notableSteals": []
+   },
+   {
+    "name": "Felicitas",
+    "kind": "town",
+    "summary": "A scene fires on arrival and points you at Kolobos Ruins. Secrets Unearthed is a quick quest that only asks you to step outside.",
+    "steps": [
+     "The Secret Recipe Active Time Chat is available while you walk around.",
+     "Talk to Chloe at the item shop for Sub Quest - Secrets Unearthed: leave town, collect the marked spots north-east, south-west and south-east of Felicitas, then come back for a Magicite Shard and Monk's Prayer Beads.",
+     "Two Tablet Shards are in town: one down the hidden path in the north-west, one by the item shop entrance.",
+     "If you have not already, the female researcher here hands over a Mist Potion."
+    ],
+    "chests": [
+     "Tablet Shard (north-west secret path)",
+     "Tent (north-west secret path)",
+     "Tablet Shard (near the item shop entrance)",
+     "Unicorn Horn x2 (up the ladder in the south-east corner)",
+     "Ice Scroll I (behind that same south-east ladder)",
+     "Smoke Bomb x2 (behind the inn)",
+     "Mist Potion (from the female researcher)",
+     "Magicite Shard (Secrets Unearthed reward)",
+     "Monk's Prayer Beads (Secrets Unearthed reward)"
+    ],
+    "bosses": [],
+    "shardCount": 2,
+    "sideQuests": [
+     "Secrets Unearthed (Chloe, item shop)"
+    ],
+    "notableSteals": []
+   },
+   {
+    "name": "Kolobos Ruins",
+    "kind": "dungeon",
+    "summary": "Another fairly linear dungeon, broken up by two scripted fights against Wraith Soldiers.",
+    "steps": [
+     "Clear the event battle with Wraith Soldiers at the entrance, and the Enhanced Wraith Soldiers partway in.",
+     "1F: take the north-west stairs for Knives of Poison.",
+     "2F: a Tablet Shard sits by the devices at the foot of the stairs, and a second one behind the fallen pillar to the east.",
+     "2F: the Prickly Straitjacket is in a hidden chest to the north-west.",
+     "Finish the floor's chests before climbing to 3F, where The Hunger waits.",
+     "The Hunger revives once and calls in adds, so keep some healing in reserve for the second half."
+    ],
+    "chests": [
+     "Knife of Poison x2 (north-west stairs, 1F)",
+     "Tablet Shard (by the devices at the base of the stairs, 2F)",
+     "Prickly Straitjacket (hidden chest to the north-west, 2F)",
+     "Tablet Shard (behind the fallen pillar to the east, 2F)",
+     "Antidote Herb x3 (chest up the east stairs, 2F)",
+     "Ether (north-east chest, 2F)"
+    ],
+    "bosses": [
+     "The Hunger (weak: Light; revives once and summons allies)"
+    ],
+    "shardCount": 2,
+    "sideQuests": [],
+    "notableSteals": []
+   },
+   {
+    "name": "Grandport",
+    "kind": "town",
+    "summary": "The story sends you back here. The Weight of Mercy is a short fetch chain across Grandport, Felicitas and Kolobos Ruins.",
+    "steps": [
+     "Talk to the knight to the north-west for Sub Quest - The Weight of Mercy.",
+     "Speak to Rolan in the north-west house in Felicitas, then the soldier in Grandport again.",
+     "Go to the sub-objective marker in Kolobos Ruins and win the fight there.",
+     "Report back to Rolan in Felicitas for Iwakirimaru and 500G.",
+     "Head to the boat on the pier for a scene, then move on to Siren's Tower."
+    ],
+    "chests": [
+     "Iwakirimaru (The Weight of Mercy reward)",
+     "500G (The Weight of Mercy reward)"
+    ],
+    "bosses": [],
+    "shardCount": 0,
+    "sideQuests": [
+     "The Weight of Mercy (knight to the north-west)"
+    ],
+    "notableSteals": []
+   },
+   {
+    "name": "Siren's Tower",
+    "kind": "dungeon",
+    "summary": "A vertical dungeon full of short side branches and your first Magic Pot. Three Tablet Shards are here, two of them easy to walk past.",
+    "steps": [
+     "From the entrance, go north for a chest, then east of it for a Tablet Shard.",
+     "Climb to the fork and take the west stairs for Echo Herbs.",
+     "West of there is Citrine Pot. Magic Pots are not fought: hand over the item they ask for -- an Ether here -- for a large pile of Mastery Points.",
+     "Take the nearby elevator down, then east and down to the north-east for two more chests.",
+     "Continue up the north-east stairs and check the eastern dead end for a Tablet Shard.",
+     "North is a chest and a scene; the battle attached to it is scripted.",
+     "Carry on and pick up the third Tablet Shard, which is in plain sight.",
+     "Take the hidden path to the north-west for a Magicite Shard.",
+     "At the save point, go east and down the elevator for Sakura-Fubuki, then enter the green portal for Siren.",
+     "Winning gives Esper: Siren, and the dialogue choice afterwards banks a stat for Fina."
+    ],
+    "chests": [
+     "Ether (north of the entrance)",
+     "Tablet Shard (east of that chest)",
+     "Echo Herb x2 (up the west stairs at the fork)",
+     "Ether x2 (east of the elevator)",
+     "Monk's Prayer Beads (down to the north-east)",
+     "Tablet Shard (eastern dead end up the north-east stairs)",
+     "Genji Gloves (north, with the scene)",
+     "Tablet Shard (in plain sight on the main path)",
+     "Magicite Shard (hidden path to the north-west)",
+     "Sakura-Fubuki (east of the save point, down the elevator)"
+    ],
+    "bosses": [
+     "Siren (weak: Lightning; drops Magicite Shard, grants Esper: Siren)"
+    ],
+    "shardCount": 3,
+    "sideQuests": [],
+    "notableSteals": []
+   },
+   {
+    "name": "Grandport (Awakening)",
+    "kind": "town",
+    "summary": "The Awakening tutorial fires just west of the entrance and hands you a Magicite Shard to spend on whichever Vision you like.",
+    "steps": [
+     "Watch the scene west of the entrance and spend the Magicite Shard.",
+     "Talk to the sailor to the west for Sub Quest - Rear Support, Ahoy!: speak to the chocobo coachman, beat four Human Trap enemies in random encounters around Grandport, then report back for a Magicite Shard and 500G.",
+     "A new NPC on the east side mentions an Esper rumour you cannot act on yet."
+    ],
+    "chests": [
+     "Magicite Shard (Awakening tutorial)",
+     "Magicite Shard (Rear Support, Ahoy! reward)",
+     "500G (Rear Support, Ahoy! reward)"
+    ],
+    "bosses": [],
+    "shardCount": 0,
+    "sideQuests": [
+     "Rear Support, Ahoy! (sailor to the west)"
+    ],
+    "notableSteals": []
+   },
+   {
+    "name": "Marauder Cave and Antlion",
+    "kind": "optional",
+    "summary": "Two optional fights to clear before you sail. By now both are within reach.",
+    "steps": [
+     "Marauder Cave holds the chapter's Cave Master, worth a Magicite Shard.",
+     "Antlion is in the desert sand whirlpool. Protectga from Warrior of Light takes most of the sting out of it.",
+     "When you are done, speak to the Captain at the Grandport Harbor dock to end the chapter."
+    ],
+    "chests": [
+     "Magicite Shard (Marauder Cave reward)"
+    ],
+    "bosses": [
+     "Cave Master (Marauder Cave; drops Magicite Shard)",
+     "Antlion (weak: Water; Protectga helps a lot)"
+    ],
+    "shardCount": 0,
+    "sideQuests": [],
+    "notableSteals": []
+   }
+  ],
+  "2": [
+   {
+    "name": "World Map - Dirnado, the Continent of Wind",
+    "kind": "world_map",
+    "summary": "You land on the northern continent with nothing to collect yet. Head west.",
+    "steps": [
+     "Go west to Dilmagia."
+    ],
+    "chests": [],
+    "bosses": [],
+    "shardCount": 0,
+    "sideQuests": [],
+    "notableSteals": []
+   },
+   {
+    "name": "Dilmagia, the Machinopolis",
+    "kind": "town",
+    "summary": "Four Tablet Shards across two screens, an Esper rumour, and the start of Elven Maven. Lid joins at the end.",
+    "steps": [
+     "The girl on the right names an Esper location; worth hearing.",
+     "First screen: a Tablet Shard sits to the left, with another behind the crates just west of the item shop. Gil is up the ladder and in the western room.",
+     "Follow the hidden path behind the item shop for Insulated Gloves.",
+     "Speak to the three marked NPCs for a short cutscene.",
+     "Talk to the blue-haired woman to the east to open Sub Quest - Elven Maven, which continues at Mt. Thunderclap.",
+     "Second screen: Anti-Magic Gear on the lower west level, a Tablet Shard on the upper west level, gil on the upper east level, and a fourth Tablet Shard on the lower east level.",
+     "Go north for the scene where Lid joins. The Frightful Old Man Active Time Chat fires on your way out."
+    ],
+    "chests": [
+     "Tablet Shard (to the left on the first screen)",
+     "500G (up the ladder)",
+     "500G (western room)",
+     "Insulated Gloves (hidden path behind the item shop)",
+     "Tablet Shard (behind the crates just west of the item shop)",
+     "Anti-Magic Gear (second screen, west, lower level)",
+     "Tablet Shard (second screen, west, upper level)",
+     "500G (second screen, east, upper level)",
+     "Tablet Shard (second screen, east, lower level)"
+    ],
+    "bosses": [],
+    "shardCount": 4,
+    "sideQuests": [
+     "Elven Maven (blue-haired woman to the east)"
+    ],
+    "notableSteals": []
+   },
+   {
+    "name": "Mt. Thunderclap",
+    "kind": "dungeon",
+    "summary": "North-east of Dilmagia. Paying Lid's 1,000G fee drops a ladder and opens a shortcut; the chests on it are not missable either way. The mountain is revisited several times as new entrances open.",
+    "steps": [
+     "Pay the 1,000G shortcut fee -- it saves time on the repeat visits.",
+     "Climb the shortcut first for a Tablet Shard and the Cape of the Raiju, and drop the ladder to the save point while you are up there.",
+     "Back on the main path, examine the marked tree for an Elven Maven scene, then continue east for a second Tablet Shard.",
+     "Liquid Thunder is at the end of the path.",
+     "Return to Dilmagia afterwards and speak to Silvia to move Elven Maven along; she relocates to Dwarven Forge."
+    ],
+    "chests": [
+     "Tablet Shard (near the end of the shortcut)",
+     "Cape of the Raiju (near the end of the shortcut)",
+     "Tablet Shard (east along the main path, just past the marked tree)"
+    ],
+    "bosses": [
+     "Liquid Thunder (weak: Earth)"
+    ],
+    "shardCount": 2,
+    "sideQuests": [
+     "Elven Maven (marked tree on the main path)"
+    ],
+    "notableSteals": []
+   },
+   {
+    "name": "World Map - Dirnado (south of Dilmagia)",
+    "kind": "world_map",
+    "summary": "A linear stretch with a Sanctum and a second Mt. Thunderclap entrance that leads to Ramuh.",
+    "steps": [
+     "Collect the Earth Scrolls along the path.",
+     "Enter the Sanctum of Light for Vision: Zidane, who can teach Steal to a character -- one of the most useful abilities in the game.",
+     "East of the Sanctum, re-enter Mt. Thunderclap for a Tablet Shard at the bottom of the first slope down. Dropping the ladder here links back to the dungeon start.",
+     "At the end, choose \"It's terrifying\" to fight Ramuh. Winning grants Esper: Ramuh.",
+     "Follow the linear path to Dwarven Forge."
+    ],
+    "chests": [
+     "Earth Scroll I x2 (on the path)",
+     "Vision: Zidane (Sanctum of Light)",
+     "Tablet Shard (Mt. Thunderclap, bottom of the first slope down)"
+    ],
+    "bosses": [
+     "Ramuh (weak: Earth; drops Magicite Shard, grants Esper: Ramuh; a real step up on higher difficulties)"
+    ],
+    "shardCount": 1,
+    "sideQuests": [],
+    "notableSteals": []
+   },
+   {
+    "name": "Dwarven Forge",
+    "kind": "town",
+    "summary": "Elven Maven wraps up here, and Mom Bomb is at the far end. Awaken Zidane while you have the chance.",
+    "steps": [
+     "Take the elevator down and grab the Phoenix Downs to the south.",
+     "Awaken Zidane here -- Steal pays for itself many times over.",
+     "A Tablet Shard sits in the far south-west of the area, and a second one just south of the boss arena.",
+     "Speak to Silvia on the bridge to finish Elven Maven for 800G and a Magicite Shard.",
+     "Follow the hidden path east and north of Borin for a Sledgehammer, a Lid weapon.",
+     "Speak to Borin for a scene, take the Headband east of the second shard, then fight Mom Bomb.",
+     "Mom Bomb turns invincible at low health and explodes, leaving four Great Bombs to mop up.",
+     "Leave through the north exit."
+    ],
+    "chests": [
+     "Phoenix Down x3 (south, after the elevator)",
+     "Tablet Shard (far south-west of the area)",
+     "Sledgehammer (hidden path east and north of Borin)",
+     "Tablet Shard (south of the boss)",
+     "Headband (east of that shard)",
+     "800G (Elven Maven reward)",
+     "Magicite Shard (Elven Maven reward)"
+    ],
+    "bosses": [
+     "Mom Bomb (goes invincible at low health and splits into four Great Bombs; drops Flame Scroll II)"
+    ],
+    "shardCount": 2,
+    "sideQuests": [
+     "Elven Maven (completed with Silvia on the bridge)"
+    ],
+    "notableSteals": []
+   },
+   {
+    "name": "World Map - Dirnado (full continent)",
+    "kind": "world_map",
+    "summary": "Worth clearing the whole continent before the story marker. Shoggoth is the standout fight and needs magic.",
+    "steps": [
+     "Collect the Phoenix Pinion to the south and the Mist Ether north-east, tucked on the west side of the path before the Wind Shrine. Hold that Mist Ether for a Magic Pot shortly.",
+     "Step into the Wind Shrine to register it; there is nothing to do inside yet.",
+     "Follow the path south from the Wind Shrine for Mist Potions.",
+     "East is another Mt. Thunderclap entrance with three pickups inside.",
+     "On the far side, take the Bronze Hammer, then the Sanctum of Light for Vision: Onion Knight.",
+     "Back near that entrance, the Laserblade is east of Shoggoth Cave.",
+     "Shoggoth is immune to physical damage. Awaken Onion Knight for Stonera, pair it with Terra's Watera, and Zidane's Free Energy also counts as Water.",
+     "West of Mobliz Shipyard, take the Phoenix Downs and the Sanctum of Light for Vision: Noctis."
+    ],
+    "chests": [
+     "Phoenix Pinion (south)",
+     "Mist Ether (north-east, hidden on the west side of the path)",
+     "Mist Potion x3 (south of the Wind Shrine)",
+     "800G (Mt. Thunderclap, eastern entrance)",
+     "Moon Saber (Mt. Thunderclap, eastern entrance)",
+     "Power Wristbands (Mt. Thunderclap, eastern entrance)",
+     "Bronze Hammer (far side of Mt. Thunderclap)",
+     "Vision: Onion Knight (Sanctum of Light)",
+     "Laserblade (east of Shoggoth Cave)",
+     "Phoenix Down x3 (west of Mobliz Shipyard)",
+     "Vision: Noctis (Sanctum of Light near Mobliz Shipyard)"
+    ],
+    "bosses": [
+     "Shoggoth (weak: Water and Earth; immune to physical attacks; drops Turbo Ether and Magicite Shard)"
+    ],
+    "shardCount": 0,
+    "sideQuests": [],
+    "notableSteals": []
+   },
+   {
+    "name": "Mobliz Shipyard",
+    "kind": "dungeon",
+    "summary": "A switch-and-elevator dungeon with three Tablet Shards, and an escape sequence at the end where only one lever matters.",
+    "steps": [
+     "After the event battle, go west for the first Tablet Shard.",
+     "Take the west elevator up, give Citrine Pot an Ether, and take the Chocobo Down Charm nearby.",
+     "The ladder in the south-east of the fenced room leads down to the second Tablet Shard and the Protective Overcoat.",
+     "Hit the glowing switch to power the centre elevator, then ride it up.",
+     "North-east, behind the red shipping container, is the third Tablet Shard. The south-east door opens shortly.",
+     "Press the north-east switch and take the nearby elevator down for Lightning Scrolls.",
+     "Just before the save point, the Eye Drops are hidden behind a green shipping container.",
+     "Go forward for scenes, then back the way you came. During the escape, a scene by one of the elevators has Lid open the south-east door: pull lever #16. The other levers only spawn random encounters.",
+     "Head for the main entrance, then back again for an event fight. The Guardian mech at the entrance is optional and drops nothing special.",
+     "Adrastea closes the dungeon."
+    ],
+    "chests": [
+     "Tablet Shard (west, after the event battle)",
+     "Chocobo Down Charm (by the west elevator)",
+     "Tablet Shard (down the south-east ladder in the fenced room)",
+     "Protective Overcoat (down the same ladder)",
+     "Tablet Shard (north-east, behind the red shipping container)",
+     "Lightning Scroll I x2 (down the elevator past the north-east switch)",
+     "Eye Drops x3 (behind the green shipping container before the save point)"
+    ],
+    "bosses": [
+     "Adrastea (weak: Water and Lightning; drops Lightning Scroll II)"
+    ],
+    "shardCount": 3,
+    "sideQuests": [],
+    "notableSteals": []
+   },
+   {
+    "name": "Dwarven Forge (Mechabo)",
+    "kind": "town",
+    "summary": "The Mechabo upgrade chain opens here and runs for the rest of the game. Each stage asks for three kills of a particular enemy, then a trip back to Verun.",
+    "steps": [
+     "The dialogue option in the opening scene changes nothing.",
+     "Head up the stairs; Sub Quest - Arise, Mechabo! starts on its own.",
+     "The grey-haired NPC to the east gives Sub Quest - Lyrical Riddles: look at the large Cid portrait at Mobliz Shipyard, speak to the marked NPC at Dilmagia, then return to Roy for a Magicite Shard and 800G.",
+     "Leave north and beat two Ipooh bears in random battles, then report to Verun for a Magicite Shard.",
+     "Talk to Verun again for Sub Quest - Mechabo Evolved. Fast travel to the Grandshelt desert and beat three Dhorme Chimeras, then return: Lid learns Mechabo Tackle.",
+     "Leave again and beat three Medusas to the south-west, then return: Lid learns Overclock. That is as far as Mechabo goes for now."
+    ],
+    "chests": [
+     "Magicite Shard (Lyrical Riddles reward)",
+     "800G (Lyrical Riddles reward)",
+     "Magicite Shard (two Ipoohs)"
+    ],
+    "bosses": [],
+    "shardCount": 0,
+    "sideQuests": [
+     "Arise, Mechabo! (starts automatically)",
+     "Lyrical Riddles (grey-haired NPC to the east)",
+     "Mechabo Evolved (Verun)"
+    ],
+    "notableSteals": []
+   },
+   {
+    "name": "Wind Shrine",
+    "kind": "dungeon",
+    "summary": "The chapter's closing dungeon: three Tablet Shards, a Magic Pot that wants the Mist Ether you have been carrying, and Aether at the end.",
+    "steps": [
+     "Go north, press the button, and take the first Tablet Shard.",
+     "Follow the linear path; on the lower level, the ladder down leads to a Magicite Shard.",
+     "The second Tablet Shard is near the large staircase. Ride the platform at the top of the staircase for Tsukiyo no Tachi and come back.",
+     "Follow the path all the way south for the Armor of Gales.",
+     "Take the third Tablet Shard before riding the central platform.",
+     "Exit east to meet Viridian Pot and hand over the Mist Ether.",
+     "Aether is at the end. Afterwards, return to Dilmagia and play out the events to close the chapter."
+    ],
+    "chests": [
+     "Tablet Shard (north, past the button)",
+     "Magicite Shard (down the ladder on the lower level)",
+     "Tablet Shard (near the large staircase)",
+     "Tsukiyo no Tachi (platform at the top of the staircase)",
+     "Armor of Gales (far south)",
+     "Tablet Shard (before the central platform)"
+    ],
+    "bosses": [
+     "Aether (weak: Ice; drops Sylph's Tiara)"
+    ],
+    "shardCount": 3,
+    "sideQuests": [],
+    "notableSteals": []
+   }
+  ],
+  "3": [
+   {
+    "name": "World Map - Olderion Federation (south)",
+    "kind": "world_map",
+    "summary": "A big optional sweep opens the chapter: four Visions, three Ruby Fragments that buy you Esper: Carbuncle, and the best early gil farm in the game.",
+    "steps": [
+     "The chapter opens on a dialogue choice that banks a stat for Lid.",
+     "Take the Mist Hi-Potion just west, then the Sanctum of Light in the nearby forest for Vision: Firion.",
+     "Enter Ruby Cave to the north and examine the grave for a scene; come back once you hold three Ruby Fragments for Esper: Carbuncle.",
+     "Beat three Destroyers here for the Mechabo chain, then report to Verun: Lid learns Mecha Fat Chocobo. Destroyers also rarely drop the Heavy Crossbow, a very strong physical bow for Fina.",
+     "Mini Gil Snappers in this region die easily for 1,500 gil, and their Small Golden Shell steal sells for 2,500. This is the cheapest way to afford the Olderion shops.",
+     "Collect the Gold Needles just south and slightly east of the Olderion marker.",
+     "Rukh Cave nearby holds an optional boss.",
+     "Three Ruby Fragments: one between the two small ponds south-east around the mountain, one near the centre-east coastline along the road, and one just west of the waterfalls west of Olderion.",
+     "Also out here: the Talisman just south of the first Ruby Fragment, Shurikens further east, and Wind Scrolls to the far west.",
+     "Sanctums of Light: east for Vision: Squall, far west for Vision: Tidus.",
+     "Step inside the Secluded Dwelling to unlock it as a fast-travel point."
+    ],
+    "chests": [
+     "Mist Hi-Potion (just west)",
+     "Vision: Firion (Sanctum of Light in the forest)",
+     "Gold Needle x3 (south and slightly east of Olderion)",
+     "Ruby Fragment (between the two small ponds, south-east around the mountain)",
+     "Talisman (just south of that Ruby Fragment)",
+     "Ruby Fragment (near the centre-east coastline)",
+     "Ruby Fragment (just west of the waterfalls, west of Olderion)",
+     "Shuriken x3 (east along the road)",
+     "Vision: Squall (eastern Sanctum of Light)",
+     "Wind Scroll I x3 (far west)",
+     "Vision: Tidus (far western Sanctum of Light)",
+     "Esper: Carbuncle (Ruby Cave, with three Ruby Fragments)"
+    ],
+    "bosses": [
+     "Rukh (weak: Wind; drops X-Ether and Magicite Shard)"
+    ],
+    "shardCount": 0,
+    "sideQuests": [],
+    "notableSteals": [
+     "Small Golden Shell from Mini Gil Snapper (sells for 2,500 gil)",
+     "Heavy Crossbow as a rare drop from Destroyer (strong physical bow for Fina)"
+    ]
+   },
+   {
+    "name": "Olderion - the Aquapolis",
+    "kind": "town",
+    "summary": "Four Tablet Shards and a jump rope minigame that pays out at 10, 15 and 20 jumps, with higher tiers unlocking in Chapter 4.",
+    "steps": [
+     "Speak to the Spirited Girl to the west for the jump rope: 10 jumps for a Magicite Shard, 15 for a Mist Hi-Potion, 20 for a Mist Ether. She resets her record for a later visit.",
+     "The boats are a shortcut only -- they reach nowhere you cannot walk.",
+     "Shard one is north-east of the city entrance by the boat, part-hidden by a staircase. Shard two is west of the big central staircase. Shard three is on the high north-east bridge. Shard four is behind the northernmost tree.",
+     "The Mirage Robe is at the north-east dead end.",
+     "Speak to the three marked NPCs for a cutscene, shop, then leave town.",
+     "On the way out, a dead end east of the Cave of Waters holds Knives of Confuse, and Gold Needles sit north-west of the cave."
+    ],
+    "chests": [
+     "Tablet Shard (north-east of the entrance, by the boat behind a staircase)",
+     "Tablet Shard (west of the big central staircase)",
+     "Tablet Shard (high north-east bridge)",
+     "Mirage Robe (north-east dead end)",
+     "Tablet Shard (behind the northernmost tree)",
+     "Magicite Shard (jump rope, 10 jumps)",
+     "Mist Hi-Potion (jump rope, 15 jumps)",
+     "Mist Ether (jump rope, 20 jumps)",
+     "Knife of Confuse x2 (dead end east of the Cave of Waters)",
+     "Gold Needle x2 (north-west of the Cave of Waters)"
+    ],
+    "bosses": [],
+    "shardCount": 4,
+    "sideQuests": [],
+    "notableSteals": []
+   },
+   {
+    "name": "Cave of Waters",
+    "kind": "dungeon",
+    "summary": "Switch-and-boat puzzles throughout. Nichol joins at the start. Two Tablet Shards.",
+    "steps": [
+     "Follow the path north-east and press the switch, then take the boat to a Magicite Shard.",
+     "Take the east exit by boat for Total Calisthenics.",
+     "Collect the first Tablet Shard, then exit north.",
+     "Press the north-east switch, ride the boat, and open the chest for Shurikens. Take the north-west exit for an Ice Scroll, then the centre-north exit.",
+     "Hit the north-west switch for the Ninja Gear, then leave west.",
+     "Take the second Tablet Shard, knock the shortcut ladder down, and save.",
+     "Wave Lopros is north. Leave the dungeon afterwards and go back to Olderion."
+    ],
+    "chests": [
+     "Magicite Shard (by boat past the north-east switch)",
+     "Total Calisthenics (east exit, by boat)",
+     "Tablet Shard (before the north exit)",
+     "Shuriken x3 (chest past the north-east switch)",
+     "Ice Scroll I (north-west exit)",
+     "Ninja Gear (past the north-west switch)",
+     "Tablet Shard (west, by the shortcut ladder)"
+    ],
+    "bosses": [
+     "Wave Lopros (weak: Ice)"
+    ],
+    "shardCount": 2,
+    "sideQuests": [],
+    "notableSteals": []
+   },
+   {
+    "name": "Olderion - Medicinal Mission",
+    "kind": "town",
+    "summary": "A sidequest with three routes to the same reward. Picking the cheap one costs only legwork; buying the cure costs 50,000 gil.",
+    "steps": [
+     "Speak to Sarah at the far north-east for Sub Quest - Medicinal Mission, then Illias to the south-west for the three options.",
+     "Buy it from the merchant at the Secluded Dwelling for 50,000 gil (Super Salubrious Salad Stem).",
+     "Or beat Blood Dragon just south of town, weak to Fire, for Viscus Vitae.",
+     "Or gather Rushroom south of Ruby Cave and Pure Water in the Cave of Waters, near where the Total Calisthenics was, and bring both to Illias for Convalescence Draught.",
+     "All three pay out a Magicite Shard and 1,500G; only Sarah's reaction changes.",
+     "Interact with the three water spots to move into Old Town."
+    ],
+    "chests": [
+     "Magicite Shard (Medicinal Mission reward)",
+     "1500G (Medicinal Mission reward)"
+    ],
+    "bosses": [
+     "Blood Dragon (optional Medicinal Mission route; weak: Fire)"
+    ],
+    "shardCount": 0,
+    "sideQuests": [
+     "Medicinal Mission (Sarah, far north-east)"
+    ],
+    "notableSteals": []
+   },
+   {
+    "name": "Olderion - Old Town",
+    "kind": "dungeon",
+    "summary": "A string of event battles with Lasswell and Nichol temporarily out of the party. One chest is easy to miss behind a rooftop.",
+    "steps": [
+     "You lose Lasswell and Nichol just west of the entrance after the first event fight.",
+     "Clear the event battle to the north and take the Ether from the chest.",
+     "Two more event battles follow on the path.",
+     "South of the knight who heals you, another event battle guards a Mist Hi-Potion.",
+     "The Lightning Scroll to the far east is tucked between a teal rooftop in the foreground -- easy to walk past.",
+     "Water Dragon is at the end.",
+     "Afterwards, return to the Cave of Waters for a scene and a Tablet Shard on the path, then go to Lake Dorr."
+    ],
+    "chests": [
+     "Ether (chest past the northern event battle)",
+     "Mist Hi-Potion (chest south of the healing knight)",
+     "Lightning Scroll I (far east, hidden behind a teal rooftop)",
+     "Tablet Shard (Cave of Waters path, on the way back)"
+    ],
+    "bosses": [
+     "Water Dragon (weak: Lightning)"
+    ],
+    "shardCount": 1,
+    "sideQuests": [],
+    "notableSteals": []
+   },
+   {
+    "name": "Lake Dorr",
+    "kind": "event",
+    "summary": "A single boss fight. Rest at the Olderion inn afterwards for the scenes that open Waterfall Way.",
+    "steps": [
+     "Fight Leviathan.",
+     "Return to Olderion for scenes, then stay at the inn for more.",
+     "Head west of Olderion to Waterfall Way."
+    ],
+    "chests": [],
+    "bosses": [
+     "Leviathan (weak: Lightning; drops Magicite Shard)"
+    ],
+    "shardCount": 0,
+    "sideQuests": [],
+    "notableSteals": []
+   },
+   {
+    "name": "Waterfall Way",
+    "kind": "dungeon",
+    "summary": "Three Tablet Shards along a mostly linear route, plus a chest hidden behind one of the last waterfalls.",
+    "steps": [
+     "Collect the Eye Drops and the first Tablet Shard after the opening scenes.",
+     "Speak to the NPC, then take the Devout's Armor.",
+     "Run through the next screen to the one after it, picking up the second shard, a Phoenix Pinion and the third shard along the way.",
+     "A secret path behind one of the last north-west waterfalls hides a chest with the Guardian Sword.",
+     "Use the save point that appears at the end, then exit east and head north on the world map to Amore."
+    ],
+    "chests": [
+     "Eye Drops x2 (after the opening scenes)",
+     "Tablet Shard (after the opening scenes)",
+     "Devout's Armor (past the NPC)",
+     "Tablet Shard (on the linear path)",
+     "Phoenix Pinion (on the linear path)",
+     "Tablet Shard (on the linear path)",
+     "Guardian Sword (secret path behind one of the last north-west waterfalls)"
+    ],
+    "bosses": [],
+    "shardCount": 3,
+    "sideQuests": [],
+    "notableSteals": []
+   },
+   {
+    "name": "Town of Amore",
+    "kind": "town",
+    "summary": "Two Tablet Shards, one of them behind the weapon shop, and the start of The Tide from the Sky.",
+    "steps": [
+     "The Aegis Robe is on the inn's second floor.",
+     "One shard is by the south-east well; a Water Scroll sits by the weapon shop and the second shard is hidden behind it.",
+     "The Morning Star is at the end of the path behind the central house.",
+     "Talk to the Soldier for Sub Quest - The Tide from the Sky, which continues on the northern world map.",
+     "Shop, then leave north."
+    ],
+    "chests": [
+     "Aegis Robe (inn, second floor)",
+     "Tablet Shard (by the south-east well)",
+     "Water Scroll I (by the weapon shop)",
+     "Tablet Shard (hidden behind the weapon shop)",
+     "Morning Star (end of the path behind the central house)"
+    ],
+    "bosses": [],
+    "shardCount": 2,
+    "sideQuests": [
+     "The Tide from the Sky (Soldier)"
+    ],
+    "notableSteals": []
+   },
+   {
+    "name": "World Map - Olderion Federation (north)",
+    "kind": "world_map",
+    "summary": "Mindflayer Cave and the rest of The Tide from the Sky before the chapter's final dungeon.",
+    "steps": [
+     "Pick up the Blessed Cults to the west.",
+     "Mindflayer Cave nearby holds an optional boss.",
+     "For The Tide from the Sky, take the ship to the north-east with the quest marker for an event battle and scenes, return to Olderion for a scene, then find Mercedes in Waterfall Way for a Magicite Shard and 1,500G.",
+     "When you are ready, head for the Water Shrine."
+    ],
+    "chests": [
+     "Blessed Cults (west)",
+     "Magicite Shard (The Tide from the Sky reward)",
+     "1500G (The Tide from the Sky reward)"
+    ],
+    "bosses": [
+     "Mindflayer (weak: Earth; drops Mist Turbo Ether and Magicite)"
+    ],
+    "shardCount": 0,
+    "sideQuests": [
+     "The Tide from the Sky (completed with Mercedes in Waterfall Way)"
+    ],
+    "notableSteals": []
+   },
+   {
+    "name": "Water Shrine",
+    "kind": "dungeon",
+    "summary": "The chapter's closing dungeon, and the most puzzle-heavy so far: water levels, crate pushing and a three-switch sequence for a hidden chamber. Three Tablet Shards.",
+    "steps": [
+     "Follow the path onto a boat and press the switch, then take the boat north through the waterfall for Scale Mail and a Magicite Shard.",
+     "Go back to the entrance and take the south-east ladder down.",
+     "On the lower floor, west is Viridian Pot -- hand over a Mist Ether.",
+     "East, press the switch and take the Lightning Scrolls. Then push the crate and work the switches left, right, left to open the hidden chamber by the crates for the R'lyeh Text.",
+     "Leave west for a Tablet Shard, then go north.",
+     "The Piercing Mace is to the north-west.",
+     "Next section: press the switch to drop the water, boat across to a Tablet Shard, push the box up, then go back and press the switch again for the Calm Armlet.",
+     "Boat out to the large central switch and press it, then return to the central staircase. A third Tablet Shard is near the bottom.",
+     "Save, then fight Alluvion to the north.",
+     "Back in Olderion, scenes play and a dialogue choice banks a stat for Nichol. Then take the boat to Zoldaad."
+    ],
+    "chests": [
+     "Scale Mail (north through the waterfall by boat)",
+     "Magicite Shard (north through the waterfall by boat)",
+     "Lightning Scroll I x3 (east on the lower floor)",
+     "R'lyeh Text (hidden chamber by the crates, after the left-right-left switches)",
+     "Tablet Shard (west, before heading north)",
+     "Piercing Mace (north-west)",
+     "Tablet Shard (across the lowered water by boat)",
+     "Calm Armlet (after pushing the box and re-pressing the switch)",
+     "Tablet Shard (near the bottom of the central staircase)"
+    ],
+    "bosses": [
+     "Alluvion (weak: Lightning; drops Azure Amulet)"
+    ],
+    "shardCount": 3,
+    "sideQuests": [],
+    "notableSteals": [
+     "Arcana Blade from Skadi (high magic sword for Rain)",
+     "Astral Blade from Red Marshmallow (high magic sword for Lasswell)",
+     "Guardian Sword from Megalodon (high physical defence sword for Rain)"
+    ]
+   }
+  ],
+  "4": [
+   {
+    "name": "Olderion - jump rope, round two",
+    "kind": "town",
+    "summary": "Entering Zoldaad territory unlocks the higher jump rope tiers back in Olderion. The 60-jump Magicite is the only one worth real effort.",
+    "steps": [
+     "Return to the Spirited Girl in Olderion: 30 jumps for a Mist X-Potion, 40 for a Swift Badge, 60 for a Magicite."
+    ],
+    "chests": [
+     "Mist X-Potion (jump rope, 30 jumps)",
+     "Swift Badge (jump rope, 40 jumps)",
+     "Magicite (jump rope, 60 jumps)"
+    ],
+    "bosses": [],
+    "shardCount": 0,
+    "sideQuests": [],
+    "notableSteals": []
+   },
+   {
+    "name": "Mozul Station and Timber Tracks",
+    "kind": "event",
+    "summary": "A short train sequence. Talk to everyone on board, including Gilgamesh, before it ends.",
+    "steps": [
+     "A Tablet Shard sits to the south-west of Mozul Station.",
+     "Talk to the NPC to the north to board the train.",
+     "On Timber Tracks, speak to each party member and to Gilgamesh for optional dialogue.",
+     "After the scenes, soldiers arrive from the left of the screen on a timer as you push right."
+    ],
+    "chests": [
+     "Tablet Shard (south-west of Mozul Station)"
+    ],
+    "bosses": [],
+    "shardCount": 1,
+    "sideQuests": [],
+    "notableSteals": []
+   },
+   {
+    "name": "World Map - Zoldaad Empire territory",
+    "kind": "world_map",
+    "summary": "A long optional sweep: four Visions from Sanctums, a Tablet Shard at Capital Station, and three optional caves to register for later.",
+    "steps": [
+     "East for Hi-Potions, then further east past Mozul Station for the Fire Sprite Earrings and a Sanctum of Light with Vision: Shantotto.",
+     "Head west, then up a hill to the south for Knives of Paralysis; the northern path has Antidote Herbs.",
+     "Stop at Capital Station for a Tablet Shard on its east side.",
+     "South on the world map is the Reito; east of there a Sanctum of Light holds Vision: Cecil.",
+     "The northern path has the Cursed Ring, and the Clown Hammer is further east.",
+     "Register Gogmagog Cave, Pyroviper Cave and the Weapons Factory on your map; all three are for later.",
+     "A Turbo Ether sits at the end of the tracks, and the Annihilaticon is east of Gogmagog Cave and a little north.",
+     "Another Sanctum of Light holds Vision: Y'shtola. Healing Springs are to the south-west and Shurikens to the south-east.",
+     "Squeeze through the mountains to the south for the Ether Plate at the very end.",
+     "Kill three Sandworms here, then report to Verun to finish Mechabo Evolved: a Magicite, and Lid learns Mecha Behemoth."
+    ],
+    "chests": [
+     "Hi-Potion x2 (east)",
+     "Fire Sprite Earrings (east past Mozul Station)",
+     "Vision: Shantotto (Sanctum of Light)",
+     "Knife of Paralysis x2 (up the southern hill)",
+     "Antidote Herb x3 (northern path)",
+     "Tablet Shard (Capital Station, east side)",
+     "Reito (south on the world map)",
+     "Vision: Cecil (eastern Sanctum of Light)",
+     "Cursed Ring (northern path)",
+     "Clown Hammer (further east)",
+     "Turbo Ether (end of the tracks)",
+     "Annihilaticon (east of Gogmagog Cave, a little north)",
+     "Vision: Y'shtola (Sanctum of Light)",
+     "Healing Spring x2 (south-west)",
+     "Shuriken x2 (south-east)",
+     "Ether Plate (through the southern mountains, at the very end)",
+     "Magicite (Mechabo Evolved reward)"
+    ],
+    "bosses": [],
+    "shardCount": 1,
+    "sideQuests": [
+     "Mechabo Evolved (completed with Verun)"
+    ],
+    "notableSteals": [
+     "Rune Scales from Wyvern",
+     "Golem Core from Sandworm"
+    ]
+   },
+   {
+    "name": "Grandshelt reopens",
+    "kind": "town",
+    "summary": "Grandshelt Castle and the colosseum open at this point. Four chests in the castle, a Tablet Shard by the colosseum, and two free weapons from an NPC.",
+    "steps": [
+     "Castle jail, lower west side: Mist Turbo Ether, Hoodwink Garb and a Mist Hi-Potion.",
+     "Castle north-west room: the Black Garb, if you did not take it during the Chapter 1 event.",
+     "A Tablet Shard sits west of the colosseum entrance.",
+     "Talk to the man east of the colosseum entrance for a Lunar Sword and Brigandine.",
+     "The colosseum shop sells expensive gear worth coming back for."
+    ],
+    "chests": [
+     "Mist Turbo Ether (castle jail, lower west side)",
+     "Hoodwink Garb (castle jail, lower west side)",
+     "Mist Hi-Potion (castle jail, lower west side)",
+     "Black Garb (castle north-west room)",
+     "Tablet Shard (west of the colosseum entrance)",
+     "Lunar Sword (from the man east of the colosseum entrance)",
+     "Brigandine (from the man east of the colosseum entrance)"
+    ],
+    "bosses": [],
+    "shardCount": 1,
+    "sideQuests": [],
+    "notableSteals": []
+   },
+   {
+    "name": "Grandshelt Colosseum - Fledgling League",
+    "kind": "colosseum",
+    "summary": "Five battles, tackled a little ahead of curve. The Gaia Hammer from battle five is what lets you fight Titan, and clearing the league unlocks the encounter-rate accessories.",
+    "steps": [
+     "Work through the five battles for their first-win rewards.",
+     "Clearing the league grants the Fledgling's Proof of Victory, which adds Magicite Shards, the Warding Bell (fewer random encounters) and the Foe Attractor (more of them) to the shop.",
+     "Some rewards are weapons no one can equip yet -- hold on to them.",
+     "Leave the Brawler League until after Chapter 5."
+    ],
+    "chests": [
+     "Magicite Shard (battle 1)",
+     "Adamantite (battle 2)",
+     "Ancient Greatsword (battle 3)",
+     "Magicite Shard (battle 4)",
+     "Gaia Hammer (battle 5)",
+     "Fledgling's Proof of Victory (league clear)"
+    ],
+    "bosses": [],
+    "shardCount": 0,
+    "sideQuests": [],
+    "notableSteals": [
+     "Rune Scales from Wyvern (battle 1)",
+     "Arcane Pendant from Chimera (battle 2)",
+     "Mirage Coat from Lieutenant (battle 4)",
+     "Striking Staff from Ahriman (battle 5)"
+    ]
+   },
+   {
+    "name": "Optional bosses - Titan, Gogmagog, Pyroviper",
+    "kind": "optional",
+    "summary": "Three optional fights opened up by the colosseum run. None are required, and all three can wait if they bite back.",
+    "steps": [
+     "The Gaia Hammer from the Fledgling League lets you summon Titan on the Grandshelt world map. Winning grants Esper: Titan.",
+     "Gogmagog Cave in Zoldaad: Fina's Luminous Cannon, Warrior of Light's Sacred Wave and Firion's Light-element Resonance all land well.",
+     "Pyroviper Cave in Zoldaad: Tidus and Terra cover the Water weakness."
+    ],
+    "chests": [],
+    "bosses": [
+     "Titan (weak: Wind; drops Magicite, grants Esper: Titan)",
+     "Gogmagog (weak: Light and Wind; drops Mist Turbo Ether and Magicite)",
+     "Pyroviper (weak: Water; drops Mist Turbo Ether and Magicite)"
+    ],
+    "shardCount": 0,
+    "sideQuests": [],
+    "notableSteals": []
+   },
+   {
+    "name": "Zoldaad, the Imperial Capital",
+    "kind": "town",
+    "summary": "Five districts plus the Underground Tunnels, with five Tablet Shards between them. Two of the tunnel shards are hidden.",
+    "steps": [
+     "A man at the inn shares an Esper rumour; Healing Springs sit behind the counter.",
+     "Castle Plaza: a Tablet Shard.",
+     "Commercial District: a scene and some shops.",
+     "Residential District: a Tablet Shard, plus a Phoenix Pinion in the west house.",
+     "Slums: a Tablet Shard, shops, and a marked NPC to talk to.",
+     "Meet the party at the Imperial Hotel alley.",
+     "Underground Tunnels: the Lucky Bell is hidden to the left, Ethers east and down a little, a Tablet Shard in the south-west dead end, a Magicite Shard in the chest north-east of the Crimson Pot (give it a Turbo Ether), a second Tablet Shard hidden east and slightly south of that pot, and Mist Hi-Potions at the south-west dead end."
+    ],
+    "chests": [
+     "Healing Spring x2 (behind the inn counter)",
+     "Tablet Shard (Castle Plaza)",
+     "Tablet Shard (Residential District)",
+     "Phoenix Pinion (Residential District, west house)",
+     "Tablet Shard (Slums)",
+     "Lucky Bell (Underground Tunnels, hidden to the left)",
+     "Ether x2 (Underground Tunnels, east and down a little)",
+     "Tablet Shard (Underground Tunnels, south-west dead end)",
+     "Magicite Shard (Underground Tunnels, chest north-east of the Crimson Pot)",
+     "Tablet Shard (Underground Tunnels, hidden east and slightly south of the Crimson Pot)",
+     "Mist Hi-Potion x2 (Underground Tunnels, south-west dead end)"
+    ],
+    "bosses": [],
+    "shardCount": 5,
+    "sideQuests": [],
+    "notableSteals": [
+     "Warrior's Bandana as a rare steal from Hill Gigas",
+     "Illegible Lexicon as a rare drop from Hill Gigas"
+    ]
+   },
+   {
+    "name": "Rebel Hideout",
+    "kind": "town",
+    "summary": "Jake joins here. Two Tablet Shards, one of them behind a hidden passage near the north-west ladder.",
+    "steps": [
+     "The Remedy is at the far north.",
+     "The first Tablet Shard is up the north-west ladder, reached through a hidden passage a little to the ladder's right.",
+     "The Robe of Roses is east of that, the second Tablet Shard is near the north-east staircase, and a Phoenix Pinion is hidden to the east.",
+     "Talk to the marked NPCs; Jake joins during the scenes.",
+     "Shop at the Rebel Base, then rest at the inn for more scenes.",
+     "Then head for the Weapons Factory on the Zoldaad world map."
+    ],
+    "chests": [
+     "Remedy (far north)",
+     "Tablet Shard (up the north-west ladder, through the hidden passage to its right)",
+     "Robe of Roses (east of that shard)",
+     "Tablet Shard (near the north-east staircase)",
+     "Phoenix Pinion (hidden to the east)"
+    ],
+    "bosses": [],
+    "shardCount": 2,
+    "sideQuests": [],
+    "notableSteals": []
+   },
+   {
+    "name": "Weapons Factory",
+    "kind": "dungeon",
+    "summary": "The trickiest dungeon so far: a network of switches, ladders and retracting bridges. Opens and closes with Ignis, the first fight unwinnable.",
+    "steps": [
+     "The opening fight against Ignis cannot be won and ends after a few turns.",
+     "Follow the path left, up the ramp, and hit the switch. A Tablet Shard is to the north-west.",
+     "Go down the ladder and hit the switch there, then up two ladders and left for Knives of Blind.",
+     "Hit the eastern switch, follow the new path to the large switch, press it, and drop the ladder.",
+     "Head east from the start for Lightning Scrolls, and give the Crimson Pot a Turbo Ether.",
+     "Hit the large north-west switch to drop the next stretch of bridge, then take the ladder by the save point.",
+     "Work the switches to reach the Hoodwink Garb, the second Tablet Shard and a Magicite, then the exit switch. Trial and error is fine here -- you can see when the path lines up.",
+     "Cross the main bridge for a scene and a second unwinnable fight, then the real Ignis."
+    ],
+    "chests": [
+     "Tablet Shard (north-west, past the first switch)",
+     "Knife of Blind x3 (left, up two ladders)",
+     "Lightning Scroll I x3 (east from the start)",
+     "Hoodwink Garb (switch puzzle past the save point)",
+     "Tablet Shard (switch puzzle past the save point)",
+     "Magicite (switch puzzle past the save point)"
+    ],
+    "bosses": [
+     "Ignis (opening fight; unwinnable by design)",
+     "Ignis (weak: Water; drops Solar Pendant)"
+    ],
+    "shardCount": 2,
+    "sideQuests": [],
+    "notableSteals": [
+     "Safety Bit as a rare steal from Death Mask (purchasable later)",
+     "Mythril Cannon as a rare steal from Tunnel Armor (magic weapon for Jake)"
+    ]
+   },
+   {
+    "name": "Underground Tunnel and Dungeon",
+    "kind": "dungeon",
+    "summary": "Back through the tunnels, then the prison. The Dungeon Key from a soldier opens the cells, and two Tablet Shards are inside them.",
+    "steps": [
+     "A dialogue choice at the Rebel Hideout banks a stat for Lasswell; talk to Jake in his room afterwards for a run of scenes.",
+     "A Mist Turbo Ether is in the western part of the tunnels.",
+     "In the Dungeon, head up the central staircase first; the shard there can wait.",
+     "Go north and west and beat the soldier for the Dungeon Key.",
+     "With the key, sweep the cells: Phoenix Pinions, a Tablet Shard in the merchant NPC's cell, the Pulse Cannon and a Turbo Ether, another Phoenix Pinion through the hidden wall from the cell to the right, an X-Potion and a Mist Ether from the inmate called Beefy Man, and a second Tablet Shard near him.",
+     "Head north once the cells are clear."
+    ],
+    "chests": [
+     "Mist Turbo Ether (western tunnels)",
+     "Phoenix Pinion x2 (jail cells)",
+     "Tablet Shard (cell with the merchant NPC)",
+     "Pulse Cannon (jail cells)",
+     "Turbo Ether (jail cells)",
+     "Phoenix Pinion (through the hidden wall from the cell to the right)",
+     "X-Potion (from Beefy Man)",
+     "Mist Ether (from Beefy Man)",
+     "Tablet Shard (near Beefy Man)"
+    ],
+    "bosses": [],
+    "shardCount": 2,
+    "sideQuests": [],
+    "notableSteals": [
+     "Vita Cloak as a rare drop from Gargoyle (good physical armour for Nichol or Fina)",
+     "Mage's Shard as a rare steal from Arachne (MP +30; purchasable later)",
+     "Arc Hammer as a rare drop from The Wandering One (weaker than the colosseum's Divine Mallet)"
+    ]
+   },
+   {
+    "name": "Zoldaad Castle",
+    "kind": "dungeon",
+    "summary": "The chapter's finale. A bookshelf clue points at a painting on the first floor, and the captain can be talked down rather than fought.",
+    "steps": [
+     "Head west for an event battle, then sweep the castle.",
+     "A Tablet Shard sits by the horse statue left of the stairs, and a second in the first room on the right at the top of the stairs. Check that room's bookshelf for a clue.",
+     "A guard in the upper-left room hands over a Turbo Ether, with an X-Potion nearby.",
+     "The captain in the upper-right room gives up the Throne Room Key whether you fight him or talk him down, so talking is free. The Kikokusenga is in the same room.",
+     "The bookshelf clue points to the painting left of the first-floor staircase: examine it for the Hairpin of Grace.",
+     "Fight the Emperor of Zoldaad in the throne room, then take the Kaiser Sword from behind the bushes to the throne's left.",
+     "Grab the Mist Turbo Ether on the way up to the roof, then an event fight and cutscenes lead into Lazarov.",
+     "Lazarov summons The Hunger v5, weak to Light, along with Test Subject No. 9 and No. 999.",
+     "A dialogue choice afterwards banks a stat for Jake, Lid learns Enterprise Airstrike, and leaving the city gives you the airship."
+    ],
+    "chests": [
+     "Tablet Shard (by the horse statue left of the stairs)",
+     "Turbo Ether (from the guard in the upper-left room)",
+     "X-Potion (near that guard)",
+     "Tablet Shard (first room on the right at the top of the stairs)",
+     "Throne Room Key (from the captain in the upper-right room)",
+     "Kikokusenga (same room as the captain)",
+     "Hairpin of Grace (painting left of the first-floor staircase)",
+     "Kaiser Sword (behind the bushes left of the throne)",
+     "Mist Turbo Ether (on the way to the roof)"
+    ],
+    "bosses": [
+     "Emperor of Zoldaad (weak: Water; drops X-Ether)",
+     "Lazarov (weak: Earth; summons The Hunger v5, weak to Light, plus Test Subject No. 9 and No. 999)"
+    ],
+    "shardCount": 2,
+    "sideQuests": [],
+    "notableSteals": []
+   },
+   {
+    "name": "Airship Exploration I - Zoldaad",
+    "kind": "interlude",
+    "summary": "With the airship, a long interlude opens before Chapter 5. Two Visions, Esper: Ifrit and the Rogue Rebel manhole hunt are all here. Note that the airship weapon shop replaces its stock every chapter, so completionists should buy before moving on.",
+    "steps": [
+     "Enter the airship interior with the left face button for scenes; a guard suggests Felicitas. Check the new shops inside.",
+     "Residential District: a marked NPC gives Sub Quest - The Call from Beyond.",
+     "Rebel Hideout: Simon gives Sub Quest - Rogue Rebel and the Portrait of Dario.",
+     "For Rogue Rebel, speak to the marked NPCs in the Imperial Hotel district, Residential District and Slums, examine the manhole, then find five more: just east of the Imperial Hotel district entrance, right outside the hotel proper, the centre of the Castle Plaza, by the spooky man and cart in the Commercial District (the northern one there does not count), and the centre of the Residential District. Tell the spooky man \"Wild Rose\" for Dario's Letter, then return to Simon for a Rose Circlet and a Magicite.",
+     "For The Call from Beyond, investigate the train station outside Pyroviper Cave, talk to the passengers in the first car then the second, choose \"General Wilhelm's men\" then \"Exposing Lasarov\", then speak to the woman in the first car and choose \"The remorse of the soldiers\". Phantom Train True Form follows, for a Magicite and Vision: Camille.",
+     "Castle Plaza: Ozetta gives Sub Quest - O General! My General! Visit the two marked camps in the Zoldaad region, return to Castle Plaza, go to the north part of the Weapons Factory, then talk to Foxie in the hotel for a Magicite Cryst and Vision: Wilhelm.",
+     "Fly into the volcano for Ifrit, who becomes a summon.",
+     "The airship reaches new sparkles: Phoenix Pinions and a Mist X-Potion on the south side of the continent, and the Ancient Accessory inside Quarry Cave on the island to the west.",
+     "Register Infernal Hollow in the centre of the continent; nothing to do there yet."
+    ],
+    "chests": [
+     "Rose Circlet (Rogue Rebel reward)",
+     "Magicite (Rogue Rebel reward)",
+     "Magicite (The Call from Beyond reward)",
+     "Vision: Camille (The Call from Beyond reward)",
+     "Magicite Cryst (O General! My General! reward)",
+     "Vision: Wilhelm (O General! My General! reward)",
+     "Phoenix Pinion x2 (south side of the Zoldaad continent)",
+     "Mist X-Potion (south side of the Zoldaad continent)",
+     "Ancient Accessory (Quarry Cave, western island)"
+    ],
+    "bosses": [
+     "Phantom Train True Form (weak: Ice and Light)",
+     "Ifrit (weak: Water; drops Magicite, becomes a summon)"
+    ],
+    "shardCount": 0,
+    "sideQuests": [
+     "The Call from Beyond (Residential District)",
+     "Rogue Rebel (Simon, Rebel Hideout)",
+     "O General! My General! (Ozetta, Castle Plaza)"
+    ],
+    "notableSteals": []
+   },
+   {
+    "name": "Airship Exploration I - Olderion, Grandshelt and Dirnado",
+    "kind": "interlude",
+    "summary": "Esper: Leviathan, Vision: Clive and Vision: Aileen all come from this sweep, plus the Ancient Bow that opens the Chamber of Arms.",
+    "steps": [
+     "Olderion: speak to Nichol in the north for Sub Quest - Nichol's Duty. Talk to the fishermen near the shops, go to Lake Dorr for a cutscene, take the event fight on the south-east of the continent, visit the Cave of Waters for a scene, then return to Lake Dorr for an Enchanted Ring, a stat boost for Nichol and Esper: Leviathan.",
+     "Olderion sparkles: a Ring of Retaliation just north-east of the Cave of Waters, a Mist Turbo Ether in the south-central forest near Firion's Sanctum, and Fuma Shurikens north of Lake Dorr. Two islands sit north-west: one has the Barrier Bane, the other Malboro Varietas Cave for later.",
+     "Grandshelt: talk to Chloe at the Felicitas item shop; she mentions a bow and heads for Dirnado. Knives of Paralysis are on the north side of the desert, north-west of Kol; a Zephyr Cloak is on a beach south-east of Kol.",
+     "Register Lost Cave near Grandshelt and Whirlpool Hollow in the water north-east of the desert; both are for later. A Power Stone sits near the centre of the continent just north of Lost Cave, with a Sanctum of Light for Vision: Clive, and Mist Hi-Potions just to the north.",
+     "Dirnado: a Magicite Shard is on the peninsula west of Dilmagia. In town, the Gossiping Girl near the entrance gives Sub Quest - Forger of Wills and another NPC at the shipyard gives Sub Quest - Beyond the Blue.",
+     "For both: speak to Aileen at the Dilmagia Shipyard and the NPC near the weapon shop, then the marked NPCs at Kol and the Rebel Hideout, then the marked spot in the upper-left area of Mobliz Shipyard, then back to the shipyard. Answer Aileen \"It's a tool of harm\", \"A way to rebel against troubling times\", then \"Craft weapons that suit each of us well\" for a Magicite and Vision: Aileen.",
+     "Take the upper-right path for a scene, then speak to Evan on the airship for Typhon. Return to the shipyard once more for the Chocobo Nitro and stat increases for Lid.",
+     "Chamber of Arms is a cave north-west of Dirnado. Chloe is at the top and hands over the Ancient Bow. The twelve trials inside can wait until Chapter 8."
+    ],
+    "chests": [
+     "Enchanted Ring (Nichol's Duty reward)",
+     "Esper: Leviathan (Nichol's Duty reward)",
+     "Ring of Retaliation (north-east of the Cave of Waters)",
+     "Mist Turbo Ether (south-central Olderion forest, near Firion's Sanctum)",
+     "Fuma Shuriken x3 (north of Lake Dorr)",
+     "Barrier Bane (north-west Olderion island)",
+     "Knife of Paralysis x5 (north side of the Grandshelt desert, north-west of Kol)",
+     "Zephyr Cloak (beach south-east of Kol)",
+     "Power Stone (centre of Grandshelt, north of Lost Cave)",
+     "Vision: Clive (Sanctum of Light near the Power Stone)",
+     "Mist Hi-Potion x2 (north of there)",
+     "Magicite Shard (peninsula west of Dilmagia)",
+     "Magicite (Forger of Wills / Beyond the Blue)",
+     "Vision: Aileen (Forger of Wills / Beyond the Blue)",
+     "Chocobo Nitro (Dilmagia Shipyard, final visit)",
+     "Ancient Bow (Chamber of Arms, from Chloe)"
+    ],
+    "bosses": [
+     "Typhon (weak: Ice; Snorts party members out of the fight; drops Elixir)"
+    ],
+    "shardCount": 0,
+    "sideQuests": [
+     "Nichol's Duty (Nichol, north Olderion)",
+     "Forger of Wills (Gossiping Girl, Dilmagia)",
+     "Beyond the Blue (Dilmagia Shipyard)"
+    ],
+    "notableSteals": []
+   },
+   {
+    "name": "Town of Sian (early visit)",
+    "kind": "interlude",
+    "summary": "Pharm is a Chapter 7 continent and its enemies sit in the mid-40s, but Sian itself is safe to visit for six pickups, one of them a Tablet Shard.",
+    "steps": [
+     "Sian is at the centre of the Pharm continent. The rest of Pharm is better left until after Chapter 5, when you have a full party and everyone shares the EXP and mastery points.",
+     "Sweep the six pickups, including the Tablet Shard east of the item shop and the chest tucked in the very north-east corner.",
+     "The woman in the north-east house hands over a Mist Turbo Ether.",
+     "To start Chapter 5, use the radar pulse in the ocean just south and slightly east of Pharm; Lid narrows down the spot."
+    ],
+    "chests": [
+     "Mist Hi-Potion x2 (behind the north-west house)",
+     "Phoenix Pinion (right next to the item shop)",
+     "Tablet Shard (east of the item shop)",
+     "Fuma Shuriken x2 (chest in the very north-east corner)",
+     "Mist Turbo Ether (near the north-east house)",
+     "Mist Turbo Ether (from the woman in the north-east house)"
+    ],
+    "bosses": [],
+    "shardCount": 1,
+    "sideQuests": [],
+    "notableSteals": []
+   }
+  ],
+  "5": [
+   {
+    "name": "Mysidia, the Magiapolis",
+    "kind": "town",
+    "summary": "Three Tablet Shards and three stacked Mog Tag quests from the same moogle. Sakura joins here.",
+    "steps": [
+     "The first Tablet Shard is down the stairs to the right. The second is by the crates in front of the shops, with the Seraphim Bow behind them. Knives of Silence are west of the town entrance.",
+     "Pick Potion Factory from the teleport crystal. The third Tablet Shard is east and south, near the big fountain pool.",
+     "Healing Springs are to the west inside the potion factory, and the portal east of the factory leads to a Knight's Sword.",
+     "The moogle east of the entrance runs three quests back to back. Mog Tag: one tag on the east bridge, one near the central platform, one just west of it, for a Mist X-Potion. More Mog Tag: near the central platform, south of the potion factory, east of the potion factory, for a Magicite. Even More Mog Tag: right where you start, over the bridge west of the potion factory, right in front of the potion factory, for a Magicite Cryst.",
+     "Enter Sakura's house and she joins the party. Come back in later for the Thunder God's Earrings.",
+     "Watch the scene at the potion factory, then head north-west of it to the Arcane Library."
+    ],
+    "chests": [
+     "Tablet Shard (down the stairs to the right)",
+     "Tablet Shard (by the crates in front of the shops)",
+     "Seraphim Bow (behind the shops)",
+     "Knife of Silence x3 (west of the town entrance)",
+     "Tablet Shard (east and south, near the big fountain pool)",
+     "Healing Spring x2 (west side of the potion factory)",
+     "Knight's Sword (through the portal east of the factory)",
+     "Thunder God's Earrings (Sakura's house, on a later visit)",
+     "Mist X-Potion (Mog Tag reward)",
+     "Magicite (More Mog Tag reward)",
+     "Magicite Cryst (Even More Mog Tag reward)"
+    ],
+    "bosses": [],
+    "shardCount": 3,
+    "sideQuests": [
+     "Mog Tag (moogle east of the entrance)",
+     "More Mog Tag (same moogle)",
+     "Even More Mog Tag (same moogle)"
+    ],
+    "notableSteals": []
+   },
+   {
+    "name": "Arcane Library (first visit)",
+    "kind": "dungeon",
+    "summary": "A library of numbered lifting platforms. On this pass you can only reach some of them; the rest open when the story brings you back.",
+    "steps": [
+     "A Tablet Shard sits immediately to the left, between the tables.",
+     "Take the stairs to the very end and ride platform II for Mist Potions.",
+     "Go back to platform I and ride it up, then platform III for Mist Ethers.",
+     "Follow the path to the top and give the Azure Pot a Mist Turbo Ether.",
+     "Take the stairs all the way down, then platform V for Knives of Blind and platform VI for the Genmato. That is everything available for now."
+    ],
+    "chests": [
+     "Tablet Shard (immediately left, between the tables)",
+     "Mist Potion x3 (platform II)",
+     "Mist Ether x3 (platform III)",
+     "Knife of Blind x2 (platform V)",
+     "Genmato (platform VI)"
+    ],
+    "bosses": [],
+    "shardCount": 1,
+    "sideQuests": [],
+    "notableSteals": []
+   },
+   {
+    "name": "World Map - Mysidia, the Uncharted Land",
+    "kind": "world_map",
+    "summary": "A new continent with three Visions, three optional bosses and Esper: Shiva. Mechamog Scan, from a Mechabo quest out here, is the single most useful boss tool in the game.",
+    "steps": [
+     "Sparkles: Flame Scrolls just west of Mysidia, Fuma Shurikens just north, Tents to the south, Mist Hi-Potions to the east, the Luminous Grimoire far east, Phoenix Pinions on the plateau above the eastern cave, and the Mirage Jacket far west.",
+     "Sanctums of Light: south for Vision: Lightning, north for Vision: Bartz, west for Vision: Vaan.",
+     "Register Victoria's Shrine to the west; nothing to do there yet.",
+     "Salome Cave: Salome leans on Charm, so buy Monk's Prayer Beads from the airship first.",
+     "The island to the west holds Catastrophe to the east and the Scar Orb to the west.",
+     "Jotunn Cave and the ice tornado hold Jotunn and Shiva; beating Shiva makes her a summon.",
+     "Back at Dwarven Forge, Verun has Sub Quest - Mechabo Unleashed. Beat three Mahadevas near where you fought Shiva, report in, and Lid learns Overclock Zero. Then beat three Malbodooms on the small peninsula off the western edge of Granoa and report again for a Magicite Cryst and Mechamog Scan, which adds an extra elemental weakness to a boss for the whole fight. Pick up the Mist X-Potion while you are over there."
+    ],
+    "chests": [
+     "Flame Scroll II x2 (just west of Mysidia)",
+     "Fuma Shuriken x2 (just north of Mysidia)",
+     "Tent x2 (south)",
+     "Mist Hi-Potion x2 (east)",
+     "Luminous Grimoire (far east)",
+     "Phoenix Pinion x3 (plateau above the eastern cave)",
+     "Mirage Jacket (far west)",
+     "Vision: Lightning (southern Sanctum of Light)",
+     "Vision: Bartz (northern Sanctum of Light)",
+     "Vision: Vaan (western Sanctum of Light)",
+     "Catastrophe (western island, east side)",
+     "Scar Orb (western island, west side)",
+     "Mist X-Potion (west peninsula of Granoa)",
+     "Magicite Cryst (Mechabo Unleashed reward)"
+    ],
+    "bosses": [
+     "Salome (weak: Wind; uses Charm, so bring Monk's Prayer Beads; drops Mist X-Ether and Magicite)",
+     "Jotunn (weak: Fire and Dark; drops Mist X-Ether and Magicite)",
+     "Shiva (weak: Fire; drops Magicite, becomes a summon)"
+    ],
+    "shardCount": 0,
+    "sideQuests": [
+     "Mechabo Unleashed (Verun, Dwarven Forge)"
+    ],
+    "notableSteals": [
+     "Power Whip from Roper",
+     "Mole Doll as a rare steal from Mahadeva (halves Earth damage; purchasable later)",
+     "Solar Pendant as a rare steal from Ancient Dragon",
+     "Poison Charm as a rare steal from Malbodoom"
+    ]
+   },
+   {
+    "name": "Village of Sunioo",
+    "kind": "town",
+    "summary": "Seven pickups including two Tablet Shards, and a dialogue choice for Sakura. Slagworm guards the way in.",
+    "steps": [
+     "Beat Slagworm at the story marker to reach the village.",
+     "The first Tablet Shard is right at the start, with Fuma Shurikens out on the ice.",
+     "Water Scrolls are in the inn and Phoenix Pinions in the eastern house.",
+     "The Arcane Coat is down a slightly hidden path in the centre-north.",
+     "The second Tablet Shard is far east near the igloo, with the Resonate Staff inside it.",
+     "Talk to the marked NPC for scenes and a dialogue choice that banks a stat for Sakura."
+    ],
+    "chests": [
+     "Tablet Shard (right at the start)",
+     "Fuma Shuriken x2 (out on the ice)",
+     "Water Scroll II x2 (inn)",
+     "Phoenix Pinion x2 (eastern house)",
+     "Arcane Coat (slightly hidden path, centre-north)",
+     "Tablet Shard (far east, near the igloo)",
+     "Resonate Staff (inside the igloo)"
+    ],
+    "bosses": [
+     "Slagworm (weak: Wind; drops Mist X-Potion)"
+    ],
+    "shardCount": 2,
+    "sideQuests": [],
+    "notableSteals": []
+   },
+   {
+    "name": "Mysidia and Zoldaad sidequests",
+    "kind": "interlude",
+    "summary": "Four sidequests that each hand over a Vision or a stat boost, plus the Gilgamesh chain that ends in a real fight on the Kolobos bridge.",
+    "steps": [
+     "Mysidia: the witch near the shops gives Sub Quest - Victoria Revivified. Talk to Victoria in the potion factory, enter Victoria's Shrine for a scene, beat the Black Lizards event battle north of Mysidia, then return to the Mysidia fountain for Vision: Victoria and a Magicite.",
+     "Visit your airship deck to find Gilgamesh. This is an event fight, and he goes invulnerable while the battle's scenes play. If he does not show up, clear Verun's Mechabo quests first. You get Genji Gloves and Sub Quest - Battle on the Big Bridge.",
+     "Visit the four marked bridges on the world map, then fight Gilgamesh properly at the Kolobos bridge for Genji Armor. He still goes invulnerable if your damage outpaces his scripted beats.",
+     "Zoldaad: sleep at any inn other than the airship to start Sub Quest - Token Legacy. Speak to the NPC in the Slums, take the train at Capital Station, then report to Shera at the castle for the Trick Coin and a stat boost for Jake.",
+     "Zoldaad: the notice board starts Sub Quest - Errand's End. Visit Shera at the castle, then Olderion, then Waterfall Way, then back to Zoldaad for a Magicite and Vision: Amelia."
+    ],
+    "chests": [
+     "Vision: Victoria (Victoria Revivified reward)",
+     "Magicite (Victoria Revivified reward)",
+     "Genji Gloves (airship deck fight)",
+     "Genji Armor (Battle on the Big Bridge reward)",
+     "Trick Coin (Token Legacy reward)",
+     "Magicite (Errand's End reward)",
+     "Vision: Amelia (Errand's End reward)"
+    ],
+    "bosses": [
+     "Gilgamesh (airship deck; scripted, goes invulnerable between beats)",
+     "Gilgamesh (Kolobos bridge; drops Genji Armor)"
+    ],
+    "shardCount": 0,
+    "sideQuests": [
+     "Victoria Revivified (witch near the Mysidia shops)",
+     "Battle on the Big Bridge (Gilgamesh, airship deck)",
+     "Token Legacy (sleep at any inn but the airship)",
+     "Errand's End (Zoldaad notice board)"
+    ],
+    "notableSteals": []
+   },
+   {
+    "name": "Nameless Ruins",
+    "kind": "dungeon",
+    "summary": "Two Tablet Shards and a three-statue puzzle for Tyr's Armor. The first chest you see cannot be opened yet, and the Impact Wand needs a second visit.",
+    "steps": [
+     "The first treasure chest you pass cannot be opened on this visit.",
+     "Head west for the first Tablet Shard.",
+     "On the second floor, fight Iron Giant and Liquid Flame at the quest markers.",
+     "Healing Springs are in the west room; the western stairs lead down to the Magi-Blaster.",
+     "Carry on north. The second Tablet Shard and a Magicite are south-west of the save point.",
+     "Before going north of the save point, touch the statue there, then the one near the Magi-Blaster, then the one at the dungeon entrance, for Tyr's Armor.",
+     "Tellus ends the visit; the fight stops before you can finish them off.",
+     "Come back later for the Impact Wand in the last room."
+    ],
+    "chests": [
+     "Tablet Shard (west)",
+     "Healing Spring x3 (west room, second floor)",
+     "Magi-Blaster (down the western stairs)",
+     "Tablet Shard (south-west of the save point)",
+     "Magicite (south-west of the save point)",
+     "Tyr's Armor (touch all three statues)",
+     "Impact Wand (last room, on a return visit)"
+    ],
+    "bosses": [
+     "Tellus (weak: Wind; the fight ends before you can defeat them)"
+    ],
+    "shardCount": 2,
+    "sideQuests": [],
+    "notableSteals": []
+   },
+   {
+    "name": "Arcane Library (return visit)",
+    "kind": "dungeon",
+    "summary": "Five Monster Tomes to clear, then a blue warp to Byblos. The ladder before the last bookshelf is easy to walk past.",
+    "steps": [
+     "Navigate the library and beat five Monster Tomes, each marked with a quest icon.",
+     "That opens the blue warp.",
+     "In the final room, climb the ladder before you touch the bookshelf: a Tablet Shard is on the left and the Book of Strength on the right.",
+     "Then fight Byblos."
+    ],
+    "chests": [
+     "Tablet Shard (up the ladder in the final room, on the left)",
+     "Book of Strength (up the same ladder, on the right)"
+    ],
+    "bosses": [
+     "Byblos (weak: Dark and Fire)"
+    ],
+    "shardCount": 1,
+    "sideQuests": [],
+    "notableSteals": []
+   },
+   {
+    "name": "Fina's Psyche - Part 1",
+    "kind": "dungeon",
+    "summary": "Fina leaves the party, and there are no battles on this first pass. Three Tablet Shards, one of them easy to miss in a tent.",
+    "steps": [
+     "The open book returns you to the Arcane Library at any point.",
+     "The first Tablet Shard is on the north-west wall near a chain.",
+     "Head west for scenes, then sweep the camp: Mist Hi-Potions in the centre tent and the second Tablet Shard in the left tent.",
+     "The third Tablet Shard is at the end of the path after you catch up with Fina.",
+     "Return to the starting area for more scenes at the gate, go to the cliff to the east, then back to the real world. The story points you at the Tower of Mysidia on the west of the continent."
+    ],
+    "chests": [
+     "Tablet Shard (north-west wall, near a chain)",
+     "Mist Hi-Potion x2 (centre tent)",
+     "Tablet Shard (left tent)",
+     "Tablet Shard (end of the path after catching up with Fina)"
+    ],
+    "bosses": [],
+    "shardCount": 3,
+    "sideQuests": [],
+    "notableSteals": []
+   },
+   {
+    "name": "Tower of Mysidia",
+    "kind": "dungeon",
+    "summary": "A linear climb with four Tablet Shards, three of them simply sitting on staircases. Say no to re-entering Fina's Psyche at the top until you have the Guarding Gown.",
+    "steps": [
+     "First room: a Tablet Shard at the top centre, Smelling Salts to the left.",
+     "A second Tablet Shard sits on the staircase.",
+     "Second landing: a Magicite is hidden east of the balcony and the Bullseye Mace west of it.",
+     "A third Tablet Shard is on the next staircase, then give the Azure Pot a Mist Turbo Ether, then a fourth shard on the staircase after that.",
+     "At the top, decline to go back into Fina's Psyche and take the Guarding Gown hidden behind the pillar in the top room first.",
+     "Then head into Fina's Psyche."
+    ],
+    "chests": [
+     "Tablet Shard (top centre of the first room)",
+     "Smelling Salts x3 (to the left)",
+     "Tablet Shard (on the staircase)",
+     "Magicite (hidden east of the second-landing balcony)",
+     "Bullseye Mace (hidden west of the second-landing balcony)",
+     "Tablet Shard (on the staircase)",
+     "Tablet Shard (on the staircase)",
+     "Guarding Gown (hidden behind the pillar in the top room)"
+    ],
+    "bosses": [],
+    "shardCount": 4,
+    "sideQuests": [],
+    "notableSteals": []
+   },
+   {
+    "name": "Fina's Psyche - Part 2",
+    "kind": "dungeon",
+    "summary": "Fina leaves again, and this time there are fights. One Tablet Shard, and two bosses close the chapter.",
+    "steps": [
+     "Head east, then north through the forest path. The Barrel Blazer is in a chest to the west and the Tablet Shard to the south-east.",
+     "A Malboro fight waits at the marker.",
+     "Take the Lunar Whip to the south-west, then push on through the next areas for scenes.",
+     "At the Aldorian base, speak with each of the Sworn Eight.",
+     "Head back to the gate. In the Battlefield, Heavy Gunner can rarely drop the Ballista; you can return later, so it is not missable.",
+     "Follow the path, interacting with the flowers, then two bosses in a row.",
+     "Return to Sakura's house for the closing scenes."
+    ],
+    "chests": [
+     "Barrel Blazer (chest to the west)",
+     "Tablet Shard (south-east)",
+     "Lunar Whip (south-west)"
+    ],
+    "bosses": [
+     "Story boss (weak: Light and Water; drops Ribbon)",
+     "Tellus (weak: Wind; drops Golem Core)"
+    ],
+    "shardCount": 1,
+    "sideQuests": [],
+    "notableSteals": [
+     "Ballista as a rare drop from Heavy Gunner (physical bow; not missable)",
+     "Sylph's Tiara as a rare steal from A-Type Magitek Armor+ (Aether already dropped one)"
+    ]
+   },
+   {
+    "name": "Airship Exploration II - Kingdom of Pharm",
+    "kind": "interlude",
+    "summary": "With a full party, Pharm is worth clearing even though it is a Chapter 7 region. Twelve sparkles and a long list of rare steals.",
+    "steps": [
+     "Heal at the airship inn between fights; the enemies here are a step up.",
+     "On one of the small south-central islands, take the Anti-Magic Studs. Register Tartarosaurus Cave there, and Dragon's Maw just to the west, for later.",
+     "The item on the small western island is reached through Dragon's Maw, so it has to wait.",
+     "Sweep the continent's sparkles: a Water Scroll on the west side, Turbo Ethers in the south-central forest, a Mist X-Potion on the east beach, Mist X-Ethers on the south-west beach, a Magicite Shard in the north-west forest, Healing Springs in the north-east forest, Knives of Paralysis east of the eastern bridge, Smoke Bombs in the eastern forest, a Fuma Shuriken north-centre, an Elixir in the north-west forest by the river, a Mist Hi-Potion on the thin northern peninsula, and a second Elixir at the continent's northernmost tip.",
+     "Register Titanoraidos Cave in the centre, Malboro Menace Cave to the north, and Catacumba Cave on the island just north.",
+     "Try to enter the Abandoned Cabin even though it is locked -- that attempt flags the event that later gives you the key.",
+     "King Gil Snapper roams here; Ice is his only weakness and he will flee if you are slow."
+    ],
+    "chests": [
+     "Anti-Magic Studs (small south-central island)",
+     "Water Scroll II (west side)",
+     "Turbo Ether x2 (south-central forest)",
+     "Mist X-Potion (east beach)",
+     "Mist X-Ether x2 (south-west beach)",
+     "Magicite Shard (north-west forest)",
+     "Healing Spring x3 (north-east forest)",
+     "Knife of Paralysis x3 (east of the eastern bridge)",
+     "Smoke Bomb x5 (eastern forest)",
+     "Fuma Shuriken (north-centre)",
+     "Elixir (north-west, in the forest near the river)",
+     "Mist Hi-Potion (thin northern peninsula)",
+     "Elixir (northernmost tip of the continent)"
+    ],
+    "bosses": [
+     "King Gil Snapper (optional; weak: Ice only, and he escapes if the fight drags)"
+    ],
+    "shardCount": 0,
+    "sideQuests": [],
+    "notableSteals": [
+     "Illusory Robe as a rare steal from Shut (north side)",
+     "Pole Mace from Piscodaemon (centre)",
+     "Cursed Whip as a rare steal from Hydra (centre; purchasable later)",
+     "Index of War as a rare steal from Ogre Chief (centre; purchasable later)",
+     "Plate of Providence as a rare steal from Shantak (south side)",
+     "Guardbreaker as a rare steal from Flan Princess (south side)",
+     "Shock Whip as a rare steal from Thunder Gigas (near Titanoraidos Cave)"
+    ]
+   },
+   {
+    "name": "Airship Exploration II - sidequests and cave cleanup",
+    "kind": "interlude",
+    "summary": "The Abandoned Cabin opens, three character sidequests pay out accessories and stat boosts, the Brawler League unlocks better shop stock, and three optional cave bosses go down.",
+    "steps": [
+     "Trigger the scene near the Gronoa entrance to open this batch of sidequests.",
+     "Sian: speak to the cat for a Mist Turbo Ether -- you have to talk to the Mysidia cat first to learn they can talk. The man outside the inn gives the Cabin Key, provided you already tried the Abandoned Cabin door. The cabin holds the Ancient Rod.",
+     "Mysidia: Fina at the entrance gives Sub Quest - Shimmering Reflections and the boy to the west gives Sub Quest - Mysidia, Ever Blooming. For Sakura, visit the top of the Arcane Library, the top of the Tower of Mysidia, the marked island near the Grandshelt desert, then east of the Mysidia potion factory, for the Amulet of Magic Absorption and stat increases. For Fina, visit the Earth Crystal chamber in the Earth Shrine, Siren's Tower, Olderion and Lake Dorr, for the Blessed Pendant and stat increases.",
+     "Grandshelt: Fina near the fountain gives Sub Quest - Last Respite. Trigger the two town scenes, one by the colosseum and one by the shops, then the castle scenes, then the airship deck, for the Moonlight Ring and stat increases.",
+     "Grandshelt Colosseum, Brawler League: Magicite, Adamantite, Adamantite, Magicite and the Ancient Cuirass. Ochu in battle three hurts itself to summon Microchus; battle four wants Berserk protection (a Calm Armlet from the airship) and physical counters; use Carbuncle in battle five. The Brawler's Proof of Victory adds Magicite, new weapons, Swallow Scales armour and auto-buff accessories to the shop.",
+     "Clear three cave bosses now that you have levels: Malboro Varietas (Calm Armlets and Ifrit help), Tartarosaurus (lots of HP but only basic physicals and the occasional Meteor) and Catacumba (periodically Dooms the party)."
+    ],
+    "chests": [
+     "Mist Turbo Ether (from the Sian cat)",
+     "Cabin Key (man outside the Sian inn)",
+     "Ancient Rod (Abandoned Cabin)",
+     "Amulet of Magic Absorption (Shimmering Reflections reward)",
+     "Blessed Pendant (Mysidia, Ever Blooming reward)",
+     "Moonlight Ring (Last Respite reward)",
+     "Magicite (Brawler League, battle 1)",
+     "Adamantite (Brawler League, battle 2)",
+     "Adamantite (Brawler League, battle 3)",
+     "Magicite (Brawler League, battle 4)",
+     "Ancient Cuirass (Brawler League, battle 5)",
+     "Brawler's Proof of Victory (league clear)"
+    ],
+    "bosses": [
+     "Malboro Varietas (weak: Fire; drops Magicite)",
+     "Tartarosaurus (weak: Ice; drops Magicite Cryst and Elixir)",
+     "Catacumba (weak: Fire and Light; Dooms party members; drops Elixir and Magicite Cryst)"
+    ],
+    "shardCount": 0,
+    "sideQuests": [
+     "Shimmering Reflections (Fina, Mysidia entrance)",
+     "Mysidia, Ever Blooming (boy to the west, Mysidia)",
+     "Last Respite (Fina, Grandshelt fountain)"
+    ],
+    "notableSteals": []
+   }
+  ],
+  "6": [
+   {
+    "name": "Gaberada, the Undertown",
+    "kind": "town",
+    "summary": "Land on Gronoa's southern peninsula and head north. The radar upgrade you get here is what opens a set of world-map pickups, and the notice board starts the merchant-ship trade.",
+    "steps": [
+     "The notice board mentions a merchant ship. He sells an Adamantite for 35,000 gil and moves around the world map; buy whatever he has whenever you find him, since there are only a limited number of merchant-ship items.",
+     "Chests: a Phoenix Pinion to the south-west, Fuma Shurikens to the north-east.",
+     "Take the hidden passage behind the inn and talk to the NPC for the Magi-tenna.",
+     "Give the Magi-tenna to Lid on the ship to upgrade the airship radar, and open the chest there for a Remedy.",
+     "A Tablet Shard sits near the north-west house. The village elder inside gives your next main objective.",
+     "The silver-haired quest NPC gives Sub Quest - \"Reunion\": visit the clearing east of the Sunioo item shop, the marked tree in Mt. Thunderclap, then Silvia at Dwarven Forge for a Magicite and 2,500G."
+    ],
+    "chests": [
+     "Phoenix Pinion (chest to the south-west)",
+     "Fuma Shuriken x3 (chest to the north-east)",
+     "Magi-tenna (hidden passage behind the inn)",
+     "Remedy (chest on the ship)",
+     "Tablet Shard (near the north-west house)",
+     "Magicite (\"Reunion\" reward)",
+     "2500G (\"Reunion\" reward)"
+    ],
+    "bosses": [],
+    "shardCount": 1,
+    "sideQuests": [
+     "\"Reunion\" (silver-haired NPC)"
+    ],
+    "notableSteals": []
+   },
+   {
+    "name": "Adamantite and radar items",
+    "kind": "interlude",
+    "summary": "The upgraded radar turns up five new world-map pickups, and Aileen can finally forge an Adamantite weapon for each character. There is exactly enough Adamantite in the game for one per character.",
+    "steps": [
+     "Radar finds: an Adamantite in the water north of Olderion, the Ancient Garment in the water just west of the Gronoa entrance, a Magicite north of the big Zoldaad volcano, the Berserker Ring on the north side of Pharm, and the Spell Jacket on the south side of Mysidia.",
+     "Talk to Aileen on the airship deck to forge Adamantite weapons: Save the Vermillion for Rain, Shisui for Lasswell, Elysium for Fina, Mechabo Hammer SUPER for Lid, Codex Providentiae for Nichol, Caelum Renatum for Jake, Roselia for Sakura and Abyss for Archwitch Fina.",
+     "The airship shop has restocked for Chapter 6. The Adept's Armlet doubles battle EXP, but only for whoever wears it."
+    ],
+    "chests": [
+     "Adamantite (water north of Olderion)",
+     "Ancient Garment (water just west of the Gronoa entrance)",
+     "Magicite (north of the big Zoldaad volcano)",
+     "Berserker Ring (north side of Pharm)",
+     "Spell Jacket (south side of Mysidia)"
+    ],
+    "bosses": [],
+    "shardCount": 0,
+    "sideQuests": [],
+    "notableSteals": []
+   },
+   {
+    "name": "Research Center Ruins",
+    "kind": "dungeon",
+    "summary": "A teleporter maze gated behind three key cards. Three Tablet Shards, and the White Jade Stone at the end is the story item.",
+    "steps": [
+     "Take the Level 1 Lab Key Card in the first room, then exit west.",
+     "The westmost room holds a Tablet Shard; take the teleporter from there.",
+     "Collect the Lightning Scroll, Mist Turbo Ethers, the second Tablet Shard and the Arcane Long Rifle, press the three switches, then take the warp.",
+     "Take the Level 2 Lab Key Card and head to the east room.",
+     "Through the teleport, take the Unicorn Horns. At the split, go right, left, right for the Fortress Gear, then back and take the left teleporter to the ladder.",
+     "Upper level: the third Tablet Shard, a Violet Pot (give it an X-Ether) and a Magicite.",
+     "Take the Level 3 Lab Key Card, the warp, then the north room from the entrance for the White Jade Stone.",
+     "A dialogue choice afterwards banks a stat for Fina."
+    ],
+    "chests": [
+     "Level 1 Lab Key Card (first room)",
+     "Tablet Shard (westmost room)",
+     "Lightning Scroll II (past the first teleporter)",
+     "Mist Turbo Ether x2 (past the first teleporter)",
+     "Tablet Shard (past the first teleporter)",
+     "Arcane Long Rifle (past the first teleporter)",
+     "Level 2 Lab Key Card (after the warp)",
+     "Unicorn Horn x3 (past the east teleport)",
+     "Fortress Gear (right, left, right at the teleporter split)",
+     "Tablet Shard (upper level)",
+     "Magicite (upper level)",
+     "Level 3 Lab Key Card (upper level)",
+     "White Jade Stone (north room from the entrance)"
+    ],
+    "bosses": [],
+    "shardCount": 3,
+    "sideQuests": [],
+    "notableSteals": [
+     "Ether's Light as a rare drop from Cursed Slate",
+     "Adamantine Beads as a common steal from Oberon",
+     "Barrier Staff as a rare steal from Oberon",
+     "Rush Whip as a rare steal from Medeia"
+    ]
+   },
+   {
+    "name": "World Map - Gronoa, the Shuttered Land",
+    "kind": "world_map",
+    "summary": "Exploration is capped to the east until Fina learns Holy back in Gaberada; after that the whole continent opens, including two optional caves and Esper: Odin.",
+    "steps": [
+     "Before Holy, the east section holds Mist Hi-Potions and the Deafening Bow.",
+     "Return to Gaberada for the scenes where Fina learns Holy.",
+     "East of the Research Center Ruins: a Remedy, an X-Potion and a Wind Scroll. Humbaba Cave is here -- guard against paralysis and he is straightforward.",
+     "Bladerain Stele: examine the grave for the Broken Sword Hilt and Sub Quest - Iron Splitter.",
+     "West of Gaberada: Brigand's Gloves and Knives of Sleep on the way to the Rugged Mountain Pass.",
+     "The southern section, once open: Earth Scrolls, Healing Springs, the Anatomy of Magic near Granoa Shrine, a Mist X-Potion and a Mist X-Ether. Examine the grave for Odin's Shadow, which drops the Broken Sword Blade, and take the Shadowstep Garb across the bridge east of the ravine. Necromonarch Cave is down here too.",
+     "With both sword pieces, head back to the Nameless Ruins for Esper: Odin."
+    ],
+    "chests": [
+     "Mist Hi-Potion x3 (east section)",
+     "Deafening Bow (east section)",
+     "Remedy (east of the Research Center Ruins)",
+     "X-Potion (east of the Research Center Ruins)",
+     "Wind Scroll II (east of the Research Center Ruins)",
+     "Broken Sword Hilt (Bladerain Stele grave)",
+     "Brigand's Gloves (west of Gaberada)",
+     "Knife of Sleep x2 (west of Gaberada)",
+     "Earth Scroll II x2 (southern section)",
+     "Healing Spring x3 (southern section)",
+     "Anatomy of Magic (near Granoa Shrine)",
+     "Mist X-Potion (southern section)",
+     "Mist X-Ether (southern section)",
+     "Shadowstep Garb (across the bridge east of the ravine)",
+     "Esper: Odin (Nameless Ruins, with both sword pieces)"
+    ],
+    "bosses": [
+     "Humbaba (weak: Wind; guard against paralysis; drops Elixir and Magicite Cryst)",
+     "Odin's Shadow (weak: Lightning; drops Magicite Cryst and Broken Sword Blade)",
+     "Necromonarch (weak: Light and Fire; drops Elixir and Magicite Cryst)"
+    ],
+    "shardCount": 0,
+    "sideQuests": [
+     "Iron Splitter (Bladerain Stele grave)"
+    ],
+    "notableSteals": [
+     "Inquisitor's Gavel as a rare steal from Tyrant",
+     "Angel Ring as a rare steal from Roundworm",
+     "Adamantine Beads as a rare steal from Metal Roper"
+    ]
+   },
+   {
+    "name": "Rugged Mountain Pass and Duggle",
+    "kind": "dungeon",
+    "summary": "A linear pass with two Tablet Shards and an Adamantite, then you wake up in Duggle with three more pickups.",
+    "steps": [
+     "Work along the pass for the first Tablet Shard, the Kumobashiri down a hidden path to the right, an Adamantite, the second Tablet Shard and a Flame Scroll.",
+     "Lux is at the end. A scene plays on the world map shortly after you exit.",
+     "You come to in the Town of Duggle: a Tablet Shard to the north, Fuma Shurikens in the centre, X-Potions hidden to the left."
+    ],
+    "chests": [
+     "Tablet Shard (Rugged Mountain Pass)",
+     "Kumobashiri (hidden path to the right)",
+     "Adamantite (Rugged Mountain Pass)",
+     "Tablet Shard (Rugged Mountain Pass)",
+     "Flame Scroll II (Rugged Mountain Pass)",
+     "Tablet Shard (Duggle, to the north)",
+     "Fuma Shuriken x2 (Duggle, centre)",
+     "X-Potion x2 (Duggle, hidden to the left)"
+    ],
+    "bosses": [
+     "Lux (weak: Dark; drops Halo Ring)"
+    ],
+    "shardCount": 3,
+    "sideQuests": [],
+    "notableSteals": []
+   },
+   {
+    "name": "Granoa Shrine",
+    "kind": "dungeon",
+    "summary": "Three Tablet Shards across a fork-heavy layout, and Elfdrit at the elevator.",
+    "steps": [
+     "A few steps from the entrance, take the first Tablet Shard.",
+     "Head down the right stairs for a Mist X-Ether.",
+     "At the next fork, west is a Magicite Cryst and east is the second Tablet Shard.",
+     "Take the north-east path, go down the ladder, head west and up the ladder for the Rod of Focus and the third Tablet Shard.",
+     "At the next fork, east holds the Hermes Sandals; then take the elevator to Elfdrit.",
+     "Head east to Sanctissimus Shrine afterwards."
+    ],
+    "chests": [
+     "Tablet Shard (a few steps from the entrance)",
+     "Mist X-Ether (down the right stairs)",
+     "Magicite Cryst (west at the fork)",
+     "Tablet Shard (east at the fork)",
+     "Rod of Focus (north-east path, down then up the ladders)",
+     "Tablet Shard (same spot)",
+     "Hermes Sandals (east at the final fork)"
+    ],
+    "bosses": [
+     "Elfdrit (weak: Light and Fire)"
+    ],
+    "shardCount": 3,
+    "sideQuests": [],
+    "notableSteals": [
+     "Iron Baton as a rare steal from Rosetta",
+     "Rock Cloak as a rare steal from Abaddon"
+    ]
+   },
+   {
+    "name": "Sanctissimus Shrine",
+    "kind": "dungeon",
+    "summary": "Almost entirely a boss rush: eight fights with two Tablet Shards and the Hero's Blade tucked between them. Several bosses shift weakness or resistance mid-fight.",
+    "steps": [
+     "After the opening scene, move to the next room for another, then Archaroaevis, whose weakness changes during the fight.",
+     "Dad Bomb and Test Rider follow.",
+     "Take the hidden north path to a Violet Pot (give it an X-Ether), a Tablet Shard and the Whip of Affliction.",
+     "Yakhanati alternates which damage type it shrugs off, so bring both.",
+     "Two Arch Gargoyles have to go down at the same time.",
+     "A Dragon follows, then the second Tablet Shard on the linear path in the elevator room.",
+     "The Hero's Blade is in a hidden exit to the west, just before the last elevator.",
+     "A scripted boss follows, after which Rain learns The Power Within, then Gelidus closes the chapter."
+    ],
+    "chests": [
+     "Tablet Shard (hidden north path)",
+     "Whip of Affliction (hidden north path)",
+     "Tablet Shard (elevator room, on the linear path)",
+     "Hero's Blade (hidden exit west, just before the last elevator)"
+    ],
+    "bosses": [
+     "Archaroaevis (weakness changes during the fight)",
+     "Dad Bomb (weak: Fire)",
+     "Test Rider (weak: Light and Earth)",
+     "Yakhanati (weak: Dark and Wind; alternates physical and magic resistance)",
+     "Arch Gargoyle x2 (weak: Light and Wind; defeat both at once)",
+     "Dragon (weak: Lightning; drops Magicite Cryst)",
+     "Story boss (scripted; Rain learns The Power Within afterwards)",
+     "Gelidus (weak: Fire; drops Snow Spirit's Scarf)"
+    ],
+    "shardCount": 2,
+    "sideQuests": [],
+    "notableSteals": []
+   }
+  ],
+  "7": [
+   {
+    "name": "World Map - opening sidequests",
+    "kind": "world_map",
+    "summary": "The tornado on Pharm's south side starts the chapter proper. Two sidequests opened up first, each worth a Vision or an accessory.",
+    "steps": [
+     "The airship shop has restocked for Chapter 7.",
+     "The big tornado on Pharm's south side starts the chapter; Aether guards it.",
+     "Sub Quest - The Shield of the Weak: Charlotte on the Grandport Harbor pier. Talk to the three marked NPCs in Grandshelt Castle, take the event battle at the marker partway through Kolobos Ruins, speak with the NPC at the Cavern of Swords for a Magitek Weapon fight, then report to Charlotte in Grandshelt for a Magicite Cryst and Vision: Charlotte.",
+     "Sub Quest - The Twin Titleholders: the Gaberada inn. Talk to the NPCs on the east side of town, beat Adamandelion on the island north-west of Olderion, speak with the Elder in Gaberada, then go to Lost Cave north of Grandshelt for the Crest of Criticality and a stat boost for Lasswell."
+    ],
+    "chests": [
+     "Magicite Cryst (The Shield of the Weak reward)",
+     "Vision: Charlotte (The Shield of the Weak reward)",
+     "Crest of Criticality (The Twin Titleholders reward)"
+    ],
+    "bosses": [
+     "Aether (weak: Ice; drops Wind Scroll II)",
+     "Adamandelion (The Twin Titleholders; island north-west of Olderion)"
+    ],
+    "shardCount": 0,
+    "sideQuests": [
+     "The Shield of the Weak (Charlotte, Grandport Harbor pier)",
+     "The Twin Titleholders (Gaberada inn)"
+    ],
+    "notableSteals": []
+   },
+   {
+    "name": "Town of Sian",
+    "kind": "town",
+    "summary": "Shop stock has been upgraded. Ayaka's apprentice quest is here, and it hands over a Vision.",
+    "steps": [
+     "After the entrance cutscene, head north and talk to Ayaka for a scene, then talk to her again straight away for Sub Quest - The Admirable Apprentice.",
+     "Visit Waterfall Way for a scene, Infernal Hollow for a fight with Ashasaur, then Mt. Thunderclap and its quest marker.",
+     "Return to Ayaka in Sian for a Magicite Cryst and Vision: Ayaka.",
+     "Entering your airship around now shows a scene for a later subevent."
+    ],
+    "chests": [
+     "Magicite Cryst (The Admirable Apprentice reward)",
+     "Vision: Ayaka (The Admirable Apprentice reward)"
+    ],
+    "bosses": [
+     "Ashasaur (The Admirable Apprentice; Infernal Hollow)"
+    ],
+    "shardCount": 0,
+    "sideQuests": [
+     "The Admirable Apprentice (Ayaka, Sian)"
+    ],
+    "notableSteals": []
+   },
+   {
+    "name": "Mt. Reizan",
+    "kind": "dungeon",
+    "summary": "Three Tablet Shards, two back-to-back bosses, and the Resonance Stone that unlocks the next radar tier. Note you are technically in Lake Ryusei on the world map.",
+    "steps": [
+     "Head down the path to the first Tablet Shard in the south-west dead end, then further in for X-Ethers.",
+     "The next dead end to the east holds a Magicite Cryst.",
+     "The second Tablet Shard is where the main path crosses under the bridge.",
+     "Collect the Resonance Stone, then take a secret path east for the Analysis Hammer.",
+     "Follow the linear path to the save point, then Ignis and Alluvion back to back.",
+     "After the fights, take the third Tablet Shard to the west and leave."
+    ],
+    "chests": [
+     "Tablet Shard (south-west dead end)",
+     "X-Ether x2 (further into that dead end)",
+     "Magicite Cryst (next dead end to the east)",
+     "Tablet Shard (under the bridge on the main path)",
+     "Resonance Stone (main path)",
+     "Analysis Hammer (secret path east)",
+     "Tablet Shard (west, after the bosses)"
+    ],
+    "bosses": [
+     "Ignis (weak: Water; drops Flame Scroll II)",
+     "Alluvion (weak: Lightning; drops Water Scroll II)"
+    ],
+    "shardCount": 3,
+    "sideQuests": [],
+    "notableSteals": []
+   },
+   {
+    "name": "World Map - radar tier three",
+    "kind": "world_map",
+    "summary": "The Resonance Stone unlocks four more radar pickups, and by now 89 redeemed Tablet Shards cover the last Adamantite, so every character can have their Adamantite weapon. Bahamut is available from the airship.",
+    "steps": [
+     "Give the Resonance Stone to Lid to upgrade the radar.",
+     "Radar finds: the Ancient Hammer in the water just south-west of Mobliz Shipyard, a Magicite Cryst near Lost Cave in Grandshelt, the High Caster in the water west of Pharm and a little south-west of Sian, and the Philosopher's Stone in the water straight south of the Rebel Hideout.",
+     "Merchant ships keep moving and their stock varies; one north of Grandshelt sold the Ancient Tome for 45,000 gil. There are only a limited number of merchant-ship items, so buy whatever you find.",
+     "Talk to Evan to fight Bahamut, who becomes a summon. He uses status effects heavily.",
+     "Then head for the main objective in Pharm."
+    ],
+    "chests": [
+     "Ancient Hammer (water just south-west of Mobliz Shipyard)",
+     "Magicite Cryst (near Lost Cave in Grandshelt)",
+     "High Caster (water west of Pharm, south-west of Sian)",
+     "Philosopher's Stone (water straight south of the Rebel Hideout)",
+     "Ancient Tome (merchant ship, around 45,000 gil)"
+    ],
+    "bosses": [
+     "Bahamut (uses status effects frequently; drops Magicite Cryst, grants Esper: Bahamut)"
+    ],
+    "shardCount": 0,
+    "sideQuests": [],
+    "notableSteals": []
+   },
+   {
+    "name": "Forest Path",
+    "kind": "dungeon",
+    "summary": "Two Tablet Shards, the second only reachable after the boss fight sends you back through.",
+    "steps": [
+     "The Megalixir is at the eastern dead end, and the first Tablet Shard at the bend of the path on the first screen.",
+     "Past the save point, fight Tellus.",
+     "After the battle and scenes, come back through for Chef's Knives and the second Tablet Shard at the dead ends."
+    ],
+    "chests": [
+     "Megalixir (eastern dead end)",
+     "Tablet Shard (bend of the path, first screen)",
+     "Chef's Knife x2 (dead ends, on the return pass)",
+     "Tablet Shard (dead ends, on the return pass)"
+    ],
+    "bosses": [
+     "Tellus (weak: Wind; drops Earth Scroll II)"
+    ],
+    "shardCount": 2,
+    "sideQuests": [],
+    "notableSteals": [
+     "Thorn Whip from Quick Roper",
+     "Rune Arch as a rare steal from Phorusrhacos"
+    ]
+   },
+   {
+    "name": "Wandering Lands",
+    "kind": "dungeon",
+    "summary": "The chapter's last dungeon: two Tablet Shards, the Silver Key, and Umbra at the end.",
+    "steps": [
+     "The Silver Key is in the first dead end to the east on the second screen.",
+     "The first Tablet Shard is on the left-hand path on that same screen.",
+     "A cutscene plays partway down the linear path; the second Tablet Shard is immediately after it.",
+     "An Elixir sits next to the save point.",
+     "Umbra closes the chapter."
+    ],
+    "chests": [
+     "Silver Key (first dead end east, second screen)",
+     "Tablet Shard (left-hand path, second screen)",
+     "Tablet Shard (right after the mid-path cutscene)",
+     "Elixir (next to the save point)"
+    ],
+    "bosses": [
+     "Umbra (weak: Light; drops Demon's Ring)"
+    ],
+    "shardCount": 2,
+    "sideQuests": [],
+    "notableSteals": []
+   }
+  ],
+  "8": [
+   {
+    "name": "World Map - A New Leaf and merchant ships",
+    "kind": "world_map",
+    "summary": "A story sidequest with Raegen, then the last radar upgrade, which needs a High-Power Generator bought from a merchant ship.",
+    "steps": [
+     "Talk to Raegen on the deck for Sub Quest - A New Leaf: visit Grandshelt and talk to the king, Mitra and talk to the NPC, Waterfall Way (teleport to the end) for a scene, then back to Raegen for the Knight's Medallion and a stat boost for Rain.",
+     "Merchant ships sighted around here sold a Magicite Cryst for 50,000 gil south of Zoldaad, the High-Power Generator for 60,000 gil in the open ocean south-east of Mysidia, and the Ancient Cloak for 40,000 gil west of Mysidia.",
+     "Give the High-Power Generator to Lid for the final radar upgrade: a Magicite Cryst in the open ocean south-east of Mysidia, the Dark Rosary in the ocean straight north of the Crystal Tower, the Evil Eye in the ocean south-west of Pharm, and the Mastery Pendant in the ocean north of the Grandshelt desert.",
+     "Swinging by the new Crystal Tower starts the chapter proper, which is worth doing before the optional content."
+    ],
+    "chests": [
+     "Knight's Medallion (A New Leaf reward)",
+     "Magicite Cryst (merchant ship, around 50,000 gil)",
+     "High-Power Generator (merchant ship, around 60,000 gil)",
+     "Ancient Cloak (merchant ship, around 40,000 gil)",
+     "Magicite Cryst (radar, open ocean south-east of Mysidia)",
+     "Dark Rosary (radar, ocean straight north of the Crystal Tower)",
+     "Evil Eye (radar, ocean south-west of Pharm)",
+     "Mastery Pendant (radar, ocean north of the Grandshelt desert)"
+    ],
+    "bosses": [],
+    "shardCount": 0,
+    "sideQuests": [
+     "A New Leaf (Raegen, airship deck)"
+    ],
+    "notableSteals": []
+   },
+   {
+    "name": "Optional bosses - Sephiroth, Titanoraidos, Malboro Menace",
+    "kind": "optional",
+    "summary": "Three optional fights, with Sephiroth in Whirlpool Hollow the standout. He is worth a Vision. From here on the order is up to you: the Crystal Tower can be cleared first and a clear save puts you back before the final boss.",
+    "steps": [
+     "Whirlpool Hollow holds Sephiroth. He counters anything you throw at him while Masamune in Waiting is up, goes immune before One Winged Angel, and goes immune again before cutting the party to 1 HP -- after which you have only a few turns before Meteor. Reraise beforehand solves most of that, and Mechamog Scan gives you a weakness to work with.",
+     "Titanoraidos Cave: a huge HP pool and Disaster, which Dooms party members.",
+     "Malboro Menace Cave: manageable once you recover from the opening Bad Breath and keep him staggered."
+    ],
+    "chests": [],
+    "bosses": [
+     "Sephiroth (counters while Masamune in Waiting is up; goes immune before One Winged Angel and before dropping the party to 1 HP; drops Magicite Cryst and Vision: Sephiroth)",
+     "Titanoraidos (weak: Ice; Dooms with Disaster; drops Megalixir and Magicite Cryst)",
+     "Malboro Menace (weak: Fire; drops Megalixir and Magicite Cryst)"
+    ],
+    "shardCount": 0,
+    "sideQuests": [],
+    "notableSteals": []
+   },
+   {
+    "name": "Dragon's Maw",
+    "kind": "optional",
+    "summary": "An optional dungeon on the southern tip of Pharm that you cannot flee battles in, and the game's best grinding spot. One Tablet Shard, plus Excalibur and Masamune.",
+    "steps": [
+     "Head forward for Intangir. He casts Meteor if you hit him while he is asleep and again at the end of the fight; his three weaknesses make him easy to keep staggered.",
+     "Take the Analysis Hammer and Chef's Knives on the path, then fight the Rogue Magitek Weapon.",
+     "Collect the Tablet Shard, Elixirs, Excalibur, the Sniper's Eye, Masamune and a Magicite Cryst.",
+     "The island at the end is where that last world-map Megalixir finally becomes reachable.",
+     "Gigantaur, Metal Gigantaur and King Gil Snapper all spawn here. This is the place to reach level 99 and master every Vision; Noctis's Barrage makes the Gigantaur fights trivial."
+    ],
+    "chests": [
+     "Analysis Hammer (on the path)",
+     "Chef's Knife x3 (on the path)",
+     "Tablet Shard",
+     "Elixir x2",
+     "Excalibur",
+     "Sniper's Eye",
+     "Masamune",
+     "Magicite Cryst",
+     "Megalixir (tiny island reached from the end)"
+    ],
+    "bosses": [
+     "Intangir (weak: Light, Earth and Dark; Meteors if hit while asleep and at the end; drops Elixir)",
+     "Rogue Magitek Weapon (weak: Water and Lightning; drops Elixir)"
+    ],
+    "shardCount": 1,
+    "sideQuests": [],
+    "notableSteals": [
+     "Circlet of Enlightenment from Master Tonberry",
+     "Battle Grimoire as a rare drop from Dark Wizard",
+     "Azure Amulet as a rare steal from Mizuchi",
+     "Bone Mail as a rare steal from Malboro Marquis",
+     "Snow Spirit's Scarf as a rare steal from Abhorrent One",
+     "Thunder God's Earrings as a rare steal from Ominous One",
+     "Vampire Charm as a rare steal from Ganymede",
+     "Spellfire as a rare steal from Europa",
+     "Rune Shooter from Lost Searcher"
+    ]
+   },
+   {
+    "name": "Chamber of Arms",
+    "kind": "optional",
+    "summary": "Twelve trials that turn each Ancient item into one of the game's best weapons or armour pieces. Every boss can be fought twice: at level 50 to transform the item, and again at level 75 to upgrade it. Almost all of them change weakness or resistance between phases.",
+    "steps": [
+     "The Ancient Katana is the one item not found out in the world -- it is in the final dungeon.",
+     "If you levelled on the island at the end of Dragon's Maw, these fights are very manageable.",
+     "Interact with each Ancient item to summon its guardian; speak to Chloe after the first one for a scene."
+    ],
+    "chests": [
+     "Artemis Bow (Ancient Bow / Dabih)",
+     "Fire Birch (Ancient Whip / Nunki)",
+     "Lordly Robes (Ancient Cloak / Shaula)",
+     "Gold Hairpin (Ancient Accessory / Brachium)",
+     "Mirage Vest (Ancient Garment / Vindeomiatrix)",
+     "Sasuke's Blade (Ancient Katana / Aldhafera)",
+     "Ragnarok (Ancient Greatsword / Alpherg)",
+     "Thor's Hammer (Ancient Hammer / Tegmine)",
+     "Last Resort (Ancient Tome / Elnath)",
+     "Tatenashi Armor (Ancient Cuirass / Sadalsuud)",
+     "Wizard's Rod (Ancient Rod / Sheratan)",
+     "Arcturus (Ancient Firearm / Alhena)"
+    ],
+    "bosses": [
+     "Dabih (most of the adds are weak to Light; debuffs with Chocobo Nitro and Sacred Wave help)",
+     "Nunki (two forms; weakness changes in the first, second is weak to Earth)",
+     "Shaula (multiple forms, all weak to Wind)",
+     "Brachium (both phases weak to Light; phase one alternates physical and magical evasion, phase two turns to status and death attacks)",
+     "Vindeomiatrix (both phases weak to Dark; phase two siphons MP on counter)",
+     "Aldhafera (phase one weak to Lightning, phase two weak to Earth and Wind)",
+     "Alpherg (reflects on himself and the party immediately; phase one weak to Wind and Ice, phase two changes weakness)",
+     "Tegmine (phase one weak to Dark and resists damage until staggered, phase two weak to Earth)",
+     "Elnath (both phases weak to Lightning; phase one grows stronger as his stagger bar drops)",
+     "Sadalsuud (weakness changes; the second form grows stronger as its wings are defeated)",
+     "Sheratan (weak: Fire)",
+     "Alhena (weakness changes by phase; phase one immune to magic, phase two immune to physical, and staggering removes it)"
+    ],
+    "shardCount": 0,
+    "sideQuests": [],
+    "notableSteals": []
+   },
+   {
+    "name": "Grandshelt Colosseum - Gladiator League",
+    "kind": "colosseum",
+    "summary": "Five battles for the three defensive rings and two Magicite Cryst. Battle five closes with a 100,000-damage Last Breath.",
+    "steps": [
+     "Work through the five battles for their first-win rewards.",
+     "Battle five can finish on a Last Breath for around 100,000 damage; Reraise handles it.",
+     "Clearing the league grants the Gladiator Proof of Victory, which adds new gear and Magicite Crysts to the shop."
+    ],
+    "chests": [
+     "Magicite Cryst (battle 1)",
+     "Reflect Ring (battle 2)",
+     "Barrier Ring (battle 3)",
+     "Protect Ring (battle 4)",
+     "Magicite Cryst (battle 5)",
+     "Gladiator Proof of Victory (league clear)"
+    ],
+    "bosses": [],
+    "shardCount": 0,
+    "sideQuests": [],
+    "notableSteals": []
+   },
+   {
+    "name": "Crystal Tower",
+    "kind": "dungeon",
+    "summary": "The final dungeon, and surprisingly linear. The last three Tablet Shards are here, as is the Ancient Katana for the Chamber of Arms. The last teleport is the point of no return.",
+    "steps": [
+     "Early items: two Tablet Shards, the Pilebunker, and Apocalypse down the northern ramp. Give the Pearly Pot an Elixir.",
+     "Take the Chef's Knives, then the portal for an event fight against Dante, who is a regular enemy.",
+     "The left staircase leads to Laevateinn and a Megalixir. At the top of the right staircase, keep going up a hidden path to a second Pearly Pot, which also wants an Elixir.",
+     "The Ancient Katana is near the save point -- take it before you commit, since the Chamber of Arms trial needs it.",
+     "Exit west for a scene, then fight Behemoth. You have to wait for your allies' support attacks before you can damage him.",
+     "Third platform: east for the Book of Eibon. Take the next bridge fork west for the last Tablet Shard, then follow the path east for the Hastur Long Barrel.",
+     "Take the next bridge north, west, then south for the Dragon Whisker.",
+     "After the cutscene on the main path, exit east for another. Near the last save point, take the Faerie Bow and a Magicite Cryst.",
+     "The last teleport is the point of no return. A boss weak to Dark comes first, then the spiral and a save point, then the final boss in two parts.",
+     "After the credits you can load a clear save, which puts you back in the world before the final boss."
+    ],
+    "chests": [
+     "Tablet Shard (early)",
+     "Tablet Shard (early)",
+     "Pilebunker",
+     "Apocalypse (down the northern ramp)",
+     "Chef's Knife x2",
+     "Laevateinn (left staircase)",
+     "Megalixir (left staircase)",
+     "Ancient Katana (near the save point)",
+     "Book of Eibon (east on the third platform)",
+     "Tablet Shard (west at the next bridge fork)",
+     "Hastur Long Barrel (east along the path)",
+     "Dragon Whisker (next bridge: north, west, then south)",
+     "Faerie Bow (near the last save point)",
+     "Magicite Cryst (near the last save point)"
+    ],
+    "bosses": [
+     "Behemoth (weak: Light and Wind; wait for allied support attacks before you can damage him)",
+     "Gatekeeper boss (weak: Dark; past the point of no return)",
+     "Final Boss, part 1 (weak: Light)",
+     "Final Boss, part 2 (multiple parts)"
+    ],
+    "shardCount": 3,
+    "sideQuests": [],
+    "notableSteals": [
+     "Mjollnir as a rare steal from Cabrakan",
+     "Black Robe as a rare steal from Black Warlock",
+     "Glacial Armor as a rare steal from Chimera Brain",
+     "Moon Rain as a rare steal from Plague",
+     "Ribbon as a rare steal from Messalina",
+     "Carmine Armor as a rare steal from Hexadragon",
+     "Halo Ring as a rare steal from Dante",
+     "Necronomicon as a rare steal from Belphegor (past the point of no return)",
+     "Demon's Ring as a rare steal from Gluttony (past the point of no return)",
+     "Jackpot Gun as a rare steal from Demon Squid (past the point of no return)"
+    ]
+   },
+   {
+    "name": "Post-game - Ultima Weapon and Champion League",
+    "kind": "optional",
+    "summary": "The hardest content, all of it behind a clear save. Ultima Weapon sits on the south-east island, and the Champion League is the toughest set of battles in the game.",
+    "steps": [
+     "Load a clear save for a cutscene, then fight Ultima Weapon on the south-east island.",
+     "Then the Champion League at the Grandshelt Colosseum: Super Ribbon, Lorica Sancta, Lorica Apocalyptica, Dragon Seal and the Omega Badge."
+    ],
+    "chests": [
+     "Ultima Reactor (Ultima Weapon)",
+     "Super Ribbon (Champion League, battle 1)",
+     "Lorica Sancta (Champion League, battle 2)",
+     "Lorica Apocalyptica (Champion League, battle 3)",
+     "Dragon Seal (Champion League, battle 4)",
+     "Omega Badge (Champion League, battle 5)"
+    ],
+    "bosses": [
+     "Ultima Weapon (weak: Wind and Water; drops Ultima Reactor)"
+    ],
+    "shardCount": 0,
+    "sideQuests": [],
+    "notableSteals": []
+   }
+  ]
+ },
+ "dialogueChoices": [
+  {
+   "id": "dlg_ch01_earth_shrine_strength",
+   "speaker": "Rain",
+   "prompt": "Earth Shrine, at the start of the dungeon",
+   "choice": "I'll take point. Follow my lead.",
+   "bonus": "Strength +3",
+   "chapter": 1
+  },
+  {
+   "id": "dlg_ch01_earth_shrine_stamina",
+   "speaker": "Rain",
+   "prompt": "Earth Shrine, at the start of the dungeon",
+   "choice": "We're only here to check that everything is in order...",
+   "bonus": "Stamina +3",
+   "chapter": 1
+  },
+  {
+   "id": "dlg_ch01_earth_shrine_spirit",
+   "speaker": "Rain",
+   "prompt": "Earth Shrine, at the start of the dungeon",
+   "choice": "Cohesion is key.",
+   "bonus": "Spirit +3",
+   "chapter": 1
+  },
+  {
+   "id": "dlg_ch01_after_siren_mp",
+   "speaker": "Fina",
+   "prompt": "Siren's Tower, after the Siren fight",
+   "choice": "Right, we'll need to rely on your strength...",
+   "bonus": "MP +10",
+   "chapter": 1
+  },
+  {
+   "id": "dlg_ch01_after_siren_stamina",
+   "speaker": "Fina",
+   "prompt": "Siren's Tower, after the Siren fight",
+   "choice": "Yeah, but not everything in fighting...",
+   "bonus": "Stamina +3",
+   "chapter": 1
+  },
+  {
+   "id": "dlg_ch01_after_siren_spirit",
+   "speaker": "Fina",
+   "prompt": "Siren's Tower, after the Siren fight",
+   "choice": "Don't sell yourself short...",
+   "bonus": "Spirit +3",
+   "chapter": 1
+  },
+  {
+   "id": "dlg_ch03_opening_strength",
+   "speaker": "Lid",
+   "prompt": "Opening of Chapter 3, on the southern Olderion world map",
+   "choice": "No matter what happens, we'll have your back.",
+   "bonus": "Strength +3",
+   "chapter": 3
+  },
+  {
+   "id": "dlg_ch03_opening_magic",
+   "speaker": "Lid",
+   "prompt": "Opening of Chapter 3, on the southern Olderion world map",
+   "choice": "There might be a reason behind your brother's change.",
+   "bonus": "Magic +3",
+   "chapter": 3
+  },
+  {
+   "id": "dlg_ch03_opening_stamina",
+   "speaker": "Lid",
+   "prompt": "Opening of Chapter 3, on the southern Olderion world map",
+   "choice": "Doesn't matter how far away you are, siblings are still siblings.",
+   "bonus": "Stamina +3",
+   "chapter": 3
+  },
+  {
+   "id": "dlg_ch03_after_alluvion_hp",
+   "speaker": "Nichol",
+   "prompt": "Olderion, after the Alluvion fight at the Water Shrine",
+   "choice": "Give us some pointers on strategy again. We're counting on you.",
+   "bonus": "HP +30",
+   "chapter": 3
+  },
+  {
+   "id": "dlg_ch03_after_alluvion_magic",
+   "speaker": "Nichol",
+   "prompt": "Olderion, after the Alluvion fight at the Water Shrine",
+   "choice": "We're a proper team now, so we've got your back!",
+   "bonus": "Magic +3",
+   "chapter": 3
+  },
+  {
+   "id": "dlg_ch03_after_alluvion_speed",
+   "speaker": "Nichol",
+   "prompt": "Olderion, after the Alluvion fight at the Water Shrine",
+   "choice": "You be you, Nichol, and don't hold back with the suggestions.",
+   "bonus": "Speed +3",
+   "chapter": 3
+  },
+  {
+   "id": "dlg_ch04_after_ignis_mp",
+   "speaker": "Lasswell",
+   "prompt": "Rebel Hideout, after the Ignis fight at the Weapons Factory",
+   "choice": "I noticed that your magic seems to have a little more kick to it, too.",
+   "bonus": "MP +10",
+   "chapter": 4
+  },
+  {
+   "id": "dlg_ch04_after_ignis_strength",
+   "speaker": "Lasswell",
+   "prompt": "Rebel Hideout, after the Ignis fight at the Weapons Factory",
+   "choice": "That battle with Ignis was intense. I'm sure something like that'll leave its mark on you.",
+   "bonus": "Strength +3",
+   "chapter": 4
+  },
+  {
+   "id": "dlg_ch04_after_ignis_speed",
+   "speaker": "Lasswell",
+   "prompt": "Rebel Hideout, after the Ignis fight at the Weapons Factory",
+   "choice": "Seems to me like you're moving quicker than before.",
+   "bonus": "Speed +3",
+   "chapter": 4
+  },
+  {
+   "id": "dlg_ch04_after_lazarov_hp",
+   "speaker": "Jake",
+   "prompt": "Zoldaad Castle, after the Lazarov fight",
+   "choice": "Glad to have you. We'll be counting on you.",
+   "bonus": "HP +30",
+   "chapter": 4
+  },
+  {
+   "id": "dlg_ch04_after_lazarov_strength",
+   "speaker": "Jake",
+   "prompt": "Zoldaad Castle, after the Lazarov fight",
+   "choice": "Your rifles will definitely come in handy.",
+   "bonus": "Strength +3",
+   "chapter": 4
+  },
+  {
+   "id": "dlg_ch04_after_lazarov_stamina",
+   "speaker": "Jake",
+   "prompt": "Zoldaad Castle, after the Lazarov fight",
+   "choice": "Let's fight for this world - together.",
+   "bonus": "Stamina +3",
+   "chapter": 4
+  },
+  {
+   "id": "dlg_ch05_sunioo_mp",
+   "speaker": "Sakura",
+   "prompt": "Village of Sunioo, talking to the marked NPC",
+   "choice": "With your magic at our side, I bet we can finally give the Sworn Six a run for their money.",
+   "bonus": "MP +10",
+   "chapter": 5
+  },
+  {
+   "id": "dlg_ch05_sunioo_magic",
+   "speaker": "Sakura",
+   "prompt": "Village of Sunioo, talking to the marked NPC",
+   "choice": "And you're a wise person, Sakura. You made me reflect on a lot of things. Thanks.",
+   "bonus": "Magic +3",
+   "chapter": 5
+  },
+  {
+   "id": "dlg_ch05_sunioo_spirit",
+   "speaker": "Sakura",
+   "prompt": "Village of Sunioo, talking to the marked NPC",
+   "choice": "Yep, you'll never be bored when you're traveling with us, I guarantee it.",
+   "bonus": "Spirit +3",
+   "chapter": 5
+  },
+  {
+   "id": "dlg_ch06_research_center_mp",
+   "speaker": "Fina",
+   "prompt": "Research Center Ruins, on taking the White Jade Stone",
+   "choice": "Yeah, you look sad.",
+   "bonus": "MP +10",
+   "chapter": 6
+  },
+  {
+   "id": "dlg_ch06_research_center_magic",
+   "speaker": "Fina",
+   "prompt": "Research Center Ruins, on taking the White Jade Stone",
+   "choice": "Of course I'm worrying about you. Why wouldn't I?",
+   "bonus": "Magic +3",
+   "chapter": 6
+  },
+  {
+   "id": "dlg_ch06_research_center_spirit",
+   "speaker": "Fina",
+   "prompt": "Research Center Ruins, on taking the White Jade Stone",
+   "choice": "I-I mean... sort of.",
+   "bonus": "Spirit +3",
+   "chapter": 6
+  }
+ ]
+}

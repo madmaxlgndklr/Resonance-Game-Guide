@@ -28,7 +28,10 @@ from sources import SOURCES, Status
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = REPO_ROOT / "app/src/main/assets/ff_resonance_guide.json"
-DATASET_VERSION = "0.2.0"
+#: Bump this whenever the shipped content changes. GuideSeeder reseeds only
+#: when it moves, so new rows stay invisible on an existing install without
+#: it -- a schema migration alone does not fill the new tables.
+DATASET_VERSION = "0.3.0"
 
 #: Totals the seed's own meta.worldTotals asserts, used for the coverage check.
 EXPECTED = {
@@ -42,7 +45,14 @@ EXPECTED = {
     "chamberOfArms": 12,
     "adamantiteLocations": 8,
     "tabletShards": 99,
+    # Eight stat-bonus conversations, three options each. This is a count the
+    # source asserts, so a shortfall means a conversation was missed.
+    "dialogueChoices": 24,
 }
+
+# walkthroughAreas is reported in coverage.actual but deliberately not here:
+# how finely the route is cut into areas is our editorial call, not a figure
+# the game or any source asserts, so there is no number to fall short of.
 
 
 def clean_cell(text: str) -> str:
@@ -101,7 +111,52 @@ def strip_repeats(text: str) -> str:
 # -- seed -> schema ----------------------------------------------------------
 
 
-def build_chapters(seed: list[dict[str, Any]]) -> list[dict[str, Any]]:
+#: Hand-written area-by-area notes, merged onto the seed's chapter list. See
+#: the `_comment` block at the top of the file for what is and is not ours.
+WALKTHROUGH_DETAIL = Path(__file__).parent / "walkthrough_detail.json"
+
+
+def load_walkthrough_detail() -> dict[str, Any]:
+    return json.loads(WALKTHROUGH_DETAIL.read_text(encoding="utf-8"))
+
+
+def build_walkthrough_areas(
+    chapter_id: str, areas: list[dict[str, Any]], source_url: str | None
+) -> list[dict[str, Any]]:
+    """Turn the detail file's areas into schema records with stable ids.
+
+    The id is derived from the chapter and the area's own name, never from its
+    position in the list, so inserting an area later does not move anyone's
+    check-offs onto a different place.
+    """
+    records = []
+    for index, area in enumerate(areas, start=1):
+        records.append(
+            {
+                "id": make_id(chapter_id, PREFIX["area"], area["name"]),
+                "order": index,
+                "name": area["name"],
+                "kind": area.get("kind"),
+                "summary": area.get("summary"),
+                "steps": area.get("steps", []),
+                "chests": area.get("chests", []),
+                "bosses": area.get("bosses", []),
+                "shardCount": area.get("shardCount", 0),
+                "sideQuests": area.get("sideQuests", []),
+                "notableSteals": area.get("notableSteals", []),
+                "sourceUrl": source_url,
+            }
+        )
+    return records
+
+
+def build_chapters(
+    seed: list[dict[str, Any]], detail: dict[str, Any] | None = None
+) -> list[dict[str, Any]]:
+    detail = detail or {}
+    by_chapter = detail.get("chapters", {})
+    detail_source = detail.get("sourceUrl")
+
     chapters = []
     for raw in seed:
         number = raw["chapterNumber"]
@@ -128,6 +183,9 @@ def build_chapters(seed: list[dict[str, Any]]) -> list[dict[str, Any]]:
                 "optionalFights": raw.get("optionalFights", []),
                 "notableCollectibles": raw.get("notableCollectibles", []),
                 "objectives": objectives,
+                "walkthroughAreas": build_walkthrough_areas(
+                    chapter_id, by_chapter.get(str(number), []), detail_source
+                ),
                 "sourceUrl": raw.get("sourceUrl"),
             }
         )
@@ -558,7 +616,9 @@ def build(seed_path: Path, offline: bool = False, details: bool = False) -> dict
     oblivion = crawl_oblivion_tiers(fetcher, gaps)
     shards = crawl_tablet_shards(fetcher, gaps)
 
-    chapters = build_chapters(seed["walkthrough"])
+    detail = load_walkthrough_detail()
+    chapters = build_chapters(seed["walkthrough"], detail)
+    dialogue_choices = detail.get("dialogueChoices", [])
 
     if len(shards) != EXPECTED["tabletShards"]:
         gaps.append(
@@ -589,18 +649,37 @@ def build(seed_path: Path, offline: bool = False, details: bool = False) -> dict
             "equipment.acquisitionMethod and bestiary stats/drops/steals are "
             "null: detail pages not fetched. Re-run with --details."
         )
-    # Deliberately deferred rather than dropped: the table and its schema stay
-    # in place so the stat-bonus conversation options can be filled in later
-    # without a schema change.
+    # The stat-bonus conversation options were the dataset's longest-standing
+    # gap. They are now carried, from the walkthrough that publishes them.
+    if not dialogue_choices:
+        gaps.append(
+            "dialogueChoices: empty. No source we are permitted to crawl "
+            "publishes the stat-bonus conversation options."
+        )
+
+    # Active Time Chats are called out in the walkthrough's prose where we
+    # found them, but the source says plainly that its own list is partial and
+    # that some have limited availability windows. None of them gate an
+    # achievement or an item, so they are named inside the area steps rather
+    # than promised as a complete collection.
     gaps.append(
-        "dialogueChoices: empty, and deferred by decision rather than pending. "
-        "No source we are permitted to crawl publishes the stat-bonus "
-        "conversation options. The table, its schema and its Kotlin model are "
-        "kept so the data can be added later without a schema change."
+        "Active Time Chats: no complete list. The source walkthrough states "
+        "its own coverage is incomplete and that some chats have limited "
+        "availability. Those we have are named in walkthroughAreas[].steps "
+        "rather than shipped as a checklist that cannot be finished."
     )
+
+    missing_areas = [c["chapterNumber"] for c in chapters if not c["walkthroughAreas"]]
+    if missing_areas:
+        gaps.append(
+            f"chapters.walkthroughAreas: no area notes for chapter(s) "
+            f"{missing_areas}."
+        )
 
     actual = {
         "chapters": len(chapters),
+        "walkthroughAreas": sum(len(c["walkthroughAreas"]) for c in chapters),
+        "dialogueChoices": len(dialogue_choices),
         "heroes": len(seed["playableHeroes"]),
         "visions": len(visions),
         "espers": len(seed["espers"]),
@@ -680,7 +759,7 @@ def build(seed_path: Path, offline: bool = False, details: bool = False) -> dict
             "tabletShards": shards,
             "oblivionPalaceTiers": oblivion,
         },
-        "dialogueChoices": [],
+        "dialogueChoices": dialogue_choices,
         "assetsManifest": build_assets_manifest(seed),
     }
     return guide

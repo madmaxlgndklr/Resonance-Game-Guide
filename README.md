@@ -8,10 +8,11 @@
 An offline, interactive guide for *Final Fantasy Resonance*, built as a native
 Android app and tuned for the Samsung Galaxy S24 Ultra.
 
-> **Status: 0.1.0 — early scaffold.** The architecture, screens and database are
-> in place, but **all guide content is placeholder sample data**. See
-> [CHANGELOG.md](CHANGELOG.md) for the full version history and
-> [Roadmap](#roadmap) for what comes next.
+> **Status: 0.1.0 released; unreleased work on `main`.** The architecture,
+> screens and database are in place. The placeholder sample data is gone: the
+> app now ships a real dataset, including a step-by-step walkthrough of all
+> nine chapters. See [CHANGELOG.md](CHANGELOG.md) for the full version history
+> and [Roadmap](#roadmap) for what comes next.
 
 ---
 
@@ -34,7 +35,7 @@ Android app and tuned for the Samsung Galaxy S24 Ultra.
 
 | Tab | What it does |
 | --- | --- |
-| **Walkthrough** | Chapters with sticky headers, quest progress bars, and a step-by-step checklist per quest with hints. |
+| **Walkthrough** | Chapters with progress bars, and per chapter an ordered list of the places the route passes through -- what to do there, its chests, its bosses and their weaknesses, its sidequests and how many Tablet Shards it holds -- plus the stat-bonus conversations, the game's own quest log, side quests and shard locations. |
 | **Bestiary** | Boss cards with level, HP, weaknesses, resistances, drops and strategy. Search by name, location or weakness; mark bosses defeated. |
 | **Builds** | Character build cards with role, skills and recommended gear, in a grid that reflows in landscape and split-screen. |
 | **Items** | Item locations with category filters and a hide-collected toggle. |
@@ -56,7 +57,7 @@ Across all tabs:
 | Job | What it does |
 | --- | --- |
 | **Build, unit tests and lint** | `assembleDebug`, `testDebugUnitTest`, `lintDebug`; fails on any lint error and annotates it on the PR. Uploads the APK and reports. |
-| **Dataset validation** | `validate_json.py`, plus a check that `GuideModels.kt` still matches `schema.py`. Never crawls — both run offline against the committed data. |
+| **Dataset validation** | `validate_json.py`, a check that the shipped asset still matches `walkthrough_detail.json`, and a check that `GuideModels.kt` still matches `schema.py`. Never crawls — all three run offline against the committed data. |
 | **Instrumented tests (emulator)** | API 35 emulator running `connectedDebugAndroidTest`: the Room migration and seeding tests. |
 
 Reproduce the first two jobs locally with:
@@ -64,6 +65,7 @@ Reproduce the first two jobs locally with:
 ```bash
 ./gradlew :app:assembleDebug :app:testDebugUnitTest :app:lintDebug
 python3 scripts/guide_pipeline/validate_json.py
+python3 scripts/guide_pipeline/apply_walkthrough_detail.py --check
 python3 scripts/guide_pipeline/gen_kotlin.py && git diff --exit-code
 ```
 
@@ -166,12 +168,14 @@ Room (DAOs)  ──►  GuideRepository  ──►  ViewModel (StateFlow)  ─�
 ## Guide content
 
 The real dataset ships at **`app/src/main/assets/ff_resonance_guide.json`**
-(954 KiB) and is built by [`scripts/guide_pipeline/`](scripts/guide_pipeline/),
+(1451 KiB) and is built by [`scripts/guide_pipeline/`](scripts/guide_pipeline/),
 which also generates the app's Kotlin models. Load it with `GuideDataSource`.
 
 | Table | Rows |
 | --- | --- |
 | Chapters (with objectives) | 9 |
+| Walkthrough areas (route steps, chests, bosses, sidequests) | 85 |
+| Stat-bonus dialogue choices (8 conversations x 3 options) | 24 |
 | Heroes | 8 |
 | Visions (with skills, Mastery Ranks, AP costs) | 26 |
 | Espers | 9 |
@@ -194,13 +198,24 @@ keyed by it survives dataset updates.
 
 The dataset records its own shortfalls in `meta.coverage.gaps`, and
 `validate_json.py` fails the build on a shortfall that is *not* recorded — so
-it cannot be quietly incomplete. One table is still empty: `dialogueChoices`,
-because no source we may crawl publishes the stat-bonus conversation options.
+it cannot be quietly incomplete. No table is empty any more; the one standing
+gap is that **Active Time Chats have no complete list**, because the source
+walkthrough says its own coverage is incomplete and that some have limited
+availability windows. None gate an achievement or an item, so the ones we have
+are named inside the area steps rather than shipped as an unfinishable
+checklist.
 
-Tablet Shard descriptions are written for this project rather than copied; the
-facts come from the sources, and each record carries a `sourceUrl`. Where
-guides disagree — shard 99's location, and the equipment counts — both readings
-are recorded in a `notes` field instead of one being picked silently.
+Tablet Shard descriptions and the walkthrough route notes are written for this
+project rather than copied; the facts come from the sources, and each record
+carries a `sourceUrl`. The exceptions are proper names and the game's own
+dialogue option lines, which are game strings. Where guides disagree — shard
+99's location, and the equipment counts — both readings are recorded in a
+`notes` field instead of one being picked silently.
+
+Walkthrough areas report how many Tablet Shards they hold but never which
+ones, because guides number the 99 shards differently and the numbered list
+follows one of them. Both the validator and `GuideDatasetTest` fail the build
+if a number appears in an area's text.
 
 ### Rebuilding the dataset
 
@@ -210,6 +225,14 @@ python3 -m pip install -r requirements.txt
 python3 build_guide.py --seed seed/ff_resonance_android_guide_data.json --details
 python3 validate_json.py
 python3 gen_kotlin.py        # after any schema.py change
+```
+
+To change only the hand-written route notes or dialogue choices, edit
+`walkthrough_detail.json` and merge them in without a crawl:
+
+```bash
+python3 apply_walkthrough_detail.py
+python3 validate_json.py
 ```
 
 `scripts/guide_pipeline/README.md` documents which sources are crawled and

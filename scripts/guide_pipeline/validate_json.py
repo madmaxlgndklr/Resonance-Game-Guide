@@ -9,7 +9,10 @@ Checks, in order:
 3. every id is unique, stable snake_case, and unused ids are reported;
 4. no foreign key (bossId, visionId, questId, locationId, reward references)
    points at something that is not in the dataset;
-5. expected counts match actual ones.
+5. expected counts match actual ones;
+6. walkthrough areas are ordered, their Tablet Shard counts add up to the
+   numbered shard list, and no area text numbers a shard itself;
+7. every stat-bonus conversation carries all three of its options.
 
 A count shortfall that the dataset itself records as a gap is reported as a
 warning, not an error: the dataset is allowed to be incomplete, but it is not
@@ -117,6 +120,9 @@ def collect_ids(guide: dict[str, Any], report: Report) -> dict[str, str]:
             for objective in item.get("objectives", []) or []:
                 if isinstance(objective, dict) and "id" in objective:
                     record(objective["id"], f"{name}[{index}].objectives")
+            for area in item.get("walkthroughAreas", []) or []:
+                if isinstance(area, dict) and "id" in area:
+                    record(area["id"], f"{name}[{index}].walkthroughAreas")
             for battle in item.get("battles", []) or []:
                 if isinstance(battle, dict) and "id" in battle:
                     record(battle["id"], f"{name}[{index}].battles")
@@ -197,6 +203,75 @@ def check_counts(guide: dict[str, Any], report: Report) -> None:
             report.error(f"{key}: {have} of {want}, and no gap recorded for it")
 
 
+def check_walkthrough_areas(guide: dict[str, Any], report: Report) -> None:
+    """Area notes must be ordered, and must not number the Tablet Shards.
+
+    ``shardCount`` says how many shards an area holds and nothing more. Shard
+    numbering differs between guides and ``collectibles.tabletShards`` follows
+    PowerPyx, so a number written into an area's own text would read as a
+    cross-reference into that list while pointing somewhere else. The chest
+    entries therefore say "Tablet Shard" unqualified, and this check keeps it
+    that way.
+    """
+    # "Tablet Shard (1/99)", "Tablet Shard #12", "Tablet Shard 12" -- a number
+    # standing in for the shard's identity. A digit merely in the same sentence
+    # ("there are 99 in the game") is prose, so the digit has to follow the
+    # noun directly, with at most a bracket or hash between.
+    numbered = re.compile(r"Tablet Shards?\s*[#(]?\s*\d")
+    total_shards = 0
+    total_areas = 0
+
+    for chapter in guide.get("chapters", []):
+        areas = chapter.get("walkthroughAreas", [])
+        total_areas += len(areas)
+        orders = [a["order"] for a in areas]
+        if orders != list(range(1, len(orders) + 1)):
+            report.error(
+                f"chapter {chapter['id']}: walkthroughAreas order is "
+                f"{orders}, expected 1..{len(orders)}"
+            )
+        for area in areas:
+            total_shards += area.get("shardCount", 0)
+            for entry in area.get("chests", []) + area.get("steps", []):
+                if numbered.search(entry):
+                    report.error(
+                        f"area {area['id']}: {entry!r} numbers a Tablet Shard; "
+                        "use shardCount and leave the number off"
+                    )
+
+    report.note(f"walkthrough areas: {total_areas}")
+
+    # Every shard in the numbered list should be accounted for by some area.
+    shards = len(guide.get("collectibles", {}).get("tabletShards", []))
+    if shards and total_shards != shards:
+        report.error(
+            f"walkthroughAreas shardCount sums to {total_shards}, but "
+            f"collectibles.tabletShards has {shards} entries"
+        )
+
+
+def check_dialogue_choices(guide: dict[str, Any], report: Report) -> None:
+    """Each stat-bonus conversation should carry all of its options."""
+    by_prompt: dict[tuple[str, str], list[str]] = {}
+    for choice in guide.get("dialogueChoices", []):
+        key = (choice.get("speaker", ""), choice.get("prompt") or "")
+        by_prompt.setdefault(key, []).append(choice["id"])
+
+    for (speaker, prompt), ids in sorted(by_prompt.items()):
+        if len(ids) != 3:
+            report.error(
+                f"dialogueChoices for {speaker} at {prompt!r}: {len(ids)} "
+                "option(s); these conversations offer three"
+            )
+
+    for choice in guide.get("dialogueChoices", []):
+        if not choice.get("bonus"):
+            report.error(f"dialogue {choice['id']}: no bonus recorded")
+
+    if by_prompt:
+        report.note(f"dialogue choices: {len(by_prompt)} conversations")
+
+
 def check_cross_references(guide: dict[str, Any], report: Report) -> None:
     """Vision skill links and colosseum battles should line up by name."""
     vision_names = {slugify(v["name"]) for v in guide.get("visions", [])}
@@ -250,6 +325,8 @@ def validate(path: Path) -> Report:
     check_foreign_keys(guide, ids, report)
     check_counts(guide, report)
     check_cross_references(guide, report)
+    check_walkthrough_areas(guide, report)
+    check_dialogue_choices(guide, report)
 
     for gap in guide.get("meta", {}).get("coverage", {}).get("gaps", []):
         report.warn(f"gap: {gap}")

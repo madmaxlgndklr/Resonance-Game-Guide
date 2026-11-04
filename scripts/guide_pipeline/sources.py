@@ -2,9 +2,15 @@
 
 Every fetch in this pipeline goes through :mod:`fetch`, which refuses any host
 that is not marked ``CRAWL_OK`` here. The statuses below were read from each
-site's own robots.txt and terms on 2026-10-26; re-run ``python3 -m
-guide_pipeline.sources --recheck`` to print the live files and review them
-again.
+site's own robots.txt and terms on 2026-10-26, except rpgsite.net, re-read on
+2026-11-04; re-run ``python3 -m guide_pipeline.sources --recheck`` to print the
+live files and review them again.
+
+A status is not permanent. rpgsite.net was ``ROBOTS_UNAVAILABLE`` on the first
+reading because its robots.txt returned HTTP 500, and is ``CRAWL_OK`` on the
+second because it now returns a file that restricts nobody but three named
+search crawlers. Each entry's ``note`` carries the date and the reasoning, so a
+change of status is auditable rather than a quiet edit.
 
 Why this file exists: several of the sources originally planned for this
 dataset forbid automated access. Rather than leave that implicit, the
@@ -179,11 +185,19 @@ SOURCES: tuple[Source, ...] = (
         key="rpgsite",
         host="www.rpgsite.net",
         base_url="https://www.rpgsite.net",
-        status=Status.ROBOTS_UNAVAILABLE,
-        covers="100% walkthrough, achievements",
+        status=Status.CRAWL_OK,
+        covers=(
+            "chapter-by-chapter 100% walkthrough: route order, chests, boss "
+            "weaknesses, sidequest chains, stat-bonus dialogue choices"
+        ),
         note=(
-            "robots.txt returns HTTP 500. RFC 9309 section 2.3.1.3 says a crawler "
-            "should assume complete disallow when robots.txt is unreachable."
+            "Re-read 2026-11-04: robots.txt now returns HTTP 200. It carries no "
+            "'User-agent: *' group at all -- only groups for Mediapartners-Google, "
+            "Googlebot and Bingbot -- so under RFC 9309 section 2.2.1 a crawler "
+            "matching none of them is unrestricted. The only disallowed paths are "
+            "/search, /toggle and sorted query strings; /guide/ is not among them. "
+            "This replaces the 2026-10-26 reading, when robots.txt returned HTTP "
+            "500 and RFC 9309 section 2.3.1.3 required assuming complete disallow."
         ),
     ),
     Source(
@@ -219,7 +233,7 @@ def status_for(host: str) -> Source | None:
 
 def report() -> str:
     width = max(len(s.key) for s in SOURCES)
-    lines = ["Source permissions (read 2026-10-26):", ""]
+    lines = ["Source permissions (read 2026-10-26; rpgsite 2026-11-04):", ""]
     for source in sorted(SOURCES, key=lambda s: (not s.crawlable, s.key)):
         mark = "OK  " if source.crawlable else "NO  "
         lines.append(f"  {mark}{source.key.ljust(width)}  {source.status.value}")
