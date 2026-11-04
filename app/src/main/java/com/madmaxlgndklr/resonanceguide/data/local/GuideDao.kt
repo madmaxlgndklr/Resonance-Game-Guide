@@ -15,6 +15,10 @@ interface GuideDao {
             (SELECT COUNT(*) FROM objectives o
                 JOIN progress p ON p.type = 'OBJECTIVE' AND p.entityId = o.id AND p.completed = 1
                 WHERE o.chapterId = c.id) AS completedObjectives,
+            (SELECT COUNT(*) FROM walkthrough_areas a WHERE a.chapterId = c.id) AS totalAreas,
+            (SELECT COUNT(*) FROM walkthrough_areas a
+                JOIN progress p ON p.type = 'AREA' AND p.entityId = a.id AND p.completed = 1
+                WHERE a.chapterId = c.id) AS visitedAreas,
             (SELECT COUNT(*) FROM tablet_shards s WHERE s.chapter = c.chapterNumber) AS totalShards,
             (SELECT COUNT(*) FROM tablet_shards s
                 JOIN progress p ON p.type = 'SHARD' AND p.entityId = s.id AND p.completed = 1
@@ -41,6 +45,29 @@ interface GuideDao {
 
     @Query("SELECT id FROM objectives WHERE chapterId = :chapterId")
     suspend fun objectiveIds(chapterId: String): List<String>
+
+    @Query(
+        """
+        SELECT a.*, COALESCE(p.completed, 0) AS visited
+        FROM walkthrough_areas a
+        LEFT JOIN progress p ON p.type = 'AREA' AND p.entityId = a.id
+        WHERE a.chapterId = :chapterId
+        ORDER BY a.sortOrder
+        """,
+    )
+    fun observeWalkthroughAreas(chapterId: String): Flow<List<WalkthroughAreaWithProgress>>
+
+    @Query("SELECT id FROM walkthrough_areas WHERE chapterId = :chapterId")
+    suspend fun walkthroughAreaIds(chapterId: String): List<String>
+
+    @Query(
+        """
+        SELECT * FROM dialogue_choices
+        WHERE chapterNumber = :chapterNumber
+        ORDER BY prompt, id
+        """,
+    )
+    fun observeDialogueChoicesForChapter(chapterNumber: Int): Flow<List<DialogueChoiceEntity>>
 
     @Query(
         """
@@ -143,6 +170,8 @@ interface GuideDao {
     // chapter does not cascade-delete its objectives.
     @Upsert suspend fun upsertChapters(rows: List<ChapterEntity>)
     @Upsert suspend fun upsertObjectives(rows: List<ObjectiveEntity>)
+    @Upsert suspend fun upsertWalkthroughAreas(rows: List<WalkthroughAreaEntity>)
+    @Upsert suspend fun upsertDialogueChoices(rows: List<DialogueChoiceEntity>)
     @Upsert suspend fun upsertSideQuests(rows: List<SideQuestEntity>)
     @Upsert suspend fun upsertEnemies(rows: List<EnemyEntity>)
     @Upsert suspend fun upsertOptionalBosses(rows: List<OptionalBossEntity>)

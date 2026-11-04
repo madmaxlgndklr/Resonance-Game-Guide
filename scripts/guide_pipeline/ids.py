@@ -39,6 +39,7 @@ def numbered_id(prefix: str, number: int, width: int = 3) -> str:
 PREFIX = {
     "chapter": "ch",
     "objective": "obj",
+    "area": "area",
     "chest": "chest",
     "shard": "shard",
     "magicite": "mag",

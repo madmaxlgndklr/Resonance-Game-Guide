@@ -46,6 +46,32 @@ class Objective(Identified, SourceRef):
     dungeonPuzzleSolution: str | None = None
 
 
+class WalkthroughArea(Identified, SourceRef):
+    """One stop on a chapter's route: a town, a dungeon, a world-map leg.
+
+    ``objectives`` are the game's own quest-log strings, in order. These are
+    the step-by-step notes that sit between them: what to do in this place,
+    what it holds, and what is waiting at the end.
+
+    ``shardCount`` is how many Tablet Shards the area holds, with no numbers
+    attached. Guides number the 99 shards differently from one another, and
+    ``Collectibles.tabletShards`` follows PowerPyx; quoting a number here
+    would invite a cross-reference that does not hold.
+    """
+
+    order: int
+    name: str
+    #: town, dungeon, world_map, event, optional, colosseum or interlude.
+    kind: str | None = None
+    summary: str | None = None
+    steps: list[str] = Field(default_factory=list)
+    chests: list[str] = Field(default_factory=list)
+    bosses: list[str] = Field(default_factory=list)
+    shardCount: int = 0
+    sideQuests: list[str] = Field(default_factory=list)
+    notableSteals: list[str] = Field(default_factory=list)
+
+
 class Chapter(Identified, SourceRef):
     chapterNumber: int
     title: str
@@ -57,6 +83,7 @@ class Chapter(Identified, SourceRef):
     optionalFights: list[str] = Field(default_factory=list)
     notableCollectibles: list[str] = Field(default_factory=list)
     objectives: list[Objective] = Field(default_factory=list)
+    walkthroughAreas: list[WalkthroughArea] = Field(default_factory=list)
 
 
 class ForgeWeapon(Base):

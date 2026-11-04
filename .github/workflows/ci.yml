@@ -125,6 +125,13 @@ jobs:
       - name: Validate the shipped dataset
         run: python3 scripts/guide_pipeline/validate_json.py
 
+      # walkthrough_detail.json is hand-written and merged into the shipped
+      # asset. Editing it without re-running the merge would leave the app
+      # showing the old text while the repo shows the new, so check they agree.
+      # This performs no network access.
+      - name: Check the shipped dataset matches the walkthrough notes
+        run: python3 scripts/guide_pipeline/apply_walkthrough_detail.py --check
+
       # The Kotlin models are generated from schema.py. If someone edits the
       # schema without regenerating, the app and the data file drift apart --
       # which has already caused one decode failure. Regenerate and diff.

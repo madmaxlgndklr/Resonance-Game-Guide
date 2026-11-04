@@ -12,10 +12,13 @@
     <string name="collected_progress">%1$d of %2$d collected</string>
     <string name="visions_progress">%1$d of %2$d unlocked</string>
     <string name="objectives_progress">%1$d / %2$d objectives</string>
+    <string name="areas_progress">%1$d / %2$d areas</string>
 
     <string name="view_map">View map</string>
     <string name="mark_all_done">Mark all objectives done</string>
     <string name="mark_all_undone">Clear all objectives</string>
+    <string name="mark_all_areas_done">Mark all areas done</string>
+    <string name="mark_all_areas_undone">Clear all areas</string>
     <string name="back">Back</string>
 
     <string name="search_bestiary">Search name, weakness or drop</string>
@@ -30,7 +33,15 @@
     <string name="strategy">Strategy</string>
     <string name="traits">Traits</string>
 
-    <string name="objectives">Objectives</string>
+    <string name="quest_log">Quest log</string>
+    <string name="walkthrough_areas">Step by step</string>
+    <string name="dialogue_choices">Stat-bonus conversations</string>
+    <string name="dialogue_choices_hint">Each of these conversations permanently raises one stat. Pick one option; the others are lost.</string>
+    <string name="chests">Chests and pickups</string>
+    <string name="bosses">Bosses</string>
+    <string name="source_credit">Route notes written for this app from the %1$s walkthrough.</string>
+    <string name="source_name">RPG Site</string>
+    <string name="open_source_guide">Open the original walkthrough</string>
     <string name="side_quests">Side quests</string>
     <string name="tablet_shards">Tablet Shards</string>
     <string name="rewards">Rewards</string>
@@ -49,4 +60,9 @@
     <string name="hide_collected">Hide collected</string>
     <string name="show_collected">Show collected</string>
     <string name="empty_list">Nothing here yet.</string>
+
+    <plurals name="shards_here">
+        <item quantity="one">%1$d Tablet Shard here</item>
+        <item quantity="other">%1$d Tablet Shards here</item>
+    </plurals>
 </resources>

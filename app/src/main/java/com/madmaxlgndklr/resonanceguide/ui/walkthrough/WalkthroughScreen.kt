@@ -145,12 +145,23 @@ private fun ChapterCard(
                     progress = { summary.progressFraction },
                     modifier = Modifier.fillMaxWidth(),
                 )
-                Text(
+                // Mirrors ChapterSummary.tracked: areas when the dataset has
+                // them, the quest log otherwise.
+                val tracked = if (summary.totalAreas > 0) {
+                    stringResource(
+                        R.string.areas_progress,
+                        summary.visitedAreas,
+                        summary.totalAreas,
+                    )
+                } else {
                     stringResource(
                         R.string.objectives_progress,
                         summary.completedObjectives,
                         summary.totalObjectives,
-                    ) + "  ·  " + stringResource(
+                    )
+                }
+                Text(
+                    tracked + "  ·  " + stringResource(
                         R.string.shards_progress,
                         summary.collectedShards,
                         summary.totalShards,

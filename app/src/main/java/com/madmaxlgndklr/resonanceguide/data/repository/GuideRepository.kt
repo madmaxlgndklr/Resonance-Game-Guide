@@ -2,6 +2,7 @@ package com.madmaxlgndklr.resonanceguide.data.repository
 
 import com.madmaxlgndklr.resonanceguide.data.local.ChapterEntity
 import com.madmaxlgndklr.resonanceguide.data.local.ChapterSummary
+import com.madmaxlgndklr.resonanceguide.data.local.DialogueChoiceEntity
 import com.madmaxlgndklr.resonanceguide.data.local.EnemyWithProgress
 import com.madmaxlgndklr.resonanceguide.data.local.EquipmentWithProgress
 import com.madmaxlgndklr.resonanceguide.data.local.GuideDatabase
@@ -17,6 +18,7 @@ import com.madmaxlgndklr.resonanceguide.data.local.ShardWithProgress
 import com.madmaxlgndklr.resonanceguide.data.local.SideQuestWithProgress
 import com.madmaxlgndklr.resonanceguide.data.local.VisionSkillEntity
 import com.madmaxlgndklr.resonanceguide.data.local.VisionWithProgress
+import com.madmaxlgndklr.resonanceguide.data.local.WalkthroughAreaWithProgress
 import kotlinx.coroutines.flow.Flow
 
 /**
@@ -38,6 +40,12 @@ class GuideRepository(
     fun chapter(chapterId: String): Flow<ChapterEntity?> = guideDao.observeChapter(chapterId)
     fun objectives(chapterId: String): Flow<List<ObjectiveWithProgress>> =
         guideDao.observeObjectives(chapterId)
+
+    fun walkthroughAreas(chapterId: String): Flow<List<WalkthroughAreaWithProgress>> =
+        guideDao.observeWalkthroughAreas(chapterId)
+
+    fun dialogueChoices(chapterNumber: Int): Flow<List<DialogueChoiceEntity>> =
+        guideDao.observeDialogueChoicesForChapter(chapterNumber)
 
     fun sideQuests(chapterNumber: Int): Flow<List<SideQuestWithProgress>> =
         guideDao.observeSideQuestsForChapter(chapterNumber)
@@ -66,6 +74,18 @@ class GuideRepository(
         progressDao.upsertAll(
             guideDao.objectiveIds(chapterId).map {
                 ProgressEntity(ProgressType.OBJECTIVE, it, completed, now)
+            },
+        )
+    }
+
+    suspend fun setAreaVisited(areaId: String, visited: Boolean) =
+        set(ProgressType.AREA, areaId, visited)
+
+    suspend fun setChapterAreasVisited(chapterId: String, visited: Boolean) {
+        val now = System.currentTimeMillis()
+        progressDao.upsertAll(
+            guideDao.walkthroughAreaIds(chapterId).map {
+                ProgressEntity(ProgressType.AREA, it, visited, now)
             },
         )
     }

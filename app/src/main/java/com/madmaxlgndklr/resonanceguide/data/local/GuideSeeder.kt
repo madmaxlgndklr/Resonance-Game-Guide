@@ -61,6 +61,38 @@ class GuideSeeder(
                 }
             },
         )
+        guideDao.upsertWalkthroughAreas(
+            guide.chapters.flatMap { chapter ->
+                chapter.walkthroughAreas.map { area ->
+                    WalkthroughAreaEntity(
+                        id = area.id,
+                        chapterId = chapter.id,
+                        sortOrder = area.order,
+                        name = area.name,
+                        kind = area.kind,
+                        summary = area.summary,
+                        steps = area.steps,
+                        chests = area.chests,
+                        bosses = area.bosses,
+                        shardCount = area.shardCount,
+                        sideQuests = area.sideQuests,
+                        notableSteals = area.notableSteals,
+                    )
+                }
+            },
+        )
+        guideDao.upsertDialogueChoices(
+            guide.dialogueChoices.map { choice ->
+                DialogueChoiceEntity(
+                    id = choice.id,
+                    chapterNumber = choice.chapter,
+                    speaker = choice.speaker,
+                    prompt = choice.prompt,
+                    choice = choice.choice,
+                    bonus = choice.bonus,
+                )
+            },
+        )
         guideDao.upsertSideQuests(
             guide.sideQuests.map { quest ->
                 SideQuestEntity(

@@ -12,6 +12,8 @@ import androidx.sqlite.db.SupportSQLiteDatabase
     entities = [
         ChapterEntity::class,
         ObjectiveEntity::class,
+        WalkthroughAreaEntity::class,
+        DialogueChoiceEntity::class,
         SideQuestEntity::class,
         EnemyEntity::class,
         OptionalBossEntity::class,
@@ -23,7 +25,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
         OblivionTierEntity::class,
         ProgressEntity::class,
     ],
-    version = 2,
+    version = 3,
     exportSchema = true,
 )
 @TypeConverters(Converters::class)
@@ -73,6 +75,31 @@ abstract class GuideDatabase : RoomDatabase() {
             }
         }
 
+        /**
+         * Version 3 adds `walkthrough_areas` and `dialogue_choices`: the
+         * area-by-area walkthrough notes and the stat-bonus conversations.
+         *
+         * Purely additive, so unlike [MIGRATION_1_2] this drops nothing. Both
+         * tables are new and empty afterwards; [GuideSeeder] fills them on the
+         * next launch, because the dataset version in the asset moved at the
+         * same time. `progress` is untouched, so every existing check-off
+         * survives -- the thing [MIGRATION_1_2] gave up and the reason this
+         * database has no `fallbackToDestructiveMigration`.
+         *
+         * The DDL is the `createSql` of each entity and index as Room exports
+         * it to `app/schemas/...GuideDatabase/3.json`, verbatim. Room
+         * validates the result against that file on the upgrade path, so a
+         * character out of place fails at runtime; `GuideSchemaV3Test` checks
+         * the two against each other at build time instead.
+         */
+        internal val MIGRATION_2_3 = object : Migration(2, 3) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                for (statement in GuideSchemaV3.ADDED_STATEMENTS) {
+                    db.execSQL(statement)
+                }
+            }
+        }
+
         private val OLD_TABLES = listOf(
             "chapters",
             "quests",
@@ -85,7 +112,10 @@ abstract class GuideDatabase : RoomDatabase() {
 
         fun build(context: Context): GuideDatabase =
             Room.databaseBuilder(context.applicationContext, GuideDatabase::class.java, NAME)
-                .addMigrations(MIGRATION_1_2)
+                // A version 1 database upgrades along 1 -> 2 -> 3: the first
+                // migration recreates the version 2 schema, the second adds
+                // the version 3 tables on top.
+                .addMigrations(MIGRATION_1_2, MIGRATION_2_3)
                 .build()
     }
 }

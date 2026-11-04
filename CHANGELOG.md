@@ -11,15 +11,99 @@ version below; `versionCode` increments by one for every release.
 ## [Unreleased]
 
 ### Added
+- **Step-by-step walkthrough content.** The app previously showed only the
+  game's own quest-log lines -- "Equip a vision", "Go to Rain's house" -- which
+  told a reader nothing they could not read off the in-game objective marker.
+  Each of the 9 chapters now also carries an ordered list of the places the
+  route passes through: **85 areas, 451 steps, 536 chests and pickups, 90 boss
+  entries with their elemental weaknesses, 38 sidequest starts and 61 notable
+  steals.** Areas are check-offable like objectives, and chapter progress is
+  measured against them where they exist.
+  - Each area records what to do there, what it holds, which bosses wait at the
+    end and what they are weak to, which sidequests start there, and how many
+    Tablet Shards it contains.
+  - `shardCount` deliberately carries **no shard numbers**. Guides number the
+    99 shards differently from one another and `collectibles.tabletShards`
+    follows PowerPyx, so a number in an area's own text would read as a pointer
+    into that list while meaning something else. `validate_json.py` and
+    `GuideDatasetTest` both fail the build if one appears.
+  - The two "World Map Airship Exploration" interludes are not chapters
+    in-game, so they attach to chapters 4 and 5 with `kind: "interlude"` and
+    the chapter count stays at 9.
+- **`dialogueChoices` is no longer empty** -- it was the dataset's
+  longest-standing gap. All **8 stat-bonus conversations are carried with all 3
+  options each** (24 records), for Rain, Fina, Lid, Nichol, Lasswell, Jake,
+  Sakura and Fina again, with the stat each option grants. These are permanent
+  and mutually exclusive, so the chapter screen shows all three side by side
+  rather than hiding the ones you did not take.
+- **`scripts/guide_pipeline/walkthrough_detail.json`** holds the hand-written
+  notes, and **`apply_walkthrough_detail.py`** merges them into the shipped
+  dataset. A full `build_guide.py` run re-crawls roughly 1,100 detail pages for
+  tables this content does not touch, so a wording fix no longer costs a crawl.
+  `--check` verifies the asset and the notes agree, and CI runs it.
 - A debug build for sideloading at
   `dist/resonance-guide-v0.1.0-debug.apk`, with its checksum and install
   instructions in `dist/README.md`.
 
 ### Changed
-- `dialogueChoices` is now recorded as **deferred by decision** rather than
-  pending. The table, its pydantic schema and its Kotlin model all stay in
-  place so the stat-bonus conversation options can be added later without a
-  schema change; only the data is absent, and `meta.coverage.gaps` says so.
+- **Dataset version 0.3.0.** `GuideSeeder` reseeds only when
+  `meta.datasetVersion` moves, so the bump is what actually gets the new rows
+  into Room on an existing install -- the schema migration creates the tables
+  but does not fill them. `apply_walkthrough_detail.py` now owns that field so
+  it cannot be forgotten, and CI's `--check` catches a missed bump.
+- **Room schema version 3**, adding `walkthrough_areas` and
+  `dialogue_choices`. Purely additive: `MIGRATION_2_3` runs only `CREATE TABLE`
+  and `CREATE INDEX`, touches nothing version 2 created, and leaves `progress`
+  alone, so every existing check-off survives. A version 1 install upgrades
+  along 1 -> 2 -> 3.
+- **rpgsite.net moves from refused to crawlable** in
+  `scripts/guide_pipeline/sources.py`. On the 2026-10-26 reading its
+  robots.txt returned HTTP 500, which RFC 9309 section 2.3.1.3 says to treat as
+  a complete disallow. Re-read on 2026-11-04 it returns HTTP 200 with no
+  `User-agent: *` group at all -- only groups for Googlebot, Bingbot and
+  Mediapartners-Google -- so under section 2.2.1 a crawler matching none of
+  them is unrestricted, and only `/search`, `/toggle` and sorted query strings
+  are disallowed. Both readings and their dates are recorded in the entry's
+  `note`, so the change is auditable rather than a quiet edit.
+- **The chapter screen is reorganised** around the new content: the step-by-step
+  area list leads, with expandable cards; then the stat-bonus conversations;
+  then the game's quest-log lines (relabelled "Quest log", since they are no
+  longer the walkthrough); then side quests and Tablet Shards. The mark-all
+  action in the app bar acts on areas where a chapter has them.
+- **Chapter progress counts areas** rather than objectives where areas exist,
+  on both the chapter list and the detail header. A dataset built before areas
+  existed falls back to the objective count.
+- `gen_kotlin.py` now carries a non-null scalar default through to the Kotlin
+  model, so a record written before a field existed still decodes rather than
+  failing on a missing key. This also gives `Asset.bundled` the `= false` it
+  always should have had.
+
+### Tests
+- `GuideSchemaV3Test` (JVM) checks `GuideSchemaV3.ADDED_STATEMENTS` against the
+  exported `3.json`, that version 3 only adds tables, that every table carried
+  over from version 2 is byte-identical (since `MIGRATION_2_3` runs no `ALTER`
+  and could not migrate an altered one), and that `progress` is not touched.
+- `GuideDatasetTest` gains five checks: every chapter has ordered areas, every
+  area says something and cites a source, the areas' shard counts sum to 99,
+  no area text numbers a shard, and every conversation carries three options
+  with a bonus.
+- `MigrationTest` gains `migrate2To3` (new tables accept rows, and a `progress`
+  row survives with its timestamp) and `migrate1To3` (both migrations compose).
+- `GuideSeederTest` checks the areas and conversations actually land in Room.
+
+### Known gaps in the dataset
+Recorded in the file itself under `meta.coverage.gaps`, so they are visible to
+the app and to anyone reading the JSON:
+- **Active Time Chats have no complete list.** The source walkthrough states
+  plainly that its own coverage is incomplete and that some chats have limited
+  availability windows. None gate an achievement or an item, so the ones we
+  have are named inside the area steps rather than shipped as a checklist that
+  cannot be finished.
+- The editorial "best items to steal" list is not reproduced; the dataset
+  instead carries the per-enemy steal tables and rates, which are factual.
+- Equipment counts disagree between sources (82/36/51 per IGN versus
+  250/108/96 per atma.gg). The dataset carries the figures it could verify and
+  records both.
 
 ### Added (in 0.1.0, listed below)
 - **CI workflow** (`.github/workflows/ci.yml`) on every push to `main` and
@@ -59,17 +143,9 @@ version below; `versionCode` increments by one for every release.
   mirroring the dataset, plus `GuideDataSource` to load and cache it off the
   main thread.
 
-### Known gaps in the dataset
-Recorded in the file itself under `meta.coverage.gaps`, so they are visible to
-the app and to anyone reading the JSON:
-- `dialogueChoices` is the only empty table left.
-- `dialogueChoices` is empty: no permitted source publishes the stat-bonus
-  conversation options.
-- The editorial "best items to steal" list is not reproduced; the dataset
-  instead carries the per-enemy steal tables and rates, which are factual.
-- Equipment counts disagree between sources (82/36/51 per IGN versus
-  250/108/96 per atma.gg). The dataset carries the figures it could verify and
-  records both.
+### Known gaps as of 0.1.0
+- `dialogueChoices` was the only empty table left. It is filled in Unreleased,
+  above.
 
 ### Fixed
 - **`MIGRATION_1_2` left the database with no tables.** It dropped the version
